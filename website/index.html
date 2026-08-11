@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- ShiftKey - Software & Startup Premium Landing Page Template design by DSAThemes (http://www.dsathemes.com) -->
 <!--[if lt IE 7]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8]><html class="ie ie8" lang="en"> <![endif]-->
@@ -12,11 +11,11 @@
     <meta name="author" content="Stable Channels" />
     <meta
       name="description"
-      content="Trade BTCUSD peer-to-peer ... experience finance ... Streaming collateralized by Bitcoin in Lightning channels."
+      content="Self-custodial Bitcoin-powered USD stability. Manage BTC/USD volatility exposure peer-to-peer on the Lightning Network."
     />
     <meta
       name="keywords"
-      content="Bitcoin, Lightning, Stable Channels, Stablecoins, Lightning Network, Developer Tool, Regtest"
+      content="Bitcoin, Lightning, Stable Channels, Lightning Network, USD, Self-Custodial, Volatility Management, Exposure Management"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -24,22 +23,20 @@
     <meta property="og:url" content="https://stablechannels.com" />
     <meta
       property="og:title"
-      content="Stable Channels - peer-to-peer USD stability"
+      content="Stable Channels - Self-Custodial Bitcoin Volatility Management"
     />
     <meta
       property="og:description"
-      content="No-token, self-custodial stable channels ... fully collateralized by Bitcoin in Lightning channels."
+      content="Self-custodial USD stability on Bitcoin Lightning. No tokens, no custody risk."
     />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      
-    />
+    <meta property="og:image" content="https://stablechannels.com/images/social-card.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://stablechannels.com/images/social-card.png" />
     <meta name="twitter:creator" content="" />
 
     <!-- SITE TITLE -->
-    <title>Stable Channels - p2p Bitcoin-powered USD stability</title>
+    <title>Stable Channels - Self-Custodial Bitcoin Volatility Management</title>
 
     <!-- FAVICON AND TOUCH ICONS  -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
@@ -87,14 +84,7 @@
     />
 
     <!-- GOOGLE FONTS -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500,700,900"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- BOOTSTRAP CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -119,6 +109,107 @@
 
     <!-- RESPONSIVE CSS -->
     <link href="css/responsive.css" rel="stylesheet" />
+
+<style>
+  /* iOS App-inspired overrides */
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif !important; color: #1a1a1a; }
+  h1, h2, h3, h4, h5, h6, .navbar-text, .nav-link { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important; }
+  p { color: #6b7280; line-height: 1.7; }
+
+  /* Nav bar — clean, no shadow initially */
+  .navbar { padding: 12px 0; transition: box-shadow 0.3s; }
+  .navbar.scroll { box-shadow: 0 1px 8px rgba(0,0,0,0.06); }
+  .nav-link { font-weight: 500 !important; font-size: 15px !important; color: #374151 !important; }
+  .nav-link:hover { color: #3B82F6 !important; }
+
+  /* Buttons — iOS style rounded */
+  .btn { border-radius: 12px !important; font-weight: 600 !important; font-size: 14px !important; padding: 10px 24px !important; transition: all 0.2s; }
+  .btn-primary-color { background: #F59E0B !important; border-color: #F59E0B !important; color: #fff !important; }
+  .btn-primary-color:hover { background: #D97706 !important; border-color: #D97706 !important; transform: translateY(-1px); }
+  .btn-light { background: #f3f4f6 !important; border: none !important; color: #374151 !important; }
+  .btn-light:hover { background: #e5e7eb !important; }
+
+  /* Hero */
+  .hero-section h3 { font-size: 2.4rem; font-weight: 700; color: #111827; letter-spacing: -0.02em; }
+  .hero-section .p-md { font-size: 1.15rem; color: #6b7280; }
+  .bg-lightgrey { background: #fafafa !important; }
+
+  /* Service boxes */
+  .sbox-1 { background: #fff; border-radius: 16px; padding: 28px 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: 1px solid #f0f0f0; transition: transform 0.2s, box-shadow 0.2s; }
+  .sbox-1:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .sbox-1 h5 { font-weight: 600; font-size: 1rem; color: #111827 !important; margin-top: 16px; }
+  .sbox-1 p { font-size: 0.9rem; }
+
+  /* Section titles */
+  .section-id { font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: #3B82F6 !important; }
+  .steelblue-color { color: #111827 !important; }
+  .h3-md { font-weight: 700 !important; letter-spacing: -0.01em; }
+  .h5-md { font-weight: 600 !important; }
+  .h5-xs { font-weight: 600 !important; color: #111827 !important; }
+
+  /* Content sections */
+  .content-section { padding: 80px 0; }
+  .box-list p { color: #4b5563; }
+  .box-list-icon i { color: #3B82F6 !important; }
+
+  /* Dark section */
+  .grey-textured { background: #111827 !important; }
+  .grey-textured h3, .grey-textured h4, .grey-textured .section-id { color: #fff !important; }
+  .grey-textured p { color: #9ca3af !important; }
+
+  /* FAQ */
+  .question h5 { font-size: 0.95rem !important; }
+  .question p, .question ul li { font-size: 0.9rem; color: #6b7280; }
+  .faqs-section { background: #fafafa !important; }
+
+  /* Links/Resources cards */
+  .review-2 { background: #fff; border-radius: 12px; border: 1px solid #f0f0f0; margin-bottom: 16px; transition: box-shadow 0.2s; }
+  .review-2:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .review-txt { padding: 20px; }
+  .review-txt a { color: #3B82F6 !important; text-decoration: none !important; font-weight: 500; }
+  .review-txt a:hover { text-decoration: underline !important; }
+
+  /* CTA section */
+  .blue-textured { background: #f9fafb !important; }
+  .blue-textured h4 { color: #111827 !important; }
+  .blue-textured p { color: #6b7280 !important; }
+  .cta-btn .btn { background: #3B82F6 !important; border-color: #3B82F6 !important; color: #fff !important; }
+  .cta-btn .btn:hover { background: #2563EB !important; }
+
+  /* Footer */
+  #footer-4 { background: #111827; }
+  #footer-4, #footer-4 p, #footer-4 a, #footer-4 h5, .footer-copyright span { color: #9ca3af !important; }
+  #footer-4 a:hover { color: #fff !important; }
+  #footer-4 h5 { color: #e5e7eb !important; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .foo-socials a { color: #9ca3af !important; }
+  .foo-socials a:hover { color: #fff !important; }
+  .footer-links ul li a { font-size: 0.9rem; }
+  .bottom-footer { border-top: 1px solid #1f2937; }
+
+  /* App download buttons in footer */
+  .app-dl-btn { display: inline-block; background: #1f2937; color: #e5e7eb !important; padding: 8px 16px; border-radius: 10px; font-size: 13px; font-weight: 500; margin: 4px 0; text-decoration: none !important; transition: background 0.2s; }
+  .app-dl-btn:hover { background: #374151; color: #fff !important; }
+
+  /* Accent colors matching iOS app */
+  .accent-green { color: #10B981; }
+  .accent-orange { color: #F59E0B; }
+  .accent-blue { color: #3B82F6; }
+  .accent-purple { color: #8B5CF6; }
+
+  /* Smooth scrolling */
+  html { scroll-behavior: smooth; }
+
+  /* Logo in navbar */
+  .sc-brand { display: flex; align-items: center; white-space: nowrap; }
+  .sc-brand img { width: 34px; height: 34px; border-radius: 8px; margin-right: 10px; }
+  .sc-brand-name { font-size: 20px; font-weight: 700; color: #111827; letter-spacing: -0.01em; }
+
+  /* Mobile menu CTA buttons (shown inside the collapsed hamburger menu) */
+  .mobile-cta { padding: 0 8px; }
+  .mobile-cta .btn { margin-bottom: 8px; }
+  /* Keep the brand from crowding the hamburger on small screens */
+  @media (max-width: 575px) { .sc-brand-name { font-size: 18px; } .sc-brand img { width: 30px; height: 30px; } }
+</style>
   </head>
 
   <body>
@@ -142,28 +233,27 @@
           class="navbar fixed-top navbar-expand-md navbar-light bg-tra hover-menu"
         >
           <div class="container">
-            
-              <!-- Header Button -->
-              <span class="navbar-text black-color" style="display: flex; align-items: center;">
-                <span style="font-size: 24px; font-weight: bold; color: black;">Stable Channels ⚖️💵⚡</span>
-                <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdleHfPvcg3x3exnNdrE_ctAX_oPj69DveHh_R46zu7Y_jx8Q/viewform?usp=sf_link"
-                    class="btn btn-primary-color tra-black-hover" target="_blank"
-                    style="margin-left: 50px;"
-                >Sign up</a>
-            </span>
-            
-              
-            
+
+              <span class="navbar-text black-color d-flex align-items-center">
+  <a href="#hero-2" class="sc-brand"><img src="images/app-icon.png" alt="Stable Channels"><span class="sc-brand-name">Stable Channels</span></a>
+
+  		<!-- Contact (white) — hidden on mobile, shown inside the menu instead -->
+  		<a
+    		href="https://docs.google.com/forms/d/e/1FAIpQLSdleHfPvcg3x3exnNdrE_ctAX_oPj69DveHh_R46zu7Y_jx8Q/viewform?usp=sf_link"
+    class="btn btn-light ml-4 d-none d-md-inline-block"
+    target="_blank"
+  >Contact</a>
+
+  <!-- Download (orange) — hidden on mobile, shown inside the menu instead -->
+  <a
+    href="https://github.com/toneloc/stable-channels/releases"
+    class="btn btn-primary-color tra-black-hover d-none d-md-inline-block"
+    target="_blank"
+  >Download</a>
+</span>
+
+
             <!-- LOGO IMAGE -->
-            <!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 240 x 60 pixels) -->
-           <!--  <a href="#hero-2" class="navbar-brand logo-black"
-              ><img
-                src="images/logo.png"
-                width="120"
-                height="30"
-                alt="header-logo"
-            /></a> -->
 
             <!-- Responsive Menu Button -->
             <button
@@ -188,6 +278,9 @@
                   <a class="nav-link" href="#content-1">Features</a>
                 </li>
                 <li class="nav-item nl-simple">
+                  <a class="nav-link" href="#get-started">Get Started</a>
+                </li>
+                <li class="nav-item nl-simple">
                   <a class="nav-link" href="#reviews-2">Links and Resources</a>
                 </li>
                 <li class="nav-item nl-simple">
@@ -197,10 +290,17 @@
 										<a class="nav-link nav-icon" href="https://github.com/toneloc/stable-channels" target="_blank">
 											<i class="fab fa-github"></i>
 										</a>
-									</li>					     									    
+									</li>
+                <!-- Mobile-only CTAs (desktop shows these in the top bar instead) -->
+                <li class="nav-item d-md-none mobile-cta mt-3">
+                  <a class="btn btn-light btn-block" href="https://docs.google.com/forms/d/e/1FAIpQLSdleHfPvcg3x3exnNdrE_ctAX_oPj69DveHh_R46zu7Y_jx8Q/viewform?usp=sf_link" target="_blank">Contact</a>
+                </li>
+                <li class="nav-item d-md-none mobile-cta">
+                  <a class="btn btn-primary-color btn-block" href="https://github.com/toneloc/stable-channels/releases" target="_blank">Download</a>
+                </li>
               </ul>
 
-            
+
             </div>
             <!-- End Navigation Menu -->
           </div>
@@ -223,40 +323,15 @@
                   <br>
 
                   <h3>
-                    Get USD stability 💵
-                    <br>Stay in Bitcoin 🟠
+                    Get USD stability.
+                    <br>Stay in self-custodied Bitcoin.
                   </h3>
 
                   <!-- Text -->
                   <p class="p-md">
-                      Exclusively on the Bitcoin Lightning Network. ⚡
-                  </p>
+                      A steady dollar balance, in a wallet you control. No banks, no tokens, no third parties.
                   </p>
 
-                  <!-- HERO NEWSLETTER FORM -->
-                 <!--  <form class="hero-newsletter-form">
-                    <a
-                      class="btn btn-primary-color black-hover dl-primary"
-                      href="#"
-                    >
-                      <i id="" class="fas fa-download"></i>
-                      <span id="hero-dl-text">Get beta code access</span>
-                    </a>
-                  </form> -->
-
-                  <!-- HERO LINKS -->
-             <!--      <div class="hero-links">
-                    <span class="grey-color">
-                      Also available for
-                      <a class="dl-alt1" href="#"></a>
-                      and
-                      <a class="dl-alt2" href="#"></a>. Other downloads
-                      available on
-                      <a href=""
-                        >GitHub</a
-                      >.
-                    </span> -->
-                  </div>
                 </div>
               </div>
             </div>
@@ -269,26 +344,9 @@
           <div class="container">
             <div class="row">
               <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
-                <div class="video-preview text-center">
-                  <!-- Change the link HERE!!! -->
-                  <a
-                    class="video-popup2"
-                    href=""
-                  >
-                    <!-- Play Icon -->
-                    <!-- <div class="video-btn play-icon-purple">
-                      <div class="video-block-wrapper">
-                        <i class="fas fa-play"></i>
-                      </div>
-                    </div> -->
-
-                    <!-- Preview Image -->
-                    <img
-                      class="img-fluid"
-                      src="images/hero-boardwalk-home-img.png"
-                      alt="video-preview"
-                    />
-                  </a>
+                <div class="video-preview text-center" style="display: flex; justify-content: center; align-items: center; gap: 8px;">
+                  <img src="images/app-balance-img.png" alt="Stable Channels app — balance bar with USD stability and BTC exposure (left)" style="width: min(280px, 44vw); border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);" />
+                  <img src="images/app-balance-right-img.png" alt="Stable Channels app — balance bar with USD stability and BTC exposure (right)" style="width: min(280px, 44vw); border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);" />
                 </div>
               </div>
             </div>
@@ -314,11 +372,11 @@
                 />
 
               <!-- Title -->
-              <h5 class="h5-xs steelblue-color">Get USD exposure, stay in Bitcoin</h5>
+              <h5 class="h5-xs steelblue-color">USD Stability</h5>
 
               <!-- Text -->
               <p>
-                 Bitcoin goes up and down, but your USD value stays the same. ⚖️
+                 Your dollar balance stays constant, even as Bitcoin moves.
               </p>
               </div>
               </div>
@@ -338,7 +396,7 @@
 
                   <!-- Text -->
                   <p>
-                    Keep your keys safe on your own device 🔐.  
+                    Your keys never leave your device.
                   </p>
                 </div>
               </div>
@@ -354,15 +412,15 @@
                   />
 
                   <!-- Title -->
-                  <h5 class="h5-xs steelblue-color">Get stability, or go 2x long </h5>
+                  <h5 class="h5-xs steelblue-color">Exposure Management</h5>
 
                   <!-- Text -->
                   <p>
-                    Stable Providers are long Bitcoin 📈.
+                    Slide between USD stability and BTC exposure instantly.
                   </p>
                 </div>
               </div>
-                
+
 
             <!-- SERVICE BOX #4 -->
             <div class="col-sm-6 col-lg-3">
@@ -375,11 +433,11 @@
                 />
 
                 <!-- Title -->
-                <h5 class="h5-xs steelblue-color">Open source</h5>
+                <h5 class="h5-xs steelblue-color">Open Source</h5>
 
                 <!-- Text -->
                 <p>
-                  Based on the Lightning Network, Stable Channels is <a href="https://github.com/toneloc/stable-channels" style="color: blue; text-decoration: underline;" >open source code</a> 📝.
+                  Fully <a href="https://github.com/toneloc/stable-channels" style="color: blue; text-decoration: underline;" >open source</a> on the Bitcoin Lightning Network.
                 </p>
               </div>
             </div>
@@ -407,21 +465,21 @@
             <div class="col-md-6">
               <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
                 <!-- Section ID -->
-                <span class="section-id primary-color">Dollars, on Bitcoin</span>
+                <span class="section-id primary-color">How It Works</span>
 
                 <!-- Title -->
                 <h3 class="h3-md steelblue-color">
-                  100% Bitcoin, 0% Fiat
+                  100% Bitcoin-Native
                 </h3>
 
                 <!-- Text -->
                 <p>
-                 
+
                 </p>
 
                 <!-- Title -->
                 <h5 class="h5-md steelblue-color">
-                  How it works: two-sided trades using native Lightning channels. ⚡
+                  Peer-to-peer agreements using Lightning channels.
                 </h5>
 
                 <!-- CONTENT BOX #1 -->
@@ -429,7 +487,7 @@
                   <div class="box-list-icon">
                     <i class="fas fa-genderless"></i>
                   </div>
-                  <p>Stable Receivers keep their balance stable in dollar terms. 💵</p>
+                  <p>Keep a fixed dollar value in your Lightning wallet.</p>
                 </div>
 
                 <!-- CONTENT BOX #2 -->
@@ -437,15 +495,7 @@
                   <div class="box-list-icon">
                     <i class="fas fa-genderless"></i>
                   </div>
-                  <p>Stable Providers go long and shoudler 2x volatility. 💪</p>
-                </div>
-
-                <!-- CONTENT BOX #2 -->
-                <div class="box-list">
-                  <div class="box-list-icon">
-                    <i class="fas fa-genderless"></i>
-                  </div>
-                  <p>If the price of Bitcoin goes up, the Receiver pays the Provider. ⏩</p>
+                  <p>Your counterparty takes the other side — taking on additional Bitcoin exposure.</p>
                 </div>
 
                 <!-- CONTENT BOX #3 -->
@@ -453,19 +503,15 @@
                   <div class="box-list-icon">
                     <i class="fas fa-genderless"></i>
                   </div>
-                  <p>
-                   If the price goes down, the Provider pays the Receiver ⏪
-                  </p>
+                  <p>Price goes up? You pay them. Price goes down? They pay you.</p>
                 </div>
 
-                <!-- CONTENT BOX #3 -->
+                <!-- CONTENT BOX #4 -->
                 <div class="box-list">
                   <div class="box-list-icon">
                     <i class="fas fa-genderless"></i>
                   </div>
-                  <p>
-                   Trades update Lightning fast 💸
-                  </p>
+                  <p>Everything settles instantly over Lightning.</p>
                 </div>
               </div>
             </div>
@@ -476,8 +522,9 @@
               <div class="img-block wow fadeInUp" data-wow-delay="0.6s">
                 <img
                   class="img-fluid content-1-img"
-                  src="images/sc-terms-img.png"
-                  alt="content-image"
+                  src="images/app-balance-img.png"
+                  alt="Stable Channels app — balance bar with USD stability and BTC exposure"
+                  style="width: 100%; max-width: 300px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); display: block; margin: 0 auto;"
                 />
               </div>
             </div>
@@ -501,8 +548,9 @@
                <div class="img-block wow fadeInUp" data-wow-delay="0.6s">
                 <img
                   class="img-fluid content-1-img"
-                  src="images/sc-performance-img.png"
-                  alt="content-image"
+                  src="images/app-history-img.png"
+                  alt="Stable Channels app — settlement history"
+                  style="width: 100%; max-width: 300px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); display: block; margin: 0 auto;"
                 />
               </div>
             </div>
@@ -512,30 +560,30 @@
               <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
                   <!-- Title -->
                   <h5 class="h5-md steelblue-color">
-                      Finance, Streaming 💸
+                      Continuous Settlement
                   </h5>
 
                   <!-- Text -->
                   <p>
-                      We harness LN’s instant settlement capabilities to continually rebalance positions, ensuring the amount of Bitcoin remains stable in terms of an underlying asset. ⚖️
+                      Balances rebalance automatically every few minutes. No manual action required.
                   </p>
 
                   <!-- Title -->
                   <h5 class="h5-md steelblue-color">
-                      At-Will Agreements. Close Anytime 🔓
+                      Close Anytime
                   </h5>
 
                   <!-- Text -->
                   <p>
-                      These agreements are at-will, meaning no future obligations for either party. This continuous settlement reduces counterparty risk in a bilateral stablecoin agreement until a counterparty decides to withdraw. 🏦
+                      All agreements are at-will. Either party can end the agreement and withdraw funds at any time. Continuous settlement minimizes counterparty risk.
                   </p>
 
                   <!-- Title -->
-                  <h5 class="h5-md steelblue-color">Built for Privacy. Built for Resiliency. 💼</h5>
+                  <h5 class="h5-md steelblue-color">Built for Privacy and Resilience</h5>
 
                   <!-- Text -->
                   <p>
-                      Stable Channels offers a Bitcoin-native, self-custodial peer-to-peer stablecoin solution, minimizing risks. 🛡️
+                      Stable Channels is a Bitcoin-native, self-custodial solution. No tokens, no banks, no third-party risk.
                   </p>
               </div>
             </div>
@@ -548,7 +596,7 @@
       </section>
       <!-- END CONTENT-6 -->
 
- 
+
       <!-- CONTENT-2
 			============================================= -->
       <section
@@ -562,9 +610,9 @@
               <div class="img-block wow fadeInUp" data-wow-delay="0.6s">
                 <img
                   class="img-fluid"
-                  src="images/sc-payments-img.png"
-                  alt="content-image"
-                  
+                  src="images/app-promo-img.png"
+                  alt="Stable Channels app with five-star review"
+                  style="width: 100%; max-width: 320px; border-radius: 16px; display: block; margin: 0 auto;"
                 />
               </div>
             </div>
@@ -574,17 +622,17 @@
               <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
                 <!-- Section ID -->
                 <span class="section-id white-color"
-                  >Enter Stable Channels 🚀</span
+                  >The Opportunity</span
                 >
 
                 <!-- Title -->
-                <h3 class="h3-md">A new paradigm for financial markets.</h3>
+                <h3 class="h3-md">Why this matters.</h3>
                  <!-- Text -->
                  <p>
-                  Financial markets continue to demonstrate the US dollar’s staying power and Bitcoin’s potential for value appreciation. The US dollar has appreciated against every major currency over the past decade, and Bitcoin has appreciated against the US dollar. Now with Bitcoin we can offer a superior way for users to get USD and Bitcoin exposure ... 
+                  Stablecoins require trust in banks and token issuers. Stable Channels doesn't. It uses Bitcoin in Lightning channels to create dollar stability — no tokens, no custodians, no points of failure.
                 </p>
                 <p>
-                Enter <b>Stable Channels</b>: reimagining stablecoin utility using Bitcoin's Lightning network, providing superior payments capabiliites, and enabling unparalleled derivatives exchange capabilities.
+                Stable Channels reimagines dollar stability using Bitcoin's Lightning Network — instant settlement, peer-to-peer, no intermediaries.
               </p>
               </div>
             </div>
@@ -596,7 +644,44 @@
       </section>
       <!-- END CONTENT-2 -->
 
-      
+
+      <!-- GET STARTED
+			============================================= -->
+      <section id="get-started" class="wide-60 content-section division">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 offset-lg-1 section-title">
+              <span class="section-id primary-color">Get Started</span>
+              <h3 class="h3-md steelblue-color">Up and running in minutes</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-lg-4">
+              <div class="sbox-1 text-center wow fadeInUp" data-wow-delay="0.4s">
+                <h2 style="font-size:2.5rem; font-weight:700; color:#3B82F6;">1</h2>
+                <h5 class="h5-xs steelblue-color">Download</h5>
+                <p>Get the Android app on <a href="https://play.google.com/store/apps/details?id=com.stablechannels.app" style="color:#3B82F6;">Google Play</a>, or download the desktop app from our <a href="https://github.com/toneloc/stable-channels/releases" style="color:#3B82F6;">releases page</a>. iOS coming soon.</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="sbox-1 text-center wow fadeInUp" data-wow-delay="0.6s">
+                <h2 style="font-size:2.5rem; font-weight:700; color:#3B82F6;">2</h2>
+                <h5 class="h5-xs steelblue-color">Fund</h5>
+                <p>Send Bitcoin to your wallet. On-chain funds can be moved into a Lightning channel to manage your volatility exposure.</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="sbox-1 text-center wow fadeInUp" data-wow-delay="0.8s">
+                <h2 style="font-size:2.5rem; font-weight:700; color:#3B82F6;">3</h2>
+                <h5 class="h5-xs steelblue-color">Manage</h5>
+                <p>Slide the balance bar to adjust your mix of USD stability and BTC exposure. Settlements happen instantly over Lightning.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END GET STARTED -->
+
       <!-- TESTIMONIALS-2
 			============================================= -->
       <section id="reviews-2" class="wide-80 reviews-section division">
@@ -606,277 +691,77 @@
                 <div class="col-lg-10 offset-lg-1 section-title">
                     <!-- Title -->
                     <h3 class="h3-md steelblue-color">Links and Resources</h3>
-    
+
                     <!-- Text -->
                     <p class="p-md">
-                        Here are some resources, demo videos, and technical deep dives to get you started with Stable Channels. You can also send us a note by clicking on the "Sign up" button at the top of the page.
+                        Resources, demos, and technical deep dives to learn more about Stable Channels.
                     </p>
                 </div>
             </div>
-    
+
             <!-- LINKS CONTENT -->
             <div class="row">
-                <div class="col-md-12 reviews-grid">
-                    <div class="masonry-wrap grid-loaded">
-                        <!-- LINK ITEM -->
-                        <div class="review-2">
-                            <div class="review-txt">
-                                <!-- Link Author -->
-                                <div class="author-data clearfix">
-                                    <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
-                                        <img src="images/worldwide-1.png" alt="testimonial-avatar" />
-                                    </div>
-    
-                                    <!-- Author Data -->
-                                    <div class="review-author">
-                                        <h5 class="h5-xs">Technical Deep Dive</h5>
-                                        <a target="_blank" href="https://delvingbitcoin.org/t/stable-channels-peer-to-peer-dollar-balances-on-lightning/875" style="color: blue; text-decoration: underline;">Delving Bitcoin Post</a>
-                                    </div>
-                                </div>
-                                <!-- End Link Author -->
-    
-                                <!-- Link Text -->
-                                <p>
-                                    An in-depth post on Delving Bitcoin discussing the technical and financial aspects of Stable Channels.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END LINK ITEM -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="sbox-1 wow fadeInUp" data-wow-delay="0.4s" style="margin-bottom:20px;">
+                        <h5 class="h5-xs steelblue-color">Technical Deep Dive</h5>
+                        <a href="https://delvingbitcoin.org/t/stable-channels-peer-to-peer-dollar-balances-on-lightning/875" target="_blank" style="color:#3B82F6; font-weight:500;">Delving Bitcoin Post</a>
+                        <p style="margin-top:8px;">An in-depth post on Delving Bitcoin discussing the technical and financial aspects of Stable Channels.</p>
+                    </div>
+                </div>
 
-                        <!-- LINK ITEM -->
-                        <div class="review-2">
-                            <div class="review-txt">
-                                <!-- Link Author -->
-                                <div class="author-data clearfix">
-                                    <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
-                                        <img src="images/worldwide-1.png" alt="testimonial-avatar" />
-                                    </div>
-    
-                                    <!-- Author Data -->
-                                    <div class="review-author">
-                                        <h5 class="h5-xs">Podcast Interview</h5>
-                                        <a target="_blank" href="https://stephanlivera.com/episode/591/" style="color: blue; text-decoration: underline;">Stephan Livera Podcast</a>
-                                    </div>
-                                </div>
-                                <!-- End Link Author -->
-    
-                                <!-- Link Text -->
-                                <p>
-                                    "Even as bitcoiners, we can’t deny that there is demand for ‘stablecoins’ or some kind of stable value feature. Tony Klausing, bitcoin and lightning developer joins me to talk about Stable Channels."
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END LINK ITEM -->
-    
-                        <!-- LINK ITEM -->
-                        <div class="review-2">
-                            <div class="review-txt">
-                                <!-- Link Author -->
-                                <div class="author-data clearfix">
-                                    <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
-                                        <img src="images/worldwide-1.png" alt="testimonial-avatar" />
-                                    </div>
-    
-                                    <!-- Author Data -->
-                                    <div class="review-author">
-                                        <h5 class="h5-xs">Twitter Thread</h5>
-                                        <a target="_blank" href="https://x.com/tonklaus/status/1729567459579945017" style="color: blue; text-decoration: underline;">Explaining the Basics of Stable Channels</a>
-                                    </div>
-                                </div>
-                                <!-- End Link Author -->
-    
-                                <!-- Link Text -->
-                                <p>
-                                    A Twitter thread by @tonklaus explaining the fundamentals of Stable Channels.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END LINK ITEM -->
-    
-                        <!-- LINK ITEM -->
-                        <div class="review-2">
-                            <div class="review-txt">
-                                <!-- Link Author -->
-                                <div class="author-data clearfix">
-                                    <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
-                                        <img src="images/worldwide-1.png" alt="testimonial-avatar" />
-                                    </div>
-    
-                                    <!-- Author Data -->
-                                    <div class="review-author">
-                                        <h5 class="h5-xs">Demo Video</h5>
-                                        <a target="_blank" href="https://x.com/tonklaus/status/1796569619240485239" style="color: blue; text-decoration: underline;">eCash + Stable Channels Integration</a>
-                                    </div>
-                                </div>
-                                <!-- End Link Author -->
-    
-                                <!-- Link Text -->
-                                <p>
-                                    Watch a demo video showcasing the integration of eCash with Stable Channels.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END LINK ITEM -->
-    
-                        <!-- LINK ITEM -->
-                        <div class="review-2">
-                            <div class="review-txt">
-                                <!-- Link Author -->
-                                <div class="author-data clearfix">
-                                    <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
-                                        <img src="images/worldwide-1.png" alt="testimonial-avatar" />
-                                    </div>
-    
-                                    <!-- Author Data -->
-                                    <div class="review-author">
-                                        <h5 class="h5-xs">Front-End Use-Cases</h5>
-                                        <a target="_blank" href="https://x.com/tonklaus/status/1743179494524121559" style="color: blue; text-decoration: underline;">2-Minute Demo Video</a>
-                                    </div>
-                                </div>
-                                <!-- End Link Author -->
-    
-                                <!-- Link Text -->
-                                <p>
-                                    A short video demonstrating some front-end use-cases for Stable Channels.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END LINK ITEM -->
-    
-                        <!-- LINK ITEM -->
-                        <div class="review-2">
-                            <div class="review-txt">
-                                <!-- Link Author -->
-                                <div class="author-data clearfix">
-                                    <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
-                                        <img src="images/worldwide-1.png" alt="testimonial-avatar" />
-                                    </div>
-    
-                                    <!-- Author Data -->
-                                    <div class="review-author">
-                                        <h5 class="h5-xs">Conference Presentation</h5>
-                                        <a target="_blank" href="https://www.youtube.com/watch?v=yZel3OGUyhg" style="color: blue; text-decoration: underline;">Bitcoin Atlantis Conference 2023</a>
-                                    </div>
-                                </div>
-                                <!-- End Link Author -->
-    
-                                <!-- Link Text -->
-                                <p>
-                                    A presentation from the Bitcoin Atlantis conference discussing Stable Channels.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END LINK ITEM -->
-    
-                        <!-- LINK ITEM -->
-                        <div class="review-2">
-                            <div class="review-txt">
-                                <!-- Link Author -->
-                                <div class="author-data clearfix">
-                                    <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
-                                        <img src="images/worldwide-1.png" alt="testimonial-avatar" />
-                                    </div>
-    
-                                    <!-- Author Data -->
-                                    <div class="review-author">
-                                        <h5 class="h5-xs">Stable Cashu eCash Mint</h5>
-                                        <a target="_blank" href="https://umint.cash/" style="color: blue; text-decoration: underline;">Visit Mint</a>
-                                    </div>
-                                </div>
-                                <!-- End Link Author -->
-    
-                                <!-- Link Text -->
-                                <p>
-                                    The stable Cashu eCash mint that uses Stable Channels as the stability mechanism.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END LINK ITEM -->
-    
-                        <!-- LINK ITEM -->
-                        <div class="review-2">
-                            <div class="review-txt">
-                                <!-- Link Author -->
-                                <div class="author-data clearfix">
-                                    <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
-                                        <img src="images/worldwide-1.png" alt="testimonial-avatar" />
-                                    </div>
-    
-                                    <!-- Author Data -->
-                                    <div class="review-author">
-                                        <h5 class="h5-xs">eCash Wallet</h5>
-                                        <a target="_blank" href="https://boardwalkcash.com" style="color: blue; text-decoration: underline;">Connect to Stable Cashu Mint</a>
-                                    </div>
-                                </div>
-                                <!-- End Link Author -->
-    
-                                <!-- Link Text -->
-                                <p>
-                                    An eCash wallet with a nice UI that can connect to the stable Cashu mint.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END LINK ITEM -->
-    
-                        <!-- LINK ITEM -->
-                        <div class="review-2">
-                            <div class="review-txt">
-                                <!-- Link Author -->
-                                <div class="author-data clearfix">
-                                    <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
-                                        <img src="images/worldwide-1.png" alt="testimonial-avatar" />
-                                    </div>
-    
-                                    <!-- Author Data -->
-                                    <div class="review-author">
-                                        <h5 class="h5-xs">GitHub Repository</h5>
-                                        <a target="_blank" href="https://github.com/toneloc/stable-channels" style="color: blue; text-decoration: underline;">Stable Channels GitHub</a>
-                                    </div>
-                                </div>
-                                <!-- End Link Author -->
-    
-                                <!-- Link Text -->
-                                <p>
-                                    Access the GitHub repository for Stable Channels to view the source code and contribute.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END LINK ITEM -->
-    
-                        <!-- LINK ITEM -->
-                        <div class="review-2">
-                            <div class="review-txt">
-                                <!-- Link Author -->
-                                <div class="author-data clearfix">
-                                    <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
-                                        <img src="images/worldwide-1.png" alt="testimonial-avatar" />
-                                    </div>
-    
-                                    <!-- Author Data -->
-                                    <div class="review-author">
-                                        <h5 class="h5-xs">Telegram Group</h5>
-                                        <a target="_blank" href="https://t.co/2HNMQciSM2" style="color: blue; text-decoration: underline;">Join the Stable Channels Telegram</a>
-                                    </div>
-                                </div>
-                                <!-- End Link Author -->
-    
-                                <!-- Link Text -->
-                                <p>
-                                    Join the Telegram group to discuss and stay updated on Stable Channels.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END LINK ITEM -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="sbox-1 wow fadeInUp" data-wow-delay="0.4s" style="margin-bottom:20px;">
+                        <h5 class="h5-xs steelblue-color">Podcast Interview</h5>
+                        <a href="https://stephanlivera.com/episode/591/" target="_blank" style="color:#3B82F6; font-weight:500;">Stephan Livera Podcast</a>
+                        <p style="margin-top:8px;">"Even as bitcoiners, we can't deny that there is demand for 'stablecoins' or some kind of stable value feature. Tony Klausing, bitcoin and lightning developer joins me to talk about Stable Channels."</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="sbox-1 wow fadeInUp" data-wow-delay="0.4s" style="margin-bottom:20px;">
+                        <h5 class="h5-xs steelblue-color">Twitter Thread</h5>
+                        <a href="https://x.com/tonklaus/status/1729567459579945017" target="_blank" style="color:#3B82F6; font-weight:500;">Explaining the Basics of Stable Channels</a>
+                        <p style="margin-top:8px;">A Twitter thread by @tonklaus explaining the fundamentals of Stable Channels.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="sbox-1 wow fadeInUp" data-wow-delay="0.4s" style="margin-bottom:20px;">
+                        <h5 class="h5-xs steelblue-color">Demo Video</h5>
+                        <a href="https://x.com/tonklaus/status/1796569619240485239" target="_blank" style="color:#3B82F6; font-weight:500;">eCash + Stable Channels Integration</a>
+                        <p style="margin-top:8px;">Watch a demo video showcasing the integration of eCash with Stable Channels.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="sbox-1 wow fadeInUp" data-wow-delay="0.4s" style="margin-bottom:20px;">
+                        <h5 class="h5-xs steelblue-color">Front-End Use-Cases</h5>
+                        <a href="https://x.com/tonklaus/status/1743179494524121559" target="_blank" style="color:#3B82F6; font-weight:500;">2-Minute Demo Video</a>
+                        <p style="margin-top:8px;">A short video demonstrating some front-end use-cases for Stable Channels.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="sbox-1 wow fadeInUp" data-wow-delay="0.4s" style="margin-bottom:20px;">
+                        <h5 class="h5-xs steelblue-color">Conference Presentation</h5>
+                        <a href="https://www.youtube.com/watch?v=yZel3OGUyhg" target="_blank" style="color:#3B82F6; font-weight:500;">Bitcoin Atlantis Conference 2023</a>
+                        <p style="margin-top:8px;">A presentation from the Bitcoin Atlantis conference discussing Stable Channels.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="sbox-1 wow fadeInUp" data-wow-delay="0.4s" style="margin-bottom:20px;">
+                        <h5 class="h5-xs steelblue-color">GitHub Repository</h5>
+                        <a href="https://github.com/toneloc/stable-channels" target="_blank" style="color:#3B82F6; font-weight:500;">Stable Channels GitHub</a>
+                        <p style="margin-top:8px;">Access the GitHub repository for Stable Channels to view the source code and contribute.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="sbox-1 wow fadeInUp" data-wow-delay="0.4s" style="margin-bottom:20px;">
+                        <h5 class="h5-xs steelblue-color">Telegram Group</h5>
+                        <a href="https://t.co/2HNMQciSM2" target="_blank" style="color:#3B82F6; font-weight:500;">Join the Stable Channels Telegram</a>
+                        <p style="margin-top:8px;">Join the Telegram group to discuss and stay updated on Stable Channels.</p>
                     </div>
                 </div>
             </div>
@@ -884,8 +769,8 @@
         </div>
         <!-- End container -->
     </section>
-    
-    
+
+
       <!-- END TESTIMONIALS-2 -->
 
       <!-- FAQs-2 ============================================= -->
@@ -899,7 +784,7 @@
 
                     <!-- Text -->
                     <p class="p-md">
-                        Answers to commonly asked questions. Reach out to us at the "Sign up" button with more questions.
+                        Common questions about Stable Channels.
                     </p>
                 </div>
             </div>
@@ -910,43 +795,31 @@
                     <div class="questions-holder">
                         <!-- QUESTION #1 -->
                         <div class="question wow fadeInUp" data-wow-delay="0.4s">
-                            <!-- Question -->
                             <h5 class="h5-xs steelblue-color">What are Stable Channels?</h5>
-
-                            <!-- Answer -->
                             <p>
-                                Stable Channels is an open-source project that brings bitcoin-backed dollar balances to the Lightning network, matching BTC shorts and BTC longs over Lightning Channels.
+                                Stable Channels is an open-source project that brings Bitcoin-backed dollar balances to the Lightning Network, matching users who want USD stability with users who want additional BTC exposure.
                             </p>
                         </div>
 
                         <!-- QUESTION #2 -->
                         <div class="question wow fadeInUp" data-wow-delay="0.6s">
-                            <!-- Question -->
                             <h5 class="h5-xs steelblue-color">How does Stable Channels work?</h5>
-
-                            <!-- Answer -->
                             <p>
-                                Stable Channels matches BTC shorts (fiat stability seekers) and BTC longs (fiat stability providers) and settles sats frequently based on the BTCUSD price to create a bitcoin-backed synthetic dollar balance on the stable side of the channel. The other side gets leveraged long exposure.
+                                Stable Channels pairs users who want dollar stability with users who want more Bitcoin exposure in a Lightning channel. The system settles frequently based on the BTC/USD price — if the price goes up, the stable side pays the other side, and vice versa. This maintains a constant dollar value on one side.
                             </p>
                         </div>
 
                         <!-- QUESTION #3 -->
                         <div class="question wow fadeInUp" data-wow-delay="0.8s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">What problem does Stable Channels address?</h5>
-
-                            <!-- Answer -->
+                            <h5 class="h5-xs steelblue-color">What problem does it solve?</h5>
                             <p>
-                                Stable Channels addresses bitcoin price volatility and offers a decentralized alternative to centralized stablecoins, minimizing risks of centralization like third-party custody, hacks, bank runs, and asset freezes.
+                                Bitcoin price volatility. Stable Channels provides a decentralized, self-custodial alternative to custodial stablecoins — no banks, no token issuers, no asset freezes.
                             </p>
                         </div>
 
                         <!-- QUESTION #4 -->
                         <div class="question wow fadeInUp" data-wow-delay="0.4s">
-                            <!-- Question -->
                             <h5 class="h5-xs steelblue-color">What are the key components of Stable Channels?</h5>
-
-                            <!-- Answer -->
                             <p>
                                 Stable Channels involves two types of users: Stable Receivers, who want less BTC price exposure, and Stable Providers, who want more BTC price exposure.
                             </p>
@@ -954,72 +827,10 @@
 
                         <!-- QUESTION #5 -->
                         <div class="question wow fadeInUp" data-wow-delay="0.6s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">How often does the system settle?</h5>
-
-                            <!-- Answer -->
-                            <p>
-                                The system is configurable. Stable Channels queries price feeds and settles every few minutes, using the median price from five different sources to ensure accuracy.
-                            </p>
-                        </div>
-
-                        <!-- QUESTION #6 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.8s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">What happens if the BTC price goes down?</h5>
-
-                            <!-- Answer -->
-                            <p>
-                                If the BTC price goes down, the Stable Provider pays the Stable Receiver. If the BTC price goes up, the Stable Receiver pays the Stable Provider. If the price doesn't move, no payment is required. If the price goes down a lot, it depends on how much collateral the Provider posts. In the base case, Stable Channels can handle a 50% drop in price.
-                            </p>
-                        </div>
-
-                        <!-- QUESTION #7 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.4s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">What are the system requirements for running Stable Channels?</h5>
-
-                            <!-- Answer -->
-                            <ul class="content-list mb-35">
-                                <li>Stable Channels is tested on Core Lightning (CLN) and LND.</li>
-                                <li>Lightning infrastructure is required to run Stable Channels</li>
-                                <li>We are working on a mobile app to bring Stable Channels to more users.</li>
-                            </ul>
-                        </div>
-
-                        <!-- QUESTION #8 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.6s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">Is there a marketplace matching Stable Receivers and Stable Providers?</h5>
-
-                            <!-- Answer -->
-                            <p>
-                                Not yet, but if you are interested in being a Stable Provider or Stable Receiver, you can get in touch with us by clicking the "Sign up" button at the top of this page.
-                            </p>
-                        </div>
-
-                        <!-- QUESTION #9 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.8s">
-                            <!-- Question -->
                             <h5 class="h5-xs steelblue-color">Is Stable Channels a stablecoin?</h5>
-
-                            <!-- Answer -->
                             <p>
-                                No, Stable Channels is not a stablecoin. Stable Channels doesn't have any tokens or assets besides bitcoin. It's more like Stablecorn. 
+                                No. Stable Channels does not issue any tokens. It uses native Bitcoin in Lightning channels to create synthetic dollar exposure. There are no new assets — only Bitcoin.
                             </p>
-                        </div>
-
-                        <!-- QUESTION #10 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.4s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">Can I contribute to the project?</h5>
-
-                            <!-- Answer -->
-                            <ul class="content-list mb-35">
-                                <li>Feedback from users is greatly appreciated.</li>
-                                <li>Check out our GitHub.</li>
-                                <li>Get in touch by clicking on the "Sign up" button at the top of the page.</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1028,113 +839,43 @@
                 <!-- QUESTIONS HOLDER RIGHT -->
                 <div class="col-lg-6">
                     <div class="questions-holder ind-30">
-                        <!-- QUESTION #11 -->
+                        <!-- QUESTION #6 -->
                         <div class="question wow fadeInUp" data-wow-delay="0.4s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">What are the risks of using Stable Channels?</h5>
-
-                            <!-- Answer -->
+                            <h5 class="h5-xs steelblue-color">How often does the system settle?</h5>
                             <p>
-                                Risks include extreme bitcoin price volatility, node outages, and the possibility of non-cooperative channel partners. Proper risk management, using reputable channel partners, and frequent settlement can help mitigate these risks.
+                                Every few minutes. The system queries five independent price feeds and uses the median price to ensure accuracy.
                             </p>
                         </div>
 
-                        <!-- QUESTION #12 -->
+                        <!-- QUESTION #7 -->
                         <div class="question wow fadeInUp" data-wow-delay="0.6s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">What happens if the price of bitcoin drops significantly?</h5>
+                            <h5 class="h5-xs steelblue-color">What happens if the BTC price goes down?</h5>
+                            <p>
+                                The Stable Provider compensates the Stable Receiver. If the price drops significantly (more than 50%), additional collateral may be needed via a splice-in to maintain the agreement.
+                            </p>
+                        </div>
 
-                            <!-- Answer -->
+                        <!-- QUESTION #8 -->
+                        <div class="question wow fadeInUp" data-wow-delay="0.8s">
+                            <h5 class="h5-xs steelblue-color">What are the risks of using Stable Channels?</h5>
+                            <p>
+                                Risks include extreme Bitcoin price volatility, node outages, and the possibility of non-cooperative channel partners. Proper risk management, using reputable channel partners, and frequent settlement can help mitigate these risks.
+                            </p>
+                        </div>
+
+                        <!-- QUESTION #9 -->
+                        <div class="question wow fadeInUp" data-wow-delay="0.4s">
+                            <h5 class="h5-xs steelblue-color">What happens if the price of Bitcoin drops significantly?</h5>
                             <p>
                                 If the BTC price drops more than 50%, the channel may not have enough capacity to maintain stability. Cooperative actors may need to splice in additional funds to continue the agreement.
                             </p>
                         </div>
 
-                        <!-- QUESTION #13 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.8s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">How do Stable Channels handle price feeds?</h5>
-
-                            <!-- Answer -->
-                            <p>
-                                Stable Channels queries five price feeds (BitStamp, CoinGecko, Coindesk, Coinbase, and Blockchain) and uses the median price to protect against inaccuracies.
-                            </p>
-                        </div>
-
-                        <!-- QUESTION #14 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.4s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">Can Stable Channels be used for assets other than USD?</h5>
-
-                            <!-- Answer -->
-                            <p>
-                                Yes, Stable Channels can stabilize bitcoin against other assets like euros, gold, or the S&P 500, given reliable price feeds and liquidity.
-                            </p>
-                        </div>
-
-                        <!-- QUESTION #15 -->
+                        <!-- QUESTION #10 -->
                         <div class="question wow fadeInUp" data-wow-delay="0.6s">
-                            <!-- Question -->
                             <h5 class="h5-xs steelblue-color">Where can I find more information about Stable Channels?</h5>
-
-                            <!-- Answer -->
                             <p>
                                 You can find more information on the <a href="https://github.com/toneloc/stable-channels" style="color: blue; text-decoration: underline;">Stable Channels GitHub</a> and join the discussion on the <a href="https://t.co/2HNMQciSM2" style="color: blue; text-decoration: underline;">Stable Channels Telegram</a>.
-                            </p>
-                        </div>
-
-                        <!-- QUESTION #16 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.8s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">Who should use Stable Channels?</h5>
-
-                            <!-- Answer -->
-                            <p>
-                                Stable Channels is most suitable for technical node runners, Lightning businesses, and wallet developers looking for a decentralized, easy-to-use self-custodial stability solution.
-                            </p>
-                        </div>
-
-                        <!-- QUESTION #17 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.4s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">What makes Stable Channels different from centralized stablecoins?</h5>
-
-                            <!-- Answer -->
-                            <p>
-                                Unlike centralized stablecoins, which rely on banks and custodians, Stable Channels is decentralized and allows anyone running a Lightning node to provide or receive stability, allowing while maintaining full self-custody.
-                            </p>
-                        </div>
-
-                        <!-- QUESTION #18 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.6s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">Is the Stable Channels project funded?</h5>
-
-                            <!-- Answer -->
-                            <p>
-                                No funding has been received for the project so far. Get in touch with us by clicking on the "Sign up" button at the top of the page. 
-                            </p>
-                        </div>
-
-                        <!-- QUESTION #19 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.8s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">How can Stable Channels be used for trading?</h5>
-
-                            <!-- Answer -->
-                            <p>
-                                Stable Channels can be used for trading-related use cases, enabling functionality similar to perpetual swaps found on cryptocurrency derivatives exchanges, and allowing users to customize their preferred bitcoin exposure.
-                            </p>
-                        </div>
-
-                        <!-- QUESTION #20 -->
-                        <div class="question wow fadeInUp" data-wow-delay="0.4s">
-                            <!-- Question -->
-                            <h5 class="h5-xs steelblue-color">What is the role of eCash in Stable Channels?</h5>
-
-                            <!-- Answer -->
-                            <p>
-                                The eCash projects are separate and distinct from Stable Channels. However, an integration with the eCash system Cashu and the wallet Boardwalk Cash has resulted in an eCash stable dollar token secured by a Stable Channel, providing scalability and UX advantages.
                             </p>
                         </div>
                     </div>
@@ -1147,8 +888,6 @@
       </section>
       <!-- END FAQs-2 -->
 
-      <!-- END FAQs-2 -->
-
       <!-- CALL TO ACTION-1
 			============================================= -->
       <section id="cta-1" class="blue-textured cta-section division">
@@ -1158,24 +897,24 @@
                 <div class="col-lg-7 col-xl-6">
                     <div class="cta-txt">
                         <!-- Title -->
-                        <h4 class="h4-xl" style="color: #000000;">Still have a question?</h4>
-    
+                        <h4 class="h4-xl" style="color: #000000;">Ready to try it?</h4>
+
                         <!-- Text -->
                         <p class="p-md" style="color: #000000;">
-                            Get in touch and let us know what's on your mind.
+                            Download the app and get set up in minutes.
                         </p>
                     </div>
                 </div>
-    
+
                 <!-- CALL TO ACTION BUTTON -->
                 <div class="col-lg-3 col-xl-3 offset-lg-2 offset-xl-3">
                     <div class="cta-btn text-right">
                         <a
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSdleHfPvcg3x3exnNdrE_ctAX_oPj69DveHh_R46zu7Y_jx8Q/viewform?usp=sf_link"
+                            href="https://github.com/toneloc/stable-channels/releases"
                             class="btn btn-primary-color tra-hover"
                         >
-                            
-                            Get in touch
+
+                            Download the App
                         </a>
                     </div>
                 </div>
@@ -1194,23 +933,6 @@
             <!-- FOOTER INFO -->
             <div class="col-md-4 col-lg-4 col-xl-4">
               <div class="footer-info mb-40">
-                <!-- Footer Logo -->
-                <!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 350 x 70  pixels) -->
-                <!-- <img
-                  src="images/logo.png"
-                  width="120"
-                  height="30"
-                  alt="footer-logo"
-                /> -->
-
-                <!-- Email -->
-              <!--   <p class="foo-email">
-                  <i class="fas fa-envelope"></i>
-                  <a href="mailto:"
-                    >hello@PeerStables.com</a
-                  >
-                </p> -->
-
                 <!-- Social Icons -->
                 <div class="footer-socials-links mt-20">
                   <ul class="foo-socials text-center clearfix">
@@ -1221,11 +943,6 @@
                         ><i class="fab fa-github"></i
                       ></a>
                     </li>
-                  <!--   <li>
-                      <a href="https://twitter.com" class="ico-twitter"
-                        ><i class="fab fa-twitter"></i
-                      ></a>
-                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -1250,6 +967,7 @@
                   <li><a href="#content-1">Features</a></li>
                   <li><a href="#reviews-2">Links and Resources</a></li>
                   <li><a href="#faqs-2">FAQs</a></li>
+                  <li><a href="privacy.html">Privacy Policy</a></li>
                 </ul>
               </div>
             </div>
@@ -1260,42 +978,29 @@
                 <!-- Title -->
                 <h5 class="h5-sm">Get The App</h5>
 
-                <!-- <a class="btn btn-black tra-black-hover dl-apple" href="#">
-                  <i class="fab fa-apple"></i>
-                  Mac
-                </a>
-
-                <a class="btn btn-black tra-black-hover dl-linux" href="#">
-                  <i class="fab fa-linux"></i>
-                  Linux
-                </a>
-
-                <a class="btn btn-black tra-black-hover dl-windows" href="#">
-                  <i class="fab fa-windows"></i>
-                  Windows
-                </a> -->
-
-                <!-- Aamazon Market 
-								<a href="#" class="store">
-									<img class="amazon-original" src="images/store_badges/amazon.png"" alt="amazon-logo" />
-								</a>  -->
-
-                <!-- Windows Market  
-								<a href="#" class="store">
-									<img class="windows-original" src="images/store_badges/windows.png" alt="windows-logo" />
-								</a> -->
+                <a class="app-dl-btn" href="https://github.com/toneloc/stable-channels/releases" target="_blank"><i class="fab fa-apple"></i> iOS — Coming Soon</a><br>
+                <a class="app-dl-btn" href="https://play.google.com/store/apps/details?id=com.stablechannels.app" target="_blank"><i class="fab fa-android"></i> Android — Google Play</a><br>
+                <a class="app-dl-btn" href="https://github.com/toneloc/stable-channels/releases" target="_blank"><i class="fas fa-desktop"></i> Desktop</a>
               </div>
             </div>
             <!-- END FOOTER NEWSLETTER FORM -->
           </div>
           <!-- END FOOTER CONTENT -->
 
-          <!-- FOOTER COPYRIGHT -->
+          <!-- FOOTER DISCLAIMER -->
           <div class="bottom-footer">
             <div class="row">
               <div class="col-md-12">
+                <p style="font-size: 12.5px; color: #9ca3af; line-height: 1.7; margin: 20px 0 16px;">
+                  Stable Channels is not a cryptocurrency exchange, brokerage, custodian, or money services business. It does not offer the purchase or sale of cryptocurrency, does not operate an order book or matching engine, and provides no fiat on- or off-ramps. Stable Channels is self-custodial, open-source software: your keys and your funds remain on your own device at all times, and neither Stable Channels nor any third party ever takes custody of them. The software enables peers to manage Bitcoin volatility and exposure directly with one another over the Lightning Network.
+                </p>
+              </div>
+            </div>
+            <!-- FOOTER COPYRIGHT -->
+            <div class="row">
+              <div class="col-md-12">
                 <p class="footer-copyright">
-                  <span>2024,</span> <span>Stable Channels developers 🧡</span>.
+                  <span>2026,</span> <span>Stable Channels</span>.
                 </p>
               </div>
             </div>
@@ -1314,19 +1019,10 @@
     <script src="js/modernizr.custom.js"></script>
     <script src="js/jquery.easing.js"></script>
     <script src="js/jquery.appear.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
     <script src="js/jquery.scrollto.js"></script>
     <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/hero-form.js"></script>
-    <script src="js/register-form.js"></script>
-    <script src="js/contact-form.js"></script>
-    <script src="js/quick-form.js"></script>
-    <script src="js/comment-form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/wow.js"></script>
 
     <!-- Custom Script -->
