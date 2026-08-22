@@ -27,7 +27,8 @@ export const LiveTickerSection: React.FC = () => {
   return (
     <section
       id="live-ticker"
-      className="py-24 bg-zinc-900 dark:bg-black text-white relative overflow-hidden border-b border-zinc-800 transition-colors duration-300"
+      data-section="live-ticker"
+      className="py-24 bg-white dark:bg-black text-zinc-900 dark:text-white relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300"
     >
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-[#F7931A]/10 blur-[130px] rounded-full pointer-events-none" />
