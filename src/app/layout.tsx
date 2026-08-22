@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Geist } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/data/siteConfig';
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from '@/components/theme/ThemeProvider';
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const inter = Inter({
   subsets: ['latin'],
@@ -57,9 +61,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
-      <body className="font-sans antialiased text-gray-900 bg-white selection:bg-blue-100 selection:text-blue-900">
-        {children}
+    <html lang="en" suppressHydrationWarning className={cn("scroll-smooth", inter.variable, "font-sans", geist.variable)}>
+      <body className="font-sans antialiased text-gray-900 bg-white dark:bg-black dark:text-zinc-100 selection:bg-amber-500/20 selection:text-amber-500">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
