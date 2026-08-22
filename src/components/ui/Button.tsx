@@ -25,12 +25,12 @@ export const Button: React.FC<ButtonProps> = ({
 
   const variants = {
     primary:
-      'bg-amber-500 hover:bg-amber-400 text-black font-bold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:-translate-y-0.5',
+      'bg-amber-500 hover:bg-amber-400 text-black font-bold shadow-md shadow-amber-500/20 hover:shadow-amber-500/30 hover:-translate-y-0.5',
     light:
-      'bg-zinc-800/80 hover:bg-zinc-700/80 text-zinc-100 border border-zinc-700/60 shadow-xs',
+      'bg-zinc-100 dark:bg-zinc-800/80 hover:bg-zinc-200 dark:hover:bg-zinc-700/80 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700/60 shadow-xs',
     outline:
-      'bg-transparent border border-zinc-700 text-zinc-300 hover:bg-zinc-800/50 hover:text-white',
-    dark: 'bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-800 shadow-sm',
+      'bg-transparent border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-white',
+    dark: 'bg-zinc-900 dark:bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-800 shadow-sm',
   };
 
   const widthStyle = fullWidth ? 'w-full' : '';

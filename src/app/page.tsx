@@ -13,7 +13,7 @@ import { CtaBanner } from '@/components/sections/CtaBanner';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-black text-zinc-100 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-400">
+    <div className="min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-zinc-100 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-500 transition-colors duration-300">
       <Navbar />
       <main className="flex-grow">
         <HeroSection />

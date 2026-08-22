@@ -8,13 +8,12 @@ export const ResourcesSection: React.FC = () => {
   return (
     <section
       id="reviews-2"
-      className="py-24 bg-zinc-950 border-t border-zinc-800/80"
+      className="py-24 bg-zinc-50/70 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800/80 transition-colors duration-300"
     >
       <Container>
         <SectionHeader
           title="Links and Resources"
           subtitle="Resources, demos, and technical deep dives to learn more about Stable Channels."
-          isDark
           className="mb-14"
         />
 
@@ -22,22 +21,22 @@ export const ResourcesSection: React.FC = () => {
           {resourcesData.map((res) => (
             <div
               key={res.id}
-              className="p-7 rounded-2xl bg-zinc-900/40 backdrop-blur-sm border border-zinc-800/80 hover:border-amber-500/40 hover:bg-zinc-900/80 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
+              className="p-7 rounded-2xl bg-white dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200/80 dark:border-zinc-800/80 hover:border-amber-500/40 dark:hover:border-amber-500/40 hover:bg-zinc-50 dark:hover:bg-zinc-900/80 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shadow-xs group"
             >
               <div>
-                <h3 className="text-base font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                   {res.title}
                 </h3>
                 <a
                   href={res.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-400 hover:text-amber-300 hover:underline mb-3"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-600 dark:text-amber-400 hover:underline mb-3"
                 >
                   <span>{res.linkText}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
-                <p className="text-sm text-zinc-400 leading-relaxed">
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   {res.description}
                 </p>
               </div>
