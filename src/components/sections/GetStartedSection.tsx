@@ -1,7 +1,9 @@
 import React from 'react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { GooglePlayButton, AppStoreButton } from '@/components/base/buttons/app-store-buttons';
 import { getStartedSteps } from '@/data/getStarted';
+import { siteConfig } from '@/data/siteConfig';
 
 export const GetStartedSection: React.FC = () => {
   return (
@@ -25,33 +27,34 @@ export const GetStartedSection: React.FC = () => {
               <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-3 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                 {step.title}
               </h3>
-              <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
                 {step.stepNumber === 1 ? (
                   <>
-                    Get the Android app on{' '}
-                    <a
-                      href="https://play.google.com/store/apps/details?id=com.stablechannels.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-amber-600 dark:text-amber-400 font-medium hover:underline"
-                    >
-                      Google Play
-                    </a>
-                    , or download the desktop app from our{' '}
-                    <a
-                      href="https://github.com/toneloc/stable-channels/releases"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-amber-600 dark:text-amber-400 font-medium hover:underline"
-                    >
-                      releases page
-                    </a>
-                    . iOS in active testing.
+                    Download the app on Google Play or grab the latest desktop binaries. iOS TestFlight builds in active testing.
                   </>
                 ) : (
                   step.description
                 )}
               </p>
+
+              {step.stepNumber === 1 && (
+                <div className="mt-auto flex flex-col sm:flex-row items-center justify-center gap-2.5 pt-2">
+                  <GooglePlayButton
+                    href={siteConfig.googlePlayUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="md"
+                    className="hover:scale-105 transition-transform"
+                  />
+                  <AppStoreButton
+                    href={siteConfig.releasesUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="md"
+                    className="hover:scale-105 transition-transform opacity-90"
+                  />
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
+import { GooglePlayButton, AppStoreButton } from '@/components/base/buttons/app-store-buttons';
 import { siteConfig } from '@/data/siteConfig';
 
 export const CtaBanner: React.FC = () => {
@@ -18,14 +19,29 @@ export const CtaBanner: React.FC = () => {
               Download the app and get set up in minutes.
             </p>
           </div>
-          <div className="relative z-10 flex-shrink-0">
+
+          <div className="relative z-10 flex flex-wrap items-center justify-center gap-3">
+            <GooglePlayButton
+              href={siteConfig.googlePlayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="md"
+              className="hover:scale-105 transition-transform shadow-xs"
+            />
+            <AppStoreButton
+              href={siteConfig.releasesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="md"
+              className="hover:scale-105 transition-transform opacity-90 hover:opacity-100 shadow-xs"
+            />
             <Button
               variant="primary"
               href={siteConfig.releasesUrl}
               isExternal
-              className="text-base px-8 py-3.5"
+              className="text-sm px-6 py-2.5"
             >
-              Download the App
+              Desktop Releases
             </Button>
           </div>
         </div>

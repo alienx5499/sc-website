@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
+import { GooglePlayButton, AppStoreButton } from '@/components/base/buttons/app-store-buttons';
 import { siteConfig } from '@/data/siteConfig';
 
 export const HeroSection: React.FC = () => {
@@ -50,6 +51,24 @@ export const HeroSection: React.FC = () => {
             >
               GitHub Repo
             </Button>
+          </div>
+
+          {/* App Store Buttons from Untitled UI */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <GooglePlayButton
+              href={siteConfig.googlePlayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="md"
+              className="hover:scale-105 transition-transform shadow-xs"
+            />
+            <AppStoreButton
+              href={siteConfig.releasesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="md"
+              className="hover:scale-105 transition-transform opacity-90 hover:opacity-100 shadow-xs"
+            />
           </div>
         </div>
 
