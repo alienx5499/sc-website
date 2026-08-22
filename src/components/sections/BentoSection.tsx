@@ -1,7 +1,6 @@
 import React from 'react';
 import { BentoGrid } from '@/components/ui/BentoGrid';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { bentoFeaturesData } from '@/data/bentoFeatures';
 
 export const BentoSection: React.FC = () => {
   return (
@@ -11,10 +10,10 @@ export const BentoSection: React.FC = () => {
           badge="Architecture & Pillars"
           title="Engineered for Trustless Stability"
           subtitle="Stable Channels combines native Lightning Network settlement with peer-to-peer risk management. No intermediaries, no synthetic tokens, and zero custody risk."
-          className="mb-12"
+          className="mb-8"
         />
 
-        <BentoGrid items={bentoFeaturesData} />
+        <BentoGrid />
       </div>
     </section>
   );
