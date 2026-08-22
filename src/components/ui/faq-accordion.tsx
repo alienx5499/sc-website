@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 
-export interface VengeanceFaqItem {
+export interface FaqAccordionItem {
   id?: string;
   question: string;
   answer: React.ReactNode;
@@ -12,7 +12,7 @@ export interface VengeanceFaqItem {
 }
 
 export interface FaqAccordionProps extends React.HTMLAttributes<HTMLDivElement> {
-  items: VengeanceFaqItem[];
+  items: FaqAccordionItem[];
   title?: string;
   defaultOpenIndex?: number | null;
 }
