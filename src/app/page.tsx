@@ -5,7 +5,7 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { BentoSection } from '@/components/sections/BentoSection';
 import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
 import { ContinuousSettlementSection } from '@/components/sections/ContinuousSettlementSection';
-import { TheOpportunitySection } from '@/components/sections/TheOpportunitySection';
+import { LiveTickerSection } from '@/components/sections/LiveTickerSection';
 import { GetStartedSection } from '@/components/sections/GetStartedSection';
 import { ResourcesSection } from '@/components/sections/ResourcesSection';
 import { FaqSection } from '@/components/sections/FaqSection';
@@ -19,7 +19,7 @@ export default function HomePage() {
         <BentoSection />
         <HowItWorksSection />
         <ContinuousSettlementSection />
-        <TheOpportunitySection />
+        <LiveTickerSection />
         <GetStartedSection />
         <ResourcesSection />
         <FaqSection />
