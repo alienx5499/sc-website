@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { GooglePlayButton, AppStoreButton } from '@/components/base/buttons/app-store-buttons';
+import { GooglePlayButton, AppStoreButton } from '@/components/ui/app-store-buttons';
 import { siteConfig } from '@/data/siteConfig';
 
 export const HeroSection: React.FC = () => {
