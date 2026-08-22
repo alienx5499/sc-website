@@ -10,11 +10,12 @@ export const FaqSection: React.FC = () => {
   const rightFaqs = faqsData.slice(midpoint);
 
   return (
-    <section id="faqs-2" className="py-24 bg-white border-t border-gray-100">
+    <section id="faqs-2" className="py-24 bg-black border-t border-zinc-800/80">
       <Container>
         <SectionHeader
           title="Frequently Asked Questions"
           subtitle="Common questions about Stable Channels."
+          isDark
           className="mb-14"
         />
 

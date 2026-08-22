@@ -24,9 +24,9 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="footer-4" className="bg-gray-900 text-gray-400 pt-16 pb-12">
+    <footer id="footer-4" className="bg-black text-zinc-400 pt-16 pb-12 border-t border-zinc-850">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-zinc-800/80">
           {/* Brand & Mission */}
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
                 {siteConfig.name}
               </span>
             </div>
-            <p className="text-sm leading-relaxed text-gray-400">
+            <p className="text-sm leading-relaxed text-zinc-400">
               Self-custodial USD stability on Bitcoin Lightning. No tokens, no
               custody risk, no intermediaries.
             </p>
@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
                 href={siteConfig.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-gray-800 text-gray-300 hover:text-white hover:bg-gray-700 transition-colors"
+                className="p-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-colors"
                 aria-label="GitHub"
               >
                 <GithubIcon className="w-4 h-4" />
@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
 
           {/* Navigation Links */}
           <div className="space-y-4">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-200">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-200">
               Navigation
             </h3>
             <ul className="space-y-2.5 text-sm">
@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
 
           {/* Download App Links */}
           <div className="space-y-4">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-200">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-200">
               Get The App
             </h3>
             <div className="flex flex-col gap-2.5">
@@ -101,11 +101,11 @@ export const Footer: React.FC = () => {
                   href={dl.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gray-800 hover:bg-gray-750 text-gray-200 hover:text-white text-xs font-medium border border-gray-750 transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900/60 hover:bg-zinc-850 text-zinc-200 hover:text-white text-xs font-medium border border-zinc-800 hover:border-zinc-700 transition-all hover:-translate-y-0.5"
                 >
                   {getIcon(dl.iconName)}
                   <span>
-                    {dl.label} {dl.subtitle ? `— ${dl.subtitle}` : ''}
+                    {dl.label} {dl.subtitle ? `- ${dl.subtitle}` : ''}
                   </span>
                 </a>
               ))}
@@ -114,7 +114,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Disclaimer & Copyright */}
-        <div className="pt-8 space-y-4 text-xs text-gray-500 leading-relaxed">
+        <div className="pt-8 space-y-4 text-xs text-zinc-500 leading-relaxed">
           <p>
             Stable Channels is not a cryptocurrency exchange, brokerage,
             custodian, or money services business. It does not offer the
@@ -126,13 +126,13 @@ export const Footer: React.FC = () => {
             software enables peers to manage Bitcoin volatility and exposure
             directly with one another over the Lightning Network.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-4 border-t border-gray-800/60 text-gray-400">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-4 border-t border-zinc-850 text-zinc-400">
             <p>
               © {siteConfig.year} {siteConfig.name}. All rights reserved.
             </p>
             <Link
               href="/privacy"
-              className="text-xs text-blue-400 hover:underline"
+              className="text-xs text-amber-500 hover:underline"
             >
               Privacy Policy & Terms
             </Link>

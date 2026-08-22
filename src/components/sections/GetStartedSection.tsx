@@ -5,11 +5,12 @@ import { getStartedSteps } from '@/data/getStarted';
 
 export const GetStartedSection: React.FC = () => {
   return (
-    <section id="get-started" className="py-24 bg-white">
+    <section id="get-started" className="py-24 bg-black border-b border-zinc-800/80">
       <Container>
         <SectionHeader
           badge="Get Started"
           title="Up and running in minutes"
+          isDark
           className="mb-16"
         />
 
@@ -17,15 +18,15 @@ export const GetStartedSection: React.FC = () => {
           {getStartedSteps.map((step) => (
             <div
               key={step.stepNumber}
-              className="p-8 rounded-3xl bg-white border border-gray-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col items-center"
+              className="p-8 rounded-3xl bg-zinc-900/40 backdrop-blur-sm border border-zinc-800/80 hover:border-amber-500/40 hover:bg-zinc-900/80 hover:-translate-y-1.5 transition-all duration-300 text-center flex flex-col items-center group"
             >
-              <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-extrabold text-3xl mb-6 shadow-inner">
+              <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-extrabold text-3xl mb-6 shadow-inner group-hover:scale-110 transition-transform">
                 {step.stepNumber}
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors">
                 {step.title}
               </h3>
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+              <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
                 {step.stepNumber === 1 ? (
                   <>
                     Get the Android app on{' '}
@@ -33,7 +34,7 @@ export const GetStartedSection: React.FC = () => {
                       href="https://play.google.com/store/apps/details?id=com.stablechannels.app"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 font-medium hover:underline"
+                      className="text-amber-400 font-medium hover:underline"
                     >
                       Google Play
                     </a>
@@ -42,11 +43,11 @@ export const GetStartedSection: React.FC = () => {
                       href="https://github.com/toneloc/stable-channels/releases"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 font-medium hover:underline"
+                      className="text-amber-400 font-medium hover:underline"
                     >
                       releases page
                     </a>
-                    . iOS coming soon.
+                    . iOS in active testing.
                   </>
                 ) : (
                   step.description

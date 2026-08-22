@@ -13,25 +13,25 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex flex-col justify-between">
+    <div className="min-h-screen bg-black text-zinc-100 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-400">
       <main className="py-16 md:py-24">
         <Container className="max-w-3xl">
           {/* Back link */}
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline mb-10 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-amber-500 hover:text-amber-400 hover:underline mb-10 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Stable Channels</span>
           </Link>
 
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
             Privacy Policy &amp; Terms of Service
           </h1>
-          <p className="text-sm text-gray-400 mb-10">Last updated: July 2026</p>
+          <p className="text-sm text-zinc-400 mb-10">Last updated: July 2026</p>
 
-          <div className="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl mb-12">
-            <p className="text-sm text-amber-900 leading-relaxed font-medium">
+          <div className="bg-amber-500/10 border-l-4 border-amber-500 p-5 rounded-r-xl mb-12">
+            <p className="text-sm text-amber-300 leading-relaxed font-medium">
               <strong>Important Notice:</strong> Stable Channels is a
               self-custodial Bitcoin wallet. You retain full control of your
               private keys and funds. If you do not understand the risks of
@@ -39,9 +39,9 @@ export default function PrivacyPage() {
             </p>
           </div>
 
-          <div className="prose prose-gray max-w-none space-y-8 text-base text-gray-600 leading-relaxed">
+          <div className="max-w-none space-y-8 text-base text-zinc-400 leading-relaxed">
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 Introduction
               </h2>
               <p>
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 Not a Cryptocurrency Exchange
               </h2>
               <p className="mb-3">
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 Data Collection
               </h2>
               <p className="mb-4">
@@ -80,33 +80,33 @@ export default function PrivacyPage() {
                 app&apos;s core functionality.
               </p>
 
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 Types of Data Collected
               </h3>
               <ul className="list-disc pl-6 space-y-2 mb-6">
                 <li>
                   <strong>Financial Information (Other Financial Info)</strong>{' '}
-                  — Payment-related data (e.g., routed payments, channel activity)
+                  - Payment-related data (e.g., routed payments, channel activity)
                   processed and stored to enable Lightning functionality.
                 </li>
                 <li>
-                  <strong>Identifiers (User ID)</strong> — Pseudonymous
+                  <strong>Identifiers (User ID)</strong> - Pseudonymous
                   identifiers (such as node identifiers or session-related
                   identifiers) used to associate activity with a specific wallet
                   instance.
                 </li>
                 <li>
-                  <strong>Usage Data (Other Usage Data)</strong> — Operational
+                  <strong>Usage Data (Other Usage Data)</strong> - Operational
                   and diagnostic data related to app performance and payment
                   execution.
                 </li>
                 <li>
-                  <strong>Push Notification Tokens</strong> — Device tokens are
+                  <strong>Push Notification Tokens</strong> - Device tokens are
                   stored to deliver payment and channel-related notifications.
                 </li>
               </ul>
 
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 How Data Is Used
               </h3>
               <p className="mb-2">Data is used strictly for:</p>
@@ -123,7 +123,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 Data Linkage
               </h2>
               <p className="mb-3">
@@ -138,7 +138,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 No Tracking
               </h2>
               <p className="mb-2">We do not:</p>
@@ -154,7 +154,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 Third-Party Services
               </h2>
               <p className="mb-2">The app interacts with:</p>
@@ -172,7 +172,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 Self-Custody
               </h2>
               <ul className="list-disc pl-6 space-y-2">
@@ -180,7 +180,7 @@ export default function PrivacyPage() {
                 <li>We cannot access, recover, or control your funds</li>
                 <li>You are solely responsible for securing your seed phrase</li>
                 <li>
-                  All funds remain under your exclusive control at all times —
+                  All funds remain under your exclusive control at all times -
                   there are no custodial accounts or balances held by us or anyone
                   else
                 </li>
@@ -188,7 +188,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 Operational Requirements
               </h2>
               <ul className="list-disc pl-6 space-y-2">
@@ -204,7 +204,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 Channel Duration
               </h2>
               <p>
@@ -215,7 +215,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 No Guarantees
               </h2>
               <p className="mb-2">
@@ -230,7 +230,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
+              <h2 className="text-xl font-bold text-white mb-3">
                 Open Source
               </h2>
               <p>
@@ -247,12 +247,12 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">Changes</h2>
+              <h2 className="text-xl font-bold text-white mb-3">Changes</h2>
               <p>We may update this policy. Updates will be posted here.</p>
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">Contact</h2>
+              <h2 className="text-xl font-bold text-white mb-3">Contact</h2>
               <p>
                 <a
                   href="mailto:tony@stablechannels.com"

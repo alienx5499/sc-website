@@ -21,16 +21,16 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-semibold text-sm rounded-xl px-6 py-2.5 transition-all duration-200 active:scale-98 text-center';
+    'inline-flex items-center justify-center font-semibold text-sm rounded-xl px-6 py-2.5 transition-all duration-200 active:scale-98 text-center cursor-pointer';
 
   const variants = {
     primary:
-      'bg-[#F59E0B] hover:bg-[#D97706] text-white shadow-sm hover:shadow-md hover:-translate-y-0.5',
+      'bg-amber-500 hover:bg-amber-400 text-black font-bold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:-translate-y-0.5',
     light:
-      'bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-200/60 shadow-sm',
+      'bg-zinc-800/80 hover:bg-zinc-700/80 text-zinc-100 border border-zinc-700/60 shadow-xs',
     outline:
-      'bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50',
-    dark: 'bg-gray-900 hover:bg-gray-800 text-white shadow-sm hover:shadow-md',
+      'bg-transparent border border-zinc-700 text-zinc-300 hover:bg-zinc-800/50 hover:text-white',
+    dark: 'bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-800 shadow-sm',
   };
 
   const widthStyle = fullWidth ? 'w-full' : '';
