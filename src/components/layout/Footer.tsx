@@ -321,11 +321,11 @@ export function Footer() {
                         whileTap={{ scale: 0.95 }}
                       >
                         <Link
-                          href="https://x.com/alienx5499"
+                          href={siteConfig.telegramUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-amber-500/10 border border-transparent hover:border-amber-500/50 transition-all inline-flex items-center justify-center"
-                          aria-label="Twitter / X"
+                          aria-label="Telegram"
                         >
                           <TwitterIcon className="h-4 w-4" />
                         </Link>
@@ -471,24 +471,15 @@ export function Footer() {
 
                 {/* Bottom Section */}
                 <div className="border-t border-gray-800/50 pt-8">
-                  <div className="flex flex-col md:flex-row justify-between items-center">
-                    <div className="flex flex-col md:flex-row items-center gap-4 mb-4 md:mb-0">
-                      <p className="text-sm text-neutral-400">
-                        © {new Date().getFullYear()} {siteConfig.name}. Made with{' '}
-                        <Heart className="inline h-3 w-3 text-amber-500 fill-current animate-pulse" />{' '}
-                        for Bitcoiners by{' '}
-                        <a
-                          href="https://github.com/alienx5499"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="Visit GitHub"
-                          className="text-amber-400 hover:text-amber-300 transition-colors underline underline-offset-2"
-                        >
-                          @alienx5499
-                        </a>
-                        .
-                      </p>
-                    </div>
+                  <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p className="text-sm text-neutral-400">
+                      © {new Date().getFullYear()} {siteConfig.name}. Open source under the MIT License.
+                    </p>
+                    <p className="text-sm text-neutral-400 flex items-center gap-1.5">
+                      Built with{' '}
+                      <Heart className="inline h-3 w-3 text-amber-500 fill-current animate-pulse" />{' '}
+                      for Bitcoiners worldwide.
+                    </p>
                   </div>
                 </div>
               </div>
