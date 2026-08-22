@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { BenefitsSection } from '@/components/sections/BenefitsSection';
+import { BentoSection } from '@/components/sections/BentoSection';
 import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
 import { ContinuousSettlementSection } from '@/components/sections/ContinuousSettlementSection';
 import { TheOpportunitySection } from '@/components/sections/TheOpportunitySection';
@@ -17,7 +17,7 @@ export default function HomePage() {
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
-        <BenefitsSection />
+        <BentoSection />
         <HowItWorksSection />
         <ContinuousSettlementSection />
         <TheOpportunitySection />
