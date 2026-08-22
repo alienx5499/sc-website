@@ -264,24 +264,6 @@ export const Navbar: React.FC = () => {
                   Get in Touch
                 </Button>
               </div>
-
-              {/* Download Platform Shortcuts */}
-              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-gray-100 dark:border-zinc-800">
-                {appDownloadLinks.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center justify-center p-2 rounded-xl bg-gray-50 dark:bg-zinc-800/50 hover:bg-gray-100 dark:hover:bg-zinc-800 text-gray-700 dark:text-zinc-300 text-center transition-colors"
-                  >
-                    {item.iconName === 'apple' && <AppleIcon className="w-4 h-4 mb-1 text-gray-900 dark:text-white" />}
-                    {item.iconName === 'android' && <AndroidIcon className="w-4 h-4 mb-1 text-gray-900 dark:text-white" />}
-                    {item.iconName === 'desktop' && <DesktopIcon className="w-4 h-4 mb-1 text-gray-900 dark:text-white" />}
-                    <span className="text-[10px] font-medium leading-tight">{item.label}</span>
-                  </a>
-                ))}
-              </div>
             </motion.div>
           )}
         </AnimatePresence>
