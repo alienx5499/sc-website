@@ -1,53 +1,65 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronRight } from 'lucide-react';
-import { mainNavItems, appDownloadLinks } from '@/data/navigation';
+import { Menu, X, ArrowRight, Download } from 'lucide-react';
+import { GithubIcon } from '@/components/ui/Icons';
 import { siteConfig } from '@/data/siteConfig';
-import { Button } from '@/components/ui/Button';
-import { GithubIcon, AppleIcon, AndroidIcon, DesktopIcon } from '@/components/ui/Icons';
-import { ThemeToggle } from '@/components/theme/ThemeToggle';
+
+const NAV_ITEMS = [
+  { name: 'Features', path: '/', section: 'features' },
+  { name: 'How It Works', path: '/', section: 'content-1' },
+  { name: 'Continuous Settlement', path: '/', section: 'content-6' },
+  { name: 'Live Ticker', path: '/', section: 'live-ticker' },
+  { name: 'FAQ', path: '/', section: 'faqs-2' },
+];
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>('');
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('hero');
   const pathname = usePathname();
+  const router = useRouter();
+  const isNavigatingRef = useRef(false);
 
-  // Track active section on scroll
+  // Track active section on home page
   useEffect(() => {
-    if (pathname !== '/') {
-      return;
-    }
+    if (pathname !== '/') return;
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (isNavigatingRef.current) return;
 
-      const sectionIds = mainNavItems
-        .map((item) => item.href)
-        .filter((href) => href.startsWith('/#'))
-        .map((href) => href.replace('/#', ''));
+      const sections = ['hero', 'features', 'content-1', 'content-6', 'live-ticker', 'faqs-2'];
+      const scrollPosition = window.scrollY;
+      const offset = 200;
 
-      const scrollPosition = window.scrollY + 120;
+      let currentSection = 'hero';
 
-      for (const sectionId of sectionIds.reverse()) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const top = element.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(`/#${sectionId}`);
-            return;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sectionName = sections[i];
+        const section =
+          document.querySelector(`[data-section="${sectionName}"]`) ||
+          document.getElementById(sectionName) ||
+          document.querySelector(`#${sectionName}`);
+
+        if (section) {
+          const rect = (section as HTMLElement).getBoundingClientRect();
+          const sectionTop = window.scrollY + rect.top;
+
+          if (scrollPosition + offset >= sectionTop) {
+            currentSection = sectionName;
+            break;
           }
         }
       }
 
-      if (window.scrollY < 200) {
-        setActiveSection('');
+      if (scrollPosition < 50) {
+        currentSection = 'hero';
       }
+
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -56,218 +68,208 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);
 
-  // Handle smooth scroll navigation
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    if (href.startsWith('/#')) {
-      const targetId = href.replace('/#', '');
-      if (pathname === '/') {
-        e.preventDefault();
-        const element = document.getElementById(targetId);
-        if (element) {
-          const offset = 80;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth',
-          });
-
-          window.history.pushState(null, '', href);
-          setActiveSection(href);
-        }
-      } else {
-        // Navigate to home then scroll
-        setTimeout(() => {
-          const element = document.getElementById(targetId);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 700);
-      }
+  const handleNavClick = (item: { name: string; path: string; section: string }) => {
+    if (pathname !== '/') {
+      router.push(`/#${item.section}`);
       setIsOpen(false);
+      return;
     }
+
+    const element =
+      document.querySelector(`[data-section="${item.section}"]`) ||
+      document.getElementById(item.section) ||
+      document.querySelector(`#${item.section}`);
+
+    if (element) {
+      const offset = 100;
+      const rect = (element as HTMLElement).getBoundingClientRect();
+      const offsetPosition = rect.top + window.pageYOffset - offset;
+
+      setActiveSection(item.section);
+      isNavigatingRef.current = true;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+
+      window.history.pushState(null, '', `#${item.section}`);
+
+      setTimeout(() => {
+        isNavigatingRef.current = false;
+        setActiveSection(item.section);
+      }, 800);
+    }
+    setIsOpen(false);
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-4 px-4 sm:px-6 pointer-events-none">
-      <div className="w-full max-w-5xl pointer-events-auto">
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className={`flex items-center justify-between px-4 sm:px-6 py-2.5 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md rounded-full shadow-lg shadow-gray-900/5 dark:shadow-black/40 border border-gray-200/80 dark:border-zinc-800/80 transition-all ${
-            isScrolled ? 'ring-1 ring-black/5 dark:ring-white/10' : ''
-          }`}
-        >
-          {/* Logo & Brand */}
-          <Link
-            href="/"
-            onClick={(e) => {
-              if (pathname === '/') {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                window.history.pushState(null, '', '/');
-                setActiveSection('');
-              }
-            }}
-            className="flex items-center gap-2.5 flex-shrink-0 group"
+    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-4 md:py-6 px-4 pointer-events-none">
+      <div
+        className="pointer-events-auto flex items-center justify-between px-6 py-2.5 bg-black/85 backdrop-blur-xl rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.8)] relative border border-zinc-800 max-w-4xl w-full h-[58px]"
+      >
+        {/* Brand Logo & Name */}
+        <div className="flex items-center flex-shrink-0">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <Image
-              src="/images/app-icon.svg"
-              alt={siteConfig.name}
-              width={32}
-              height={32}
-              className="rounded-lg shadow-xs group-hover:scale-105 transition-transform"
-            />
-            <span className="text-base sm:text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-              {siteConfig.name}
-            </span>
-          </Link>
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (pathname === '/') {
+                  e.preventDefault();
+                  isNavigatingRef.current = true;
+                  setActiveSection('hero');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.history.pushState(null, '', '/');
+                  setTimeout(() => {
+                    isNavigatingRef.current = false;
+                    setActiveSection('hero');
+                  }, 800);
+                }
+              }}
+              className="flex items-center gap-2.5 group"
+            >
+              <Image
+                src="/images/app-icon.svg"
+                alt={siteConfig.name}
+                width={32}
+                height={32}
+                className="rounded-lg shadow-xs transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="font-bold text-base text-white tracking-tight flex items-center gap-1.5">
+                {siteConfig.name}
+              </span>
+            </Link>
+          </motion.div>
+        </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-1 sm:space-x-2">
-            {mainNavItems.map((item) => {
-              const isActive = activeSection === item.href;
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative px-3 py-1.5 text-xs font-semibold rounded-full transition-colors ${
+        {/* Desktop Navigation Links */}
+        <nav className="hidden lg:flex items-center space-x-7">
+          {NAV_ITEMS.map((item, index) => {
+            const isActive = activeSection === item.section;
+            return (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+              >
+                <button
+                  onClick={() => handleNavClick(item)}
+                  className={`text-xs uppercase tracking-wider font-semibold transition-colors relative py-1 ${
                     isActive
-                      ? 'text-[#E08213] dark:text-[#F7931A]'
-                      : 'text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/60 dark:hover:bg-zinc-800/60'
+                      ? 'text-[#F7931A]'
+                      : 'text-zinc-400 hover:text-white'
                   }`}
                 >
-                  <span className="relative z-10">{item.label}</span>
+                  {item.name}
                   {isActive && (
                     <motion.span
-                      layoutId="activeNavPill"
-                      className="absolute inset-0 bg-amber-50 dark:bg-amber-950/40 rounded-full border border-[#F7931A]/60 dark:border-[#C6720D]/40"
-                      transition={{
-                        type: 'spring',
-                        stiffness: 380,
-                        damping: 30,
-                      }}
+                      layoutId="activeIndicator"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#F7931A] rounded-full shadow-[0_0_8px_rgba(247,147,26,0.8)]"
+                      initial={false}
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
-                </a>
-              );
-            })}
-          </nav>
+                </button>
+              </motion.div>
+            );
+          })}
+        </nav>
 
-          {/* Right Actions (Theme + GitHub + Buttons) */}
-          <div className="hidden md:flex items-center gap-2">
-            <ThemeToggle />
+        {/* Right CTA Actions */}
+        <motion.div
+          className="hidden sm:flex items-center gap-3"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+        >
+          <Link
+            href={siteConfig.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800/60 border border-transparent hover:border-zinc-700 transition-all flex items-center justify-center"
+            aria-label="GitHub"
+          >
+            <GithubIcon className="size-4" />
+          </Link>
 
-            <a
-              href={siteConfig.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
-              aria-label="GitHub Repository"
-            >
-              <GithubIcon className="w-4 h-4" />
-            </a>
-
-            <Button
-              variant="light"
-              href={siteConfig.contactFormUrl}
-              isExternal
-              className="text-xs px-3.5 py-1.5 rounded-full"
-            >
-              Contact
-            </Button>
-
-            <Button
-              variant="primary"
-              href={siteConfig.releasesUrl}
-              isExternal
-              className="text-xs px-4 py-1.5 rounded-full shadow-xs"
-            >
-              Download
-            </Button>
-          </div>
-
-          {/* Mobile Menu Trigger */}
-          <div className="flex items-center gap-1 md:hidden">
-            <ThemeToggle />
-            <a
-              href={siteConfig.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white"
-              aria-label="GitHub"
-            >
-              <GithubIcon className="w-4 h-4" />
-            </a>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-full text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors focus:outline-none"
-              aria-label="Toggle navigation menu"
-            >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+          <Link
+            href={siteConfig.releasesUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-black bg-[#F7931A] hover:bg-[#E08213] rounded-full shadow-[0_0_20px_rgba(247,147,26,0.35)] hover:shadow-[0_0_25px_rgba(247,147,26,0.55)] transition-all duration-300 transform active:scale-95"
+          >
+            <span>Download App</span>
+            <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+          </Link>
         </motion.div>
 
-        {/* Mobile Dropdown Panel */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden mt-2 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-xl border border-gray-200/80 dark:border-zinc-800 rounded-3xl p-4 shadow-xl space-y-3"
-            >
-              <nav className="flex flex-col space-y-1">
-                {mainNavItems.map((item) => {
-                  const isActive = activeSection === item.href;
-                  return (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href)}
-                      className={`flex items-center justify-between px-4 py-2.5 text-sm font-medium rounded-xl transition-colors ${
-                        isActive
-                          ? 'bg-amber-50 dark:bg-amber-950/40 text-[#E08213] dark:text-[#F7931A] font-semibold'
-                          : 'text-gray-700 dark:text-zinc-300 hover:bg-gray-50 dark:hover:bg-zinc-800/60'
-                      }`}
-                    >
-                      <span>{item.label}</span>
-                      <ChevronRight className="w-4 h-4 opacity-40" />
-                    </a>
-                  );
-                })}
-              </nav>
-
-              <div className="pt-3 border-t border-gray-100 dark:border-zinc-800 flex flex-col gap-2">
-                <Button
-                  variant="primary"
-                  href={siteConfig.releasesUrl}
-                  isExternal
-                  className="w-full justify-center py-2.5 text-sm rounded-xl"
-                >
-                  Download Stable Channels
-                </Button>
-                <Button
-                  variant="light"
-                  href={siteConfig.contactFormUrl}
-                  isExternal
-                  className="w-full justify-center py-2 text-xs rounded-xl"
-                >
-                  Get in Touch
-                </Button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden p-2 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+        </button>
       </div>
-    </header>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="pointer-events-auto absolute top-full mt-2 inset-x-4 max-w-lg mx-auto bg-black/95 backdrop-blur-2xl rounded-2xl border border-zinc-800 p-5 shadow-2xl z-50"
+          >
+            <div className="flex flex-col space-y-3">
+              {NAV_ITEMS.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavClick(item)}
+                  className={`text-left text-sm font-semibold py-2 px-3 rounded-lg transition-colors ${
+                    activeSection === item.section
+                      ? 'text-[#F7931A] bg-[#F7931A]/10'
+                      : 'text-zinc-300 hover:text-white hover:bg-zinc-900'
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ))}
+
+              <div className="pt-3 border-t border-zinc-800/80 flex items-center justify-between gap-3">
+                <Link
+                  href={siteConfig.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-2 px-3 rounded-lg bg-zinc-900 text-zinc-300 hover:text-white border border-zinc-800 text-xs font-semibold flex items-center justify-center gap-2"
+                >
+                  <GithubIcon className="size-4" />
+                  <span>GitHub</span>
+                </Link>
+
+                <Link
+                  href={siteConfig.releasesUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-2 px-3 rounded-lg bg-[#F7931A] text-black text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-[#F7931A]/30"
+                >
+                  <Download className="size-4" />
+                  <span>Download</span>
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
+
+export default Navbar;
