@@ -12,13 +12,13 @@ export const faqsData: FaqItem[] = [
     id: 'faq-2',
     question: 'How does Stable Channels work?',
     answer:
-      'Stable Channels pairs users who want dollar stability with users who want more Bitcoin exposure in a Lightning channel. The system settles frequently based on the BTC/USD price — if the price goes up, the stable side pays the other side, and vice versa. This maintains a constant dollar value on one side.',
+      'Stable Channels pairs users who want dollar stability with users who want more Bitcoin exposure in a Lightning channel. The system settles frequently based on the BTC/USD price - if the price goes up, the stable side pays the other side, and vice versa. This maintains a constant dollar value on one side.',
   },
   {
     id: 'faq-3',
     question: 'What problem does it solve?',
     answer:
-      'Bitcoin price volatility. Stable Channels provides a decentralized, self-custodial alternative to custodial stablecoins — no banks, no token issuers, no asset freezes.',
+      'Bitcoin price volatility. Stable Channels provides a decentralized, self-custodial alternative to custodial stablecoins - no banks, no token issuers, no asset freezes.',
   },
   {
     id: 'faq-4',
@@ -30,7 +30,7 @@ export const faqsData: FaqItem[] = [
     id: 'faq-5',
     question: 'Is Stable Channels a stablecoin?',
     answer:
-      'No. Stable Channels does not issue any tokens. It uses native Bitcoin in Lightning channels to create synthetic dollar exposure. There are no new assets — only Bitcoin.',
+      'No. Stable Channels does not issue any tokens. It uses native Bitcoin in Lightning channels to create synthetic dollar exposure. There are no new assets - only Bitcoin.',
   },
   {
     id: 'faq-6',
