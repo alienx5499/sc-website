@@ -20,7 +20,7 @@ export const TheOpportunitySection: React.FC = () => {
                 alt={theOpportunityFeature.imageAlt}
                 width={340}
                 height={680}
-                className="rounded-3xl shadow-2xl mx-auto"
+                className="w-full h-auto rounded-3xl shadow-2xl mx-auto"
               />
             </div>
           </div>

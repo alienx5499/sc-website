@@ -16,7 +16,7 @@ export const ContinuousSettlementSection: React.FC = () => {
                 alt={continuousSettlementFeature.imageAlt}
                 width={320}
                 height={640}
-                className="rounded-3xl shadow-xl border border-gray-200/80 mx-auto"
+                className="w-full h-auto rounded-3xl shadow-xl border border-gray-200/80 mx-auto"
               />
             </div>
           </div>
