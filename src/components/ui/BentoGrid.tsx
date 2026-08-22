@@ -1,16 +1,36 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'motion/react';
 import { CardContent } from '@/components/ui/card';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { ShieldCheck, BarChart3, Globe, Layers } from 'lucide-react';
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 32, scale: 0.97 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.1,
+      ease: [0.21, 0.47, 0.32, 0.98] as const,
+    },
+  }),
+};
+
 export function BentoGrid() {
   return (
     <div className="mx-auto max-w-3xl lg:max-w-5xl px-4 sm:px-6">
-      <ul className="relative z-10 grid grid-cols-6 gap-4">
+      <motion.ul
+        className="relative z-10 grid grid-cols-6 gap-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-60px' }}
+      >
         {/* Card 1: Instant Continuous Settlement - Large Top Left */}
-        <li className="col-span-full list-none lg:col-span-2">
+        <motion.li custom={0} variants={cardVariants} className="col-span-full list-none lg:col-span-2">
           <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 bg-zinc-50/50 dark:bg-zinc-950/40">
             <GlowingEffect
               spread={40}
@@ -44,10 +64,10 @@ export function BentoGrid() {
               </CardContent>
             </div>
           </div>
-        </li>
+        </motion.li>
 
         {/* Card 2: LDK Node Lifecycle - Top Center */}
-        <li className="col-span-full list-none sm:col-span-3 lg:col-span-2">
+        <motion.li custom={1} variants={cardVariants} className="col-span-full list-none sm:col-span-3 lg:col-span-2">
           <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 bg-zinc-50/50 dark:bg-zinc-950/40">
             <GlowingEffect
               spread={40}
@@ -60,6 +80,8 @@ export function BentoGrid() {
             <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black p-6 shadow-xs dark:shadow-sm transition-colors duration-300">
               <CardContent className="pt-6">
                 <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-zinc-200 dark:border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-200/60 dark:before:border-zinc-800/50">
+                  {/* Animated pulse ring */}
+                  <div className="absolute inset-0 rounded-full border border-[#F7931A]/20 animate-[pulse-ring_3s_ease-in-out_infinite]" />
                   <Layers className="m-auto size-12 text-[#F7931A]" strokeWidth={1.5} />
                 </div>
                 <div className="relative z-10 mt-6 space-y-2 text-center">
@@ -73,10 +95,10 @@ export function BentoGrid() {
               </CardContent>
             </div>
           </div>
-        </li>
+        </motion.li>
 
         {/* Card 3: Transparent On-Chain - Top Right */}
-        <li className="col-span-full list-none sm:col-span-3 lg:col-span-2">
+        <motion.li custom={2} variants={cardVariants} className="col-span-full list-none sm:col-span-3 lg:col-span-2">
           <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 bg-zinc-50/50 dark:bg-zinc-950/40">
             <GlowingEffect
               spread={40}
@@ -89,6 +111,7 @@ export function BentoGrid() {
             <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black p-6 shadow-xs dark:shadow-sm transition-colors duration-300">
               <CardContent className="pt-6">
                 <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-zinc-200 dark:border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-200/60 dark:before:border-zinc-800/50">
+                  <div className="absolute inset-0 rounded-full border border-[#F7931A]/20 animate-[pulse-ring_3s_ease-in-out_infinite_0.5s]" />
                   <BarChart3 className="m-auto size-12 text-[#F7931A]" strokeWidth={1.5} />
                 </div>
                 <div className="relative z-10 mt-6 space-y-2 text-center">
@@ -102,10 +125,10 @@ export function BentoGrid() {
               </CardContent>
             </div>
           </div>
-        </li>
+        </motion.li>
 
         {/* Card 4: Self-Custodial Ownership - Bottom Left (Wide 3-col) */}
-        <li className="col-span-full list-none lg:col-span-3">
+        <motion.li custom={3} variants={cardVariants} className="col-span-full list-none lg:col-span-3">
           <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 bg-zinc-50/50 dark:bg-zinc-950/40">
             <GlowingEffect
               spread={40}
@@ -146,10 +169,10 @@ export function BentoGrid() {
               </CardContent>
             </div>
           </div>
-        </li>
+        </motion.li>
 
         {/* Card 5: Global Lightning Coverage - Bottom Right (Wide 3-col) */}
-        <li className="col-span-full list-none lg:col-span-3">
+        <motion.li custom={4} variants={cardVariants} className="col-span-full list-none lg:col-span-3">
           <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 bg-zinc-50/50 dark:bg-zinc-950/40">
             <GlowingEffect
               spread={40}
@@ -202,8 +225,8 @@ export function BentoGrid() {
               </CardContent>
             </div>
           </div>
-        </li>
-      </ul>
+        </motion.li>
+      </motion.ul>
     </div>
   );
 }
