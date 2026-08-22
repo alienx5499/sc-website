@@ -5,7 +5,7 @@ import { getStartedSteps } from '@/data/getStarted';
 
 export const GetStartedSection: React.FC = () => {
   return (
-    <section id="get-started" className="py-24 bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800/80 transition-colors duration-300">
+    <section id="get-started" data-section="get-started" className="py-24 bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800/80 transition-colors duration-300">
       <Container>
         <SectionHeader
           badge="Get Started"

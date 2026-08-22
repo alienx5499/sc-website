@@ -5,7 +5,7 @@ import { continuousSettlementFeature } from '@/data/features';
 
 export const ContinuousSettlementSection: React.FC = () => {
   return (
-    <section id="content-6" className="py-24 bg-zinc-50/50 dark:bg-black border-y border-zinc-200 dark:border-zinc-850 transition-colors duration-300">
+    <section id="content-6" data-section="content-6" className="py-24 bg-zinc-50/50 dark:bg-black border-y border-zinc-200 dark:border-zinc-850 transition-colors duration-300">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center">
           {/* Graphic Column */}

@@ -5,15 +5,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowRight, Download } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { GithubIcon } from '@/components/ui/Icons';
 import { ThemeToggle } from '@/components/theme/ThemeToggle';
 import { siteConfig } from '@/data/siteConfig';
 
 const NAV_ITEMS = [
   { name: 'Features', section: 'features' },
+  { name: 'How It Works', section: 'content-1' },
   { name: 'Settlement', section: 'content-6' },
-  { name: 'Process', section: 'content-1' },
+  { name: 'Engine', section: 'live-ticker' },
+  { name: 'Start', section: 'get-started' },
+  { name: 'Resources', section: 'reviews-2' },
   { name: 'FAQ', section: 'faqs-2' },
 ];
 
@@ -31,9 +34,18 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       if (isNavigatingRef.current) return;
 
-      const sections = ['hero', 'features', 'content-6', 'content-1', 'faqs-2'];
+      const sections = [
+        'hero',
+        'features',
+        'content-1',
+        'content-6',
+        'live-ticker',
+        'get-started',
+        'reviews-2',
+        'faqs-2',
+      ];
       const scrollPosition = window.scrollY;
-      const offset = 200;
+      const offset = 180;
 
       let currentSection = 'hero';
 
@@ -81,7 +93,7 @@ export const Navbar: React.FC = () => {
       document.querySelector(`#${sectionId}`);
 
     if (element) {
-      const offset = 90;
+      const offset = 85;
       const rect = (element as HTMLElement).getBoundingClientRect();
       const offsetPosition = rect.top + window.pageYOffset - offset;
 
@@ -105,7 +117,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-4 px-4 pointer-events-none">
-      <div className="pointer-events-auto flex items-center justify-between px-4 sm:px-6 py-2 bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-full shadow-lg shadow-black/5 dark:shadow-black/60 border border-zinc-200/80 dark:border-zinc-800/80 max-w-3xl w-full h-[54px] transition-colors duration-300">
+      <div className="pointer-events-auto flex items-center justify-between px-4 sm:px-6 py-2 bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-full shadow-lg shadow-black/5 dark:shadow-black/60 border border-zinc-200/80 dark:border-zinc-800/80 max-w-4xl w-full h-[54px] transition-colors duration-300">
         {/* Brand Logo & Name */}
         <Link
           href="/"
@@ -122,22 +134,22 @@ export const Navbar: React.FC = () => {
               }, 700);
             }
           }}
-          className="flex items-center gap-2.5 flex-shrink-0 group"
+          className="flex items-center gap-2 flex-shrink-0 group mr-2"
         >
           <Image
             src="/images/app-icon.svg"
             alt={siteConfig.name}
-            width={28}
-            height={28}
+            width={26}
+            height={26}
             className="rounded-md transition-transform duration-300 group-hover:scale-105"
           />
-          <span className="font-bold text-sm text-zinc-900 dark:text-white tracking-tight">
+          <span className="font-bold text-sm text-zinc-900 dark:text-white tracking-tight hidden sm:inline-block">
             {siteConfig.name}
           </span>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-6">
+        {/* Desktop Navigation Links (All Sections) */}
+        <nav className="hidden lg:flex items-center space-x-5 xl:space-x-6">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.section;
             return (
@@ -164,7 +176,7 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Right CTA Actions */}
+        {/* Right Actions: Theme Toggle & GitHub */}
         <div className="flex items-center gap-2">
           <ThemeToggle />
 
@@ -172,26 +184,16 @@ export const Navbar: React.FC = () => {
             href={siteConfig.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:flex p-1.5 rounded-full text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+            className="p-1.5 rounded-full text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
             aria-label="GitHub"
           >
             <GithubIcon className="size-4" />
           </Link>
 
-          <Link
-            href={siteConfig.releasesUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold text-black bg-[#F7931A] hover:bg-[#E08213] rounded-full shadow-xs shadow-[#F7931A]/30 transition-all duration-300 transform active:scale-95"
-          >
-            <span>Download</span>
-            <ArrowRight className="size-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-          </Link>
-
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-1.5 rounded-full text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+            className="lg:hidden p-1.5 rounded-full text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -224,25 +226,15 @@ export const Navbar: React.FC = () => {
                 </button>
               ))}
 
-              <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 flex items-center gap-2">
+              <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
                 <Link
                   href={siteConfig.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-2 px-3 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800 text-xs font-semibold flex items-center justify-center gap-2"
+                  className="w-full py-2 px-3 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800 text-xs font-semibold flex items-center justify-center gap-2"
                 >
                   <GithubIcon className="size-4" />
-                  <span>GitHub</span>
-                </Link>
-
-                <Link
-                  href={siteConfig.releasesUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 py-2 px-3 rounded-lg bg-[#F7931A] text-black text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs shadow-[#F7931A]/30"
-                >
-                  <Download className="size-3.5" />
-                  <span>Download</span>
+                  <span>GitHub Repository</span>
                 </Link>
               </div>
             </div>

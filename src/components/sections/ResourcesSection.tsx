@@ -8,6 +8,7 @@ export const ResourcesSection: React.FC = () => {
   return (
     <section
       id="reviews-2"
+      data-section="reviews-2"
       className="py-24 bg-zinc-50/70 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800/80 transition-colors duration-300"
     >
       <Container>

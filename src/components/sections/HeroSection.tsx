@@ -8,7 +8,8 @@ import { siteConfig } from '@/data/siteConfig';
 export const HeroSection: React.FC = () => {
   return (
     <section
-      id="hero-2"
+      id="hero"
+      data-section="hero"
       className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-gradient-to-b from-zinc-50 via-white to-zinc-50/50 dark:from-black dark:via-black dark:to-black overflow-hidden transition-colors duration-300"
     >
       {/* Background Subtle Gradient Glow */}
