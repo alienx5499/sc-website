@@ -7,7 +7,7 @@ import { howItWorksFeature } from '@/data/features';
 
 export const HowItWorksSection: React.FC = () => {
   return (
-    <section id="content-1" className="py-24 bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800/80 transition-colors duration-300">
+    <section id="content-1" data-section="content-1" className="py-24 bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800/80 transition-colors duration-300">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center">
           {/* Copy Column */}
