@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
@@ -9,124 +9,10 @@ import { GithubIcon, TwitterIcon } from '@/components/ui/Icons';
 import { Badge } from '@/components/ui/badge';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { SparklesCore } from '@/components/ui/sparkles';
+import { AppIconModel } from '@/components/3d/AppIconModel';
 import { siteConfig } from '@/data/siteConfig';
 
-// Color palette for ASCII logo animation
-const asciiColors = [
-  'rgba(255, 255, 255, 0.9)', // white
-  'rgba(245, 158, 11, 0.9)', // amber
-  'rgba(234, 179, 8, 0.9)', // gold
-  'rgba(217, 119, 6, 0.9)', // orange
-  'rgba(255, 255, 255, 0.9)', // back to white
-];
-
-// ASCII Logo Component with Random Character Animation
-function AnimatedAsciiLogo() {
-  const baseAscii = `                                  ***                       
-                          **    ***                         
-                           ******                           
-                                                            
-                  ************************                  
-                  **                    **                  
-                  **  ***************   **                  
-                  **  **         ****   **                  
-                  **            **      **                  
-                  **         ***        **                  
-                  **       ***      **  **                  
-                  **     ***        **  **                  
-                   **  ***        ***  **                   
-                    **    ***  ****   **                    
-                      ***    **    ***                      
-                         ***    ***                         
-                            ****`;
-
-  const charSet = "!@#$%^&*()~`_+-=[]{}|;:',.<>?/";
-  const [asciiArt, setAsciiArt] = useState(baseAscii);
-  const [colorIndex, setColorIndex] = useState(0);
-  const [glowIntensity, setGlowIntensity] = useState(0.5);
-  const [scale, setScale] = useState(1);
-
-  useEffect(() => {
-    const randomizeChars = () => {
-      const lines = baseAscii.split('\n');
-      const randomized = lines
-        .map((line) =>
-          line
-            .split('')
-            .map((char) => {
-              if (char !== ' ') {
-                if (Math.random() < 0.3) {
-                  return charSet[Math.floor(Math.random() * charSet.length)];
-                }
-              }
-              return char;
-            })
-            .join('')
-        )
-        .join('\n');
-      setAsciiArt(randomized);
-    };
-
-    randomizeChars();
-    const interval = setInterval(() => {
-      randomizeChars();
-    }, 300 + Math.random() * 500);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const colorInterval = setInterval(() => {
-      setColorIndex((prev) => (prev + 1) % asciiColors.length);
-    }, 2000 + Math.random() * 2000);
-
-    return () => clearInterval(colorInterval);
-  }, []);
-
-  useEffect(() => {
-    const glowInterval = setInterval(() => {
-      setGlowIntensity((prev) => (prev >= 0.7 ? 0.3 : prev + 0.05));
-    }, 100);
-
-    return () => clearInterval(glowInterval);
-  }, []);
-
-  useEffect(() => {
-    const scaleInterval = setInterval(() => {
-      setScale((prev) => (prev >= 1.02 ? 0.98 : prev + 0.002));
-    }, 50);
-
-    return () => clearInterval(scaleInterval);
-  }, []);
-
-  const currentColor = asciiColors[colorIndex];
-  const [r, g, b] = currentColor
-    .match(/\d+/g)
-    ?.slice(0, 3)
-    .map(Number) || [255, 255, 255];
-
-  return (
-    <pre
-      className="text-[10px] xl:text-[13px] font-mono whitespace-pre select-none"
-      style={{
-        fontFamily: 'monospace',
-        letterSpacing: '0.15px',
-        lineHeight: '1.2',
-        color: currentColor,
-        transition:
-          'color 2.5s ease-in-out, transform 0.1s ease-out, filter 0.1s ease-out',
-        transform: `scale(${scale})`,
-        filter: `drop-shadow(0 0 ${glowIntensity * 8}px rgba(${r}, ${g}, ${b}, ${glowIntensity})) 
-                 drop-shadow(0 0 ${glowIntensity * 4}px rgba(${r}, ${g}, ${b}, ${glowIntensity * 0.6}))`,
-        textShadow: `0 0 ${glowIntensity * 6}px rgba(${r}, ${g}, ${b}, ${glowIntensity * 0.8})`,
-      }}
-    >
-      {asciiArt}
-    </pre>
-  );
-}
-
-// Top Footer Section with CTA
+// Top Footer Section with 3D App Icon and Interactive CTA
 function FooterCTA() {
   return (
     <div className="relative w-full h-[20rem] rounded-[1.25rem] border-[0.75px] border-gray-800 p-2 md:rounded-[1.5rem] md:p-3">
@@ -203,11 +89,9 @@ function FooterCTA() {
           />
         </div>
 
-        {/* Logo positioned in top right */}
-        <div className="absolute right-0 xl:right-0 md:flex hidden top-4 xl:top-6 bottom-4 xl:bottom-6 left-auto items-center justify-center p-2 xl:p-3">
-          <div className="flex items-center justify-center h-full">
-            <AnimatedAsciiLogo />
-          </div>
+        {/* 3D App Icon positioned in top right */}
+        <div className="absolute right-0 xl:right-4 md:flex hidden top-2 bottom-2 left-auto items-center justify-center p-2 xl:p-4 pointer-events-auto">
+          <AppIconModel className="w-56 h-56 xl:w-64 xl:h-64 drop-shadow-[0_0_25px_rgba(245,158,11,0.35)]" />
         </div>
 
         <div className="relative z-10 flex flex-col items-start px-4 md:px-8 pt-2 pb-4 justify-between sm:justify-center h-full">
@@ -456,12 +340,12 @@ export function Footer() {
                       </li>
                       <li>
                         <a
-                          href="https://github.com/toneloc/stable-channels/blob/main/LICENSE"
+                          href={siteConfig.licenseUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-neutral-400 hover:text-amber-300 transition-colors duration-200 inline-block relative group"
                         >
-                          License
+                          GPLv3 License
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-300 transition-all duration-200 group-hover:w-full" />
                         </a>
                       </li>
@@ -473,7 +357,7 @@ export function Footer() {
                 <div className="border-t border-gray-800/50 pt-8">
                   <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                     <p className="text-sm text-neutral-400">
-                      © {new Date().getFullYear()} {siteConfig.name}. Open source under the MIT License.
+                      © {new Date().getFullYear()} {siteConfig.name}. Open source under the GPLv3 License.
                     </p>
                     <p className="text-sm text-neutral-400 flex items-center gap-1.5">
                       Built with{' '}
