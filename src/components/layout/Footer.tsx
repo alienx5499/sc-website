@@ -15,7 +15,7 @@ import { siteConfig } from '@/data/siteConfig';
 // Top Footer Section with 3D App Icon and Interactive CTA
 function FooterCTA() {
   return (
-    <div className="relative w-full h-[20rem] rounded-[1.25rem] border-[0.75px] border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3">
+    <div className="relative w-full h-[20rem] rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 transition-colors duration-300">
       <GlowingEffect
         spread={40}
         glow={true}
@@ -24,7 +24,7 @@ function FooterCTA() {
         inactiveZone={0.01}
         borderWidth={3}
       />
-      <footer className="relative overflow-hidden rounded-xl border-[0.75px] border-zinc-800 bg-black w-full h-full">
+      <footer className="relative overflow-hidden rounded-xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-black w-full h-full transition-colors duration-300">
         {/* Animated Background gradient using exact logo yellow #F7931A */}
         <div className="absolute inset-0 w-full h-full">
           <motion.div
@@ -84,22 +84,22 @@ function FooterCTA() {
             minSize={0.4}
             maxSize={1}
             particleDensity={100}
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full opacity-50 dark:opacity-100"
             particleColor="#F7931A"
           />
         </div>
 
         {/* 3D App Icon positioned in top right */}
         <div className="absolute right-0 xl:right-4 md:flex hidden top-2 bottom-2 left-auto items-center justify-center p-2 xl:p-4 pointer-events-auto">
-          <AppIconModel className="w-56 h-56 xl:w-64 xl:h-64 drop-shadow-[0_0_30px_rgba(247,147,26,0.45)]" />
+          <AppIconModel className="w-56 h-56 xl:w-64 xl:h-64 drop-shadow-[0_0_30px_rgba(247,147,26,0.3)] dark:drop-shadow-[0_0_30px_rgba(247,147,26,0.45)]" />
         </div>
 
         <div className="relative z-10 flex flex-col items-start px-4 md:px-8 pt-2 pb-4 justify-between sm:justify-center h-full">
           <div className="relative flex flex-col items-start justify-start">
-            <p className="max-w-lg mt-3 tracking-tight font-semibold text-xl md:text-3xl text-left bg-clip-text text-transparent bg-gradient-to-b from-white via-zinc-100 to-[#F7931A]">
+            <p className="max-w-lg mt-3 tracking-tight font-semibold text-xl md:text-3xl text-left bg-clip-text text-transparent bg-gradient-to-b from-zinc-900 via-zinc-600 to-[#F7931A] dark:from-white dark:via-zinc-100 dark:to-[#F7931A]">
               Ready to experience dollar stability on Bitcoin?
             </p>
-            <p className="text-sm pt-3 text-neutral-300 max-w-xl text-left">
+            <p className="text-sm pt-3 text-zinc-600 dark:text-neutral-300 max-w-xl text-left transition-colors">
               Get instant USD stability in a self-custodial wallet. No banks, no synthetic tokens - transparent, continuous settlement over Lightning.
             </p>
           </div>
@@ -112,24 +112,24 @@ function FooterCTA() {
             transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
           >
             <Link
-              className="w-full md:w-52 h-12 text-black font-bold relative isolate inline-flex items-center justify-center overflow-hidden rounded-md px-3 text-left text-sm bg-[#F7931A] hover:bg-[#E08213] transition-all duration-300 shadow-lg shadow-[#F7931A]/30 hover:shadow-xl hover:shadow-[#F7931A]/50 group gap-2"
+              className="w-full md:w-52 h-12 text-black font-bold relative isolate inline-flex items-center justify-center overflow-hidden rounded-md px-3 text-left text-sm bg-[#F7931A] hover:bg-[#E08213] transition-all duration-300 shadow-lg shadow-[#F7931A]/20 dark:shadow-[#F7931A]/30 hover:shadow-xl hover:shadow-[#F7931A]/40 dark:hover:shadow-[#F7931A]/50 group gap-2"
               href={siteConfig.releasesUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
               <span>Download App</span>
-              <Badge className="bg-black/20 p-1 text-black transition-all duration-200 ease-in-out group-hover:shadow-xl shadow-background/70 border-transparent">
+              <Badge className="bg-black/10 dark:bg-black/20 p-1 text-black transition-all duration-200 ease-in-out group-hover:shadow-xl shadow-background/70 border-transparent">
                 <CornerDownLeft className="size-4" />
               </Badge>
             </Link>
             <Link
-              className="w-full md:w-52 h-12 text-white border border-[#F7931A]/50 bg-black/50 hover:bg-[#F7931A]/10 hover:border-[#F7931A] hover:text-white relative isolate inline-flex items-center justify-center overflow-hidden rounded-md px-3 text-left text-sm font-medium transition-all duration-300 group gap-2"
+              className="w-full md:w-52 h-12 text-zinc-900 dark:text-white border border-[#F7931A]/30 dark:border-[#F7931A]/50 bg-white/50 dark:bg-black/50 hover:bg-[#F7931A]/10 hover:border-[#F7931A] hover:text-zinc-900 dark:hover:text-white relative isolate inline-flex items-center justify-center overflow-hidden rounded-md px-3 text-left text-sm font-medium transition-all duration-300 group gap-2 shadow-xs"
               href={siteConfig.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="text-white group-hover:text-white z-10">GitHub</span>
-              <Badge className="bg-[#F7931A]/30 text-white border-[#F7931A]/50 transition-all duration-200 group-hover:shadow-xl group-hover:bg-[#F7931A]/50 shadow-white/70 z-10">
+              <span className="text-zinc-900 dark:text-white group-hover:text-zinc-900 dark:group-hover:text-white z-10 transition-colors">GitHub</span>
+              <Badge className="bg-[#F7931A]/20 dark:bg-[#F7931A]/30 text-zinc-900 dark:text-white border-[#F7931A]/30 dark:border-[#F7931A]/50 transition-all duration-200 group-hover:shadow-xl group-hover:bg-[#F7931A]/50 shadow-white/70 z-10">
                 <GithubIcon className="size-4" />
               </Badge>
             </Link>
@@ -143,9 +143,9 @@ function FooterCTA() {
 // Main Footer Component
 export function Footer() {
   return (
-    <section id="footer" className="relative bg-black py-12 px-4">
+    <section id="footer" className="relative bg-white dark:bg-black py-12 px-4 transition-colors duration-300 border-t border-zinc-200 dark:border-transparent">
       <div className="container mx-auto max-w-7xl">
-        <div className="relative w-full rounded-3xl border-[0.75px] border-zinc-800 p-2">
+        <div className="relative w-full rounded-3xl border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 transition-colors duration-300">
           <GlowingEffect
             spread={40}
             glow={true}
@@ -154,7 +154,7 @@ export function Footer() {
             inactiveZone={0.01}
             borderWidth={3}
           />
-          <footer className="relative overflow-hidden rounded-3xl border-[0.75px] border-zinc-800 bg-black w-full">
+          <footer className="relative overflow-hidden rounded-3xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black w-full transition-colors duration-300 shadow-sm dark:shadow-none">
             <div className="p-4">
               <FooterCTA />
             </div>
@@ -176,13 +176,13 @@ export function Footer() {
                         alt={siteConfig.name}
                         width={36}
                         height={36}
-                        className="rounded-lg"
+                        className="rounded-lg shadow-sm"
                       />
-                      <span className="text-xl font-bold text-white tracking-tight">
+                      <span className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight transition-colors">
                         {siteConfig.name}
                       </span>
                     </div>
-                    <p className="text-sm text-neutral-300 mb-4 leading-relaxed">
+                    <p className="text-sm text-zinc-600 dark:text-neutral-300 mb-4 leading-relaxed transition-colors">
                       Self-custodial USD stability on Bitcoin Lightning. No banks, no synthetic tokens, and zero custody risk.
                     </p>
                     <div className="flex gap-2">
@@ -194,7 +194,7 @@ export function Footer() {
                           href={siteConfig.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-[#F7931A]/10 border border-transparent hover:border-[#F7931A]/50 transition-all inline-flex items-center justify-center"
+                          className="p-2 rounded-lg text-zinc-500 dark:text-neutral-400 hover:text-zinc-900 dark:hover:text-white hover:bg-[#F7931A]/10 border border-transparent hover:border-[#F7931A]/50 transition-all inline-flex items-center justify-center"
                           aria-label="GitHub"
                         >
                           <GithubIcon className="h-4 w-4" />
@@ -208,7 +208,7 @@ export function Footer() {
                           href={siteConfig.telegramUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-[#F7931A]/10 border border-transparent hover:border-[#F7931A]/50 transition-all inline-flex items-center justify-center"
+                          className="p-2 rounded-lg text-zinc-500 dark:text-neutral-400 hover:text-zinc-900 dark:hover:text-white hover:bg-[#F7931A]/10 border border-transparent hover:border-[#F7931A]/50 transition-all inline-flex items-center justify-center"
                           aria-label="Telegram"
                         >
                           <TwitterIcon className="h-4 w-4" />
@@ -227,7 +227,7 @@ export function Footer() {
                       <li>
                         <a
                           href="#services-1"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           Architecture &amp; Pillars
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -236,7 +236,7 @@ export function Footer() {
                       <li>
                         <a
                           href="#content-1"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           How It Works
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -245,7 +245,7 @@ export function Footer() {
                       <li>
                         <a
                           href="#content-6"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           Continuous Settlement
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -254,7 +254,7 @@ export function Footer() {
                       <li>
                         <a
                           href="#get-started"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           Get Started
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -275,7 +275,7 @@ export function Footer() {
                           href={siteConfig.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           GitHub Repository
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -284,7 +284,7 @@ export function Footer() {
                       <li>
                         <a
                           href="#reviews-2"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           Documentation
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -295,7 +295,7 @@ export function Footer() {
                           href={siteConfig.releasesUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           Releases
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -304,7 +304,7 @@ export function Footer() {
                       <li>
                         <a
                           href="#faqs-2"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           FAQ
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -323,7 +323,7 @@ export function Footer() {
                       <li>
                         <Link
                           href="/privacy"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           Privacy Policy
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -332,7 +332,7 @@ export function Footer() {
                       <li>
                         <Link
                           href="/privacy"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           Terms of Service
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -343,7 +343,7 @@ export function Footer() {
                           href={siteConfig.licenseUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-neutral-400 hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
+                          className="text-zinc-500 dark:text-neutral-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors duration-200 inline-block relative group"
                         >
                           GPLv3 License
                           <span className="absolute left-0 bottom-0 w-0 h-px bg-[#F7931A] transition-all duration-200 group-hover:w-full" />
@@ -354,12 +354,12 @@ export function Footer() {
                 </motion.div>
 
                 {/* Bottom Section */}
-                <div className="border-t border-zinc-800/50 pt-8">
+                <div className="border-t border-zinc-200 dark:border-zinc-800/50 pt-8 transition-colors">
                   <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <p className="text-sm text-neutral-400">
+                    <p className="text-sm text-zinc-500 dark:text-neutral-400 transition-colors">
                       © {new Date().getFullYear()} {siteConfig.name}. Open source under the GPLv3 License.
                     </p>
-                    <p className="text-sm text-neutral-400 flex items-center gap-1.5">
+                    <p className="text-sm text-zinc-500 dark:text-neutral-400 flex items-center gap-1.5 transition-colors">
                       Built with{' '}
                       <Heart className="inline h-3 w-3 text-[#F7931A] fill-current animate-pulse" />{' '}
                       for Bitcoiners worldwide.
