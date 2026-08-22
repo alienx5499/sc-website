@@ -39,22 +39,22 @@ export const AppIconModel: React.FC<AppIconModelProps> = ({
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.2;
+    renderer.toneMappingExposure = 1.25;
     container.appendChild(renderer.domElement);
 
     // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
     scene.add(ambientLight);
 
-    const dirLight1 = new THREE.DirectionalLight(0xf7931a, 2.5);
+    const dirLight1 = new THREE.DirectionalLight(0xf7931a, 2.8);
     dirLight1.position.set(5, 5, 5);
     scene.add(dirLight1);
 
-    const dirLight2 = new THREE.DirectionalLight(0xf7931a, 1.8);
+    const dirLight2 = new THREE.DirectionalLight(0xf7931a, 2.0);
     dirLight2.position.set(-5, -3, -2);
     scene.add(dirLight2);
 
-    const pointLight = new THREE.PointLight(0xffffff, 1.5, 10);
+    const pointLight = new THREE.PointLight(0xffffff, 1.8, 10);
     pointLight.position.set(0, 2, 3);
     scene.add(pointLight);
 
@@ -96,22 +96,6 @@ export const AppIconModel: React.FC<AppIconModelProps> = ({
       }
     );
 
-    // Mouse parallax / interaction
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetRotationX = 0;
-    let targetRotationY = 0;
-
-    const handlePointerMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      mouseX = x * 2;
-      mouseY = y * 2;
-    };
-
-    window.addEventListener('mousemove', handlePointerMove);
-
     // Resize observer
     const handleResize = () => {
       if (!container) return;
@@ -127,25 +111,23 @@ export const AppIconModel: React.FC<AppIconModelProps> = ({
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(container);
 
-    // Animation Loop
+    // Pure autonomous animation loop (constant smooth rotation and floating bounce, unaffected by mouse)
     let animationFrameId: number;
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
 
       const elapsedTime = clock.getElapsedTime();
 
-      // Continuous rotation
-      modelGroup.rotation.y = elapsedTime * 0.6;
-      modelGroup.rotation.x = Math.sin(elapsedTime * 0.8) * 0.15;
+      // Continuous 360 rotation
+      modelGroup.rotation.y = elapsedTime * 0.75;
+      // Gentle rhythmic tilt
+      modelGroup.rotation.x = Math.sin(elapsedTime * 1.2) * 0.18;
+      modelGroup.rotation.z = Math.cos(elapsedTime * 0.9) * 0.08;
 
-      // Parallax blend
-      targetRotationY = mouseX * 0.4;
-      targetRotationX = -mouseY * 0.3;
-
-      modelGroup.position.x += (targetRotationY - modelGroup.position.x) * 0.05;
-      modelGroup.position.y += (targetRotationX - modelGroup.position.y) * 0.05;
+      // Smooth vertical floating hover
+      modelGroup.position.y = Math.sin(elapsedTime * 1.5) * 0.12;
 
       renderer.render(scene, camera);
     };
@@ -154,7 +136,6 @@ export const AppIconModel: React.FC<AppIconModelProps> = ({
 
     return () => {
       isMounted = false;
-      window.removeEventListener('mousemove', handlePointerMove);
       resizeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
 
@@ -168,13 +149,13 @@ export const AppIconModel: React.FC<AppIconModelProps> = ({
   }, [modelPath]);
 
   return (
-    <div className={`relative flex items-center justify-center ${className}`}>
+    <div className={`relative flex items-center justify-center pointer-events-none select-none ${className}`}>
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-8 h-8 rounded-full border-2 border-[#F7931A]/30 border-t-[#F7931A] animate-spin" />
         </div>
       )}
-      <div ref={containerRef} className="w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing" />
+      <div ref={containerRef} className="w-full h-full flex items-center justify-center" />
     </div>
   );
 };
