@@ -1,197 +1,60 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/Button";
-import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { motion } from "motion/react";
-import { CornerDownLeft, Plane, Zap, Shield, FileText, HelpCircle, Lock } from "lucide-react";
-import { Heart } from "lucide-react";
-import { GithubIcon, TwitterIcon } from "@/components/ui/Icons";
-import Image from "next/image";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { SparklesCore } from "@/components/ui/sparkles";
-import { useState, useEffect } from "react";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'motion/react';
+import { CornerDownLeft, Zap, Shield, FileText, Lock, Heart } from 'lucide-react';
+import { GithubIcon, TwitterIcon } from '@/components/ui/Icons';
+import { Badge } from '@/components/ui/badge';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { SparklesCore } from '@/components/ui/sparkles';
+import { siteConfig } from '@/data/siteConfig';
 
-// Color palette for ASCII logo animation
-const asciiColors = [
-  'rgba(255, 255, 255, 0.9)',  // white
-  'rgba(139, 92, 246, 0.9)',  // purple
-  'rgba(236, 72, 153, 0.9)',  // pink
-  'rgba(6, 182, 212, 0.9)',   // cyan
-  'rgba(255, 255, 255, 0.9)',  // back to white
-];
-
-// ASCII Logo Component with Random Character Animation
-function AnimatedAsciiLogo() {
-  const baseAscii = `                                  ***                       
-                          **    ***                         
-                           ******                           
-                                                            
-                  ************************                  
-                  **                    **                  
-                  **  ***************   **                  
-                  **  **         ****   **                  
-                  **            **      **                  
-                  **         ***        **                  
-                  **       ***      **  **                  
-                  **     ***        **  **                  
-                   **  ***        ***  **                   
-                    **    ***  ****   **                    
-                      ***    **    ***                      
-                         ***    ***                         
-                            ****`;
-
-  const charSet = "!@#$%^&*()~`_+-=[]{}|;:',.<>?/";
-  const [asciiArt, setAsciiArt] = useState(baseAscii);
-  const [colorIndex, setColorIndex] = useState(0);
-  const [glowIntensity, setGlowIntensity] = useState(0.5);
-  const [scale, setScale] = useState(1);
-
-  useEffect(() => {
-    const randomizeChars = () => {
-      const lines = baseAscii.split('\n');
-      const randomized = lines.map(line => {
-        return line.split('').map(char => {
-          // Randomize all non-space characters that form the logo
-          if (char !== ' ') {
-            // 30% chance to change to a random character from the set
-            if (Math.random() < 0.3) {
-              return charSet[Math.floor(Math.random() * charSet.length)];
-            }
-          }
-          return char;
-        }).join('');
-      }).join('\n');
-      setAsciiArt(randomized);
-    };
-
-    // Initial randomization
-    randomizeChars();
-
-    // Randomize every 300-800ms for dynamic effect
-    const interval = setInterval(() => {
-      randomizeChars();
-    }, 300 + Math.random() * 500);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    // Smooth color transition every 2-4 seconds
-    const colorInterval = setInterval(() => {
-      setColorIndex((prev) => (prev + 1) % asciiColors.length);
-    }, 2000 + Math.random() * 2000);
-
-    return () => clearInterval(colorInterval);
-  }, []);
-
-  useEffect(() => {
-    // Subtle pulse/glow animation
-    const glowInterval = setInterval(() => {
-      setGlowIntensity((prev) => {
-        // Oscillate between 0.3 and 0.7
-        return prev >= 0.7 ? 0.3 : prev + 0.05;
-      });
-    }, 100);
-
-    return () => clearInterval(glowInterval);
-  }, []);
-
-  useEffect(() => {
-    // Subtle scale pulse animation
-    const scaleInterval = setInterval(() => {
-      setScale((prev) => {
-        // Oscillate between 0.98 and 1.02
-        return prev >= 1.02 ? 0.98 : prev + 0.002;
-      });
-    }, 50);
-
-    return () => clearInterval(scaleInterval);
-  }, []);
-
-  const currentColor = asciiColors[colorIndex];
-  const [r, g, b] = currentColor.match(/\d+/g)?.slice(0, 3).map(Number) || [255, 255, 255];
-  
-  return (
-    <pre 
-      className="text-[10px] xl:text-[13px] font-mono whitespace-pre select-none" 
-      style={{ 
-        fontFamily: 'monospace', 
-        letterSpacing: '0.15px', 
-        lineHeight: '1.2',
-        color: currentColor,
-        transition: 'color 2.5s ease-in-out, transform 0.1s ease-out, filter 0.1s ease-out',
-        transform: `scale(${scale})`,
-        filter: `drop-shadow(0 0 ${glowIntensity * 8}px rgba(${r}, ${g}, ${b}, ${glowIntensity})) 
-                 drop-shadow(0 0 ${glowIntensity * 4}px rgba(${r}, ${g}, ${b}, ${glowIntensity * 0.6}))`,
-        textShadow: `0 0 ${glowIntensity * 6}px rgba(${r}, ${g}, ${b}, ${glowIntensity * 0.8})`
-      }}
-    >
-      {asciiArt}
-    </pre>
-  );
-}
-
-// Top Footer Section with CTA
+// Top Footer Section with Interactive CTA matching Zyura architecture
 function FooterCTA() {
   return (
-    <div className="relative w-full h-[20rem] rounded-[1.25rem] border-[0.75px] border-gray-800 p-2 md:rounded-[1.5rem] md:p-3">
+    <div className="relative w-full rounded-2xl md:rounded-3xl border border-zinc-800 p-1.5 sm:p-2 mb-8">
       <GlowingEffect
         spread={40}
         glow={true}
         disabled={false}
         proximity={64}
         inactiveZone={0.01}
-        borderWidth={3}
+        borderWidth={2}
       />
-      <footer className="relative overflow-hidden rounded-xl border-[0.75px] border-gray-800 bg-black w-full h-full">
-        {/* Animated Background gradient with purple/pink/cyan */}
-        <div className="absolute inset-0 w-full h-full">
+      <div className="relative overflow-hidden rounded-xl md:rounded-2xl border border-zinc-800/80 bg-zinc-950 p-6 sm:p-8 md:p-10 w-full">
+        {/* Animated Background gradient with amber/gold */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none">
           <motion.div
-            className="absolute top-0 left-0 h-[400px] w-[400px] rounded-full opacity-30 blur-[120px]"
+            className="absolute top-0 left-0 h-[280px] w-[280px] rounded-full opacity-25 blur-[100px]"
             style={{
-              background: `radial-gradient(circle at center, #8b5cf6, transparent 70%)`,
+              background: 'radial-gradient(circle at center, #F59E0B, transparent 70%)',
             }}
             animate={{
-              x: [0, 30, 0],
-              y: [0, 20, 0],
+              x: [0, 25, 0],
+              y: [0, 15, 0],
             }}
             transition={{
               duration: 8,
               repeat: Infinity,
-              ease: "easeInOut",
+              ease: 'easeInOut',
             }}
           />
           <motion.div
-            className="absolute right-0 bottom-0 h-[300px] w-[300px] rounded-full opacity-20 blur-[100px]"
+            className="absolute right-0 bottom-0 h-[240px] w-[240px] rounded-full opacity-20 blur-[80px]"
             style={{
-              background: `radial-gradient(circle at center, #ec4899, transparent 70%)`,
+              background: 'radial-gradient(circle at center, #D97706, transparent 70%)',
             }}
             animate={{
               x: [0, -20, 0],
-              y: [0, -30, 0],
+              y: [0, -20, 0],
             }}
             transition={{
               duration: 10,
               repeat: Infinity,
-              ease: "easeInOut",
+              ease: 'easeInOut',
               delay: 1,
-            }}
-          />
-          <motion.div
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[200px] w-[200px] rounded-full opacity-15 blur-[80px]"
-            style={{
-              background: `radial-gradient(circle at center, #06b6d4, transparent 70%)`,
-            }}
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.15, 0.25, 0.15],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.5,
             }}
           />
         </div>
@@ -202,320 +65,274 @@ function FooterCTA() {
             id="footer-sparkles"
             background="transparent"
             minSize={0.4}
-            maxSize={1}
-            particleDensity={100}
+            maxSize={1.2}
+            particleDensity={60}
             className="absolute inset-0 w-full h-full"
-            particleColor="#8b5cf6"
+            particleColor="#F59E0B"
           />
         </div>
 
-        {/* Logo positioned in top right */}
-        <div className="absolute right-0 xl:right-0 md:flex hidden top-4 xl:top-6 bottom-4 xl:bottom-6 left-auto items-center justify-center p-2 xl:p-3">
-          <div className="flex items-center justify-center h-full">
-            <AnimatedAsciiLogo />
+        {/* Content Container */}
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 text-center md:text-left max-w-xl">
+            <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+              Ready to get USD stability on Bitcoin?
+            </h3>
+            <p className="text-sm text-zinc-400 leading-relaxed">
+              A steady dollar balance, in a wallet you control. No banks, no synthetic tokens, and zero custodial risk.
+            </p>
           </div>
-        </div>
 
-        <div className="relative z-10 flex flex-col items-start px-4 md:px-8 pt-2 pb-4 justify-between sm:justify-center h-full">
-          <div className="relative flex flex-col items-start justify-start">
-            <p className="max-w-lg mt-3 tracking-tight font-semibold text-xl md:text-3xl text-left bg-clip-text text-transparent bg-gradient-to-b from-white via-purple-200 to-pink-200">
-              Ready to experience instant, automated flight delay protection?
-            </p>
-            <p className="text-sm pt-3 text-neutral-300 max-w-xl text-left">
-              Get instant USDC payouts when your flight is delayed. No claims forms, no adjusters-just transparent, community-governed protection powered by Solana smart contracts.
-            </p>
-          </div>
           <motion.div
-            className="w-full flex flex-row md:gap-4 gap-2 flex-wrap md:justify-start justify-center items-stretch md:items-start mt-6"
+            className="flex flex-wrap items-center justify-center gap-3 shrink-0"
             variants={{
-              hidden: { opacity: 0, y: 20 },
+              hidden: { opacity: 0, y: 15 },
               visible: { opacity: 1, y: 0 },
             }}
-            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
           >
             <Link
-              className="w-full md:w-52 h-12 text-white relative isolate inline-flex items-center justify-center overflow-hidden rounded-md px-3 text-left text-sm font-medium bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 hover:from-purple-500 hover:via-pink-500 hover:to-cyan-500 transition-all duration-300 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/70 group gap-2"
-              href="#contact"
+              href={siteConfig.releasesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-11 px-5 text-black font-bold text-sm bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 rounded-xl inline-flex items-center justify-center gap-2 transition-all shadow-lg shadow-amber-500/20 hover:scale-105 active:scale-95"
             >
-              <span>Get Started</span>
-              <Badge className="bg-white/20 p-1 text-white transition-all duration-200 ease-in-out group-hover:shadow-xl shadow-background/70">
-                <CornerDownLeft className="size-4" />
+              <span>Download App</span>
+              <Badge className="bg-black/20 p-1 text-black border-transparent">
+                <CornerDownLeft className="size-3.5" />
               </Badge>
             </Link>
 
             <Link
-              className="w-full md:w-52 h-12 text-white border border-purple-500/50 bg-black/50 hover:bg-purple-500/10 hover:border-purple-500 hover:text-white relative isolate inline-flex items-center justify-center overflow-hidden rounded-md px-3 text-left text-sm font-medium transition-all duration-300 group gap-2"
-              href="https://github.com/alienx5499/ZYURA"
+              href={siteConfig.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
+              className="h-11 px-5 text-white font-medium text-sm border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 hover:border-zinc-600 rounded-xl inline-flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95"
             >
-              <span className="text-white group-hover:text-white z-10">Github</span>
-              <Badge className="bg-purple-500/30 text-white border-purple-500/50 transition-all duration-200 group-hover:shadow-xl group-hover:bg-purple-500/50 shadow-white/70 z-10">
-                <GithubIcon className="size-4" />
+              <span>GitHub</span>
+              <Badge className="bg-zinc-800 text-zinc-300 border-zinc-700">
+                <GithubIcon className="size-3.5" />
               </Badge>
             </Link>
           </motion.div>
         </div>
-      </footer>
+      </div>
     </div>
   );
 }
 
-// Main Footer Component
+// Main ZyuraFooter Component tailored for Stable Channels
 export function ZyuraFooter() {
   return (
-    <div className="relative w-full rounded-3xl border-[0.75px] border-gray-800 p-2">
-      <GlowingEffect
-        spread={40}
-        glow={true}
-        disabled={false}
-        proximity={64}
-        inactiveZone={0.01}
-        borderWidth={3}
-      />
-      <footer className="relative overflow-hidden rounded-3xl border-[0.75px] border-gray-800 bg-black w-full">
-        <div className="p-4">
-          <FooterCTA />
-        </div>
-        <div className="pt-12 pb-2 md:pb-12 px-4">
-          <div className="max-w-6xl mx-auto">
-            {/* Top Section */}
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, staggerChildren: 0.1 }}
-            >
-              {/* Logo and Description */}
-              <div className="lg:col-span-1">
-                <div className="flex items-start mb-4">
-                  <Image
-                    src="/logo.svg"
-                    alt="ZYURA Logo"
-                    width={360}
-                    height={72}
-                    className="h-[72px] w-auto object-contain object-left"
-                    style={{
-                      display: 'block',
-                      objectFit: 'contain',
-                      objectPosition: 'left center'
-                    }}
-                  />
-                </div>
-                <p className="text-sm text-neutral-300 mb-4 leading-relaxed">
-                  Instant, fair, community-owned flight delay insurance on Solana.
-                  Get automated USDC payouts when delays occur.
-                </p>
-                <div className="flex gap-2">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link
-                      href="https://github.com/alienx5499/ZYURA"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-purple-500/10 border border-transparent hover:border-purple-500/50 transition-all inline-flex items-center justify-center"
-                      aria-label="GitHub"
-                    >
-                      <GithubIcon className="h-4 w-4" />
-                    </Link>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link
-                      href="https://x.com/alienx5499"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-pink-500/10 border border-transparent hover:border-pink-500/50 transition-all inline-flex items-center justify-center"
-                      aria-label="Twitter / X"
-                    >
-                      <TwitterIcon className="h-4 w-4" />
-                    </Link>
-                  </motion.div>
-                </div>
-              </div>
+    <footer className="relative bg-black text-zinc-400 pt-8 pb-12 border-t border-zinc-850 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        {/* Top Interactive CTA Card */}
+        <FooterCTA />
 
-              {/* Product */}
-              <div>
-                <h4 className="font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 flex items-center gap-2">
-                  <Plane className="h-4 w-4 text-purple-400" />
-                  Product
-                </h4>
-                <ul className="space-y-3 text-sm">
-                  <li>
-                    <Link
-                      href="/#about"
-                      scroll={true}
-                      className="text-neutral-400 hover:text-purple-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      About ZYURA
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-purple-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/#features"
-                      scroll={true}
-                      className="text-neutral-400 hover:text-purple-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      Features
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-purple-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/#policies"
-                      scroll={true}
-                      className="text-neutral-400 hover:text-purple-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      Active Policies
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-purple-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/#contact"
-                      scroll={true}
-                      className="text-neutral-400 hover:text-purple-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      Contact Us
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-purple-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Resources */}
-              <div>
-                <h4 className="font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-cyan-400 flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-pink-400" />
-                  Resources
-                </h4>
-                <ul className="space-y-3 text-sm">
-                  <li>
-                    <Link
-                      href="https://github.com/alienx5499/ZYURA"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-400 hover:text-pink-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      Documentation
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-pink-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="https://github.com/alienx5499/ZYURA"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-400 hover:text-pink-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      GitHub Repository
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-pink-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="https://github.com/alienx5499/ZYURA/issues"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-400 hover:text-pink-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      Report Issue
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-pink-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#"
-                      className="text-neutral-400 hover:text-pink-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      FAQ
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-pink-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Legal */}
-              <div>
-                <h4 className="font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400 flex items-center gap-2">
-                  <Lock className="h-4 w-4 text-cyan-400" />
-                  Legal
-                </h4>
-                <ul className="space-y-3 text-sm">
-                  <li>
-                    <Link
-                      href="#"
-                      className="text-neutral-400 hover:text-cyan-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      Privacy Policy
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-cyan-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#"
-                      className="text-neutral-400 hover:text-cyan-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      Terms of Service
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-cyan-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#"
-                      className="text-neutral-400 hover:text-cyan-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      Cookie Policy
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-cyan-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="https://github.com/alienx5499/ZYURA/blob/main/LICENSE"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-400 hover:text-cyan-400 transition-colors duration-200 inline-block relative group"
-                    >
-                      License
-                      <span className="absolute left-0 bottom-0 w-0 h-px bg-cyan-400 transition-all duration-200 group-hover:w-full" />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-
-            {/* Bottom Section */}
-            <div className="border-t border-gray-800/50 pt-8">
-              <div className="flex flex-col md:flex-row justify-between items-center">
-                <div className="flex flex-col md:flex-row items-center gap-4 mb-4 md:mb-0">
-                  <p className="text-sm text-neutral-400">
-                    © {new Date().getFullYear()} ZYURA. Made with{" "}
-                    <Heart className="inline h-3 w-3 text-pink-500 fill-current animate-pulse" />{" "}
-                    for travelers who deserve instant protection by{" "}
-                    <a
-                      href="https://github.com/alienx5499"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Visit Prabal Patra's GitHub"
-                      className="text-cyan-400 hover:text-cyan-300 transition-colors underline underline-offset-2"
-                    >
-                      @alienx5499
-                    </a>
-                    .
-                  </p>
-                </div>
-              </div>
+        {/* 4-Column Navigation Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-8 border-b border-zinc-850">
+          {/* Brand Column */}
+          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-2.5">
+              <Image
+                src="/images/app-icon.svg"
+                alt={siteConfig.name}
+                width={32}
+                height={32}
+                className="rounded-lg"
+              />
+              <span className="text-base font-bold text-white tracking-tight">
+                {siteConfig.name}
+              </span>
+            </div>
+            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              Self-custodial USD stability on Bitcoin Lightning. No banks, no synthetic tokens, and zero custodial risk.
+            </p>
+            <div className="flex items-center gap-2 pt-1">
+              <Link
+                href={siteConfig.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-amber-500/50 hover:bg-amber-500/10 transition-all inline-flex items-center justify-center"
+                aria-label="GitHub Repository"
+              >
+                <GithubIcon className="w-4 h-4" />
+              </Link>
+              <Link
+                href="https://x.com/alienx5499"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-amber-500/50 hover:bg-amber-500/10 transition-all inline-flex items-center justify-center"
+                aria-label="Twitter / X"
+              >
+                <TwitterIcon className="w-4 h-4" />
+              </Link>
             </div>
           </div>
+
+          {/* Protocol Column */}
+          <div>
+            <h4 className="font-semibold mb-3.5 text-white flex items-center gap-2 text-xs uppercase tracking-wider text-amber-400">
+              <Zap className="h-3.5 w-3.5 text-amber-400" />
+              Protocol
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li>
+                <a
+                  href="#services-1"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  Architecture &amp; Pillars
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#content-1"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  How It Works
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#content-6"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  Continuous Settlement
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#get-started"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  Get Started
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources Column */}
+          <div>
+            <h4 className="font-semibold mb-3.5 text-white flex items-center gap-2 text-xs uppercase tracking-wider text-amber-400">
+              <FileText className="h-3.5 w-3.5 text-amber-400" />
+              Resources
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li>
+                <a
+                  href={siteConfig.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  GitHub Repository
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#reviews-2"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  Docs &amp; Research
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.releasesUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  Releases &amp; Binaries
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#faqs-2"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  Knowledge Base FAQ
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal Column */}
+          <div>
+            <h4 className="font-semibold mb-3.5 text-white flex items-center gap-2 text-xs uppercase tracking-wider text-amber-400">
+              <Lock className="h-3.5 w-3.5 text-amber-400" />
+              Legal
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  Privacy Policy &amp; Terms
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/toneloc/stable-channels/blob/main/LICENSE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  MIT License
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.contactFormUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-amber-400 transition-colors inline-block relative group"
+                >
+                  Contact Inquiries
+                  <span className="absolute left-0 bottom-0 w-0 h-px bg-amber-400 transition-all duration-200 group-hover:w-full" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </footer>
-    </div>
+
+        {/* Self-Custody Disclaimer */}
+        <div className="py-6 text-[11px] text-zinc-500 leading-relaxed border-b border-zinc-850">
+          <p>
+            Stable Channels is self-custodial open-source software and is not a financial institution, exchange, brokerage, custodian, or money transmitter. It does not issue or custody tokens, does not hold fiat or cryptocurrency on behalf of users, and provides no custodial services. All operations execute exclusively on the user&apos;s personal device over the Bitcoin Lightning Network.
+          </p>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-zinc-400">
+          <p>
+            © {siteConfig.year} {siteConfig.name}. Open source under the MIT License.
+          </p>
+          <p className="flex items-center gap-1.5">
+            Made with <Heart className="inline h-3.5 w-3.5 text-amber-500 fill-current animate-pulse" /> for Bitcoiners by{' '}
+            <a
+              href="https://github.com/alienx5499"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-400 hover:text-amber-300 transition-colors underline underline-offset-2 font-medium"
+            >
+              @alienx5499
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 }
-
