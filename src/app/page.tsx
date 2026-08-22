@@ -9,7 +9,6 @@ import { TheOpportunitySection } from '@/components/sections/TheOpportunitySecti
 import { GetStartedSection } from '@/components/sections/GetStartedSection';
 import { ResourcesSection } from '@/components/sections/ResourcesSection';
 import { FaqSection } from '@/components/sections/FaqSection';
-import { CtaBanner } from '@/components/sections/CtaBanner';
 
 export default function HomePage() {
   return (
@@ -24,7 +23,6 @@ export default function HomePage() {
         <GetStartedSection />
         <ResourcesSection />
         <FaqSection />
-        <CtaBanner />
       </main>
       <Footer />
     </div>
