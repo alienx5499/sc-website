@@ -48,7 +48,7 @@ export const Accordion: React.FC<AccordionProps> = ({
               <span className="text-base sm:text-lg pr-4">{item.question}</span>
               <ChevronDown
                 className={`h-5 w-5 shrink-0 text-zinc-400 dark:text-zinc-500 transition-transform duration-200 ${
-                  isOpen ? 'rotate-180 text-amber-500' : ''
+                  isOpen ? 'rotate-180 text-[#F7931A]' : ''
                 }`}
               />
             </button>
@@ -61,7 +61,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                       href={item.linkHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-amber-600 dark:text-amber-400 hover:underline underline-offset-4"
+                      className="font-medium text-[#E08213] dark:text-[#F7931A] hover:underline underline-offset-4"
                     >
                       {item.linkText}
                     </a>

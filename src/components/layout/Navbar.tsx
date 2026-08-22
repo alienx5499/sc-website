@@ -139,7 +139,7 @@ export const Navbar: React.FC = () => {
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative px-3 py-1.5 text-xs font-semibold rounded-full transition-colors ${
                     isActive
-                      ? 'text-amber-600 dark:text-amber-400'
+                      ? 'text-[#E08213] dark:text-[#F7931A]'
                       : 'text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100/60 dark:hover:bg-zinc-800/60'
                   }`}
                 >
@@ -147,7 +147,7 @@ export const Navbar: React.FC = () => {
                   {isActive && (
                     <motion.span
                       layoutId="activeNavPill"
-                      className="absolute inset-0 bg-amber-50 dark:bg-amber-950/40 rounded-full border border-amber-200/60 dark:border-amber-700/40"
+                      className="absolute inset-0 bg-amber-50 dark:bg-amber-950/40 rounded-full border border-[#F7931A]/60 dark:border-[#C6720D]/40"
                       transition={{
                         type: 'spring',
                         stiffness: 380,
@@ -235,7 +235,7 @@ export const Navbar: React.FC = () => {
                       onClick={(e) => handleNavClick(e, item.href)}
                       className={`flex items-center justify-between px-4 py-2.5 text-sm font-medium rounded-xl transition-colors ${
                         isActive
-                          ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 font-semibold'
+                          ? 'bg-amber-50 dark:bg-amber-950/40 text-[#E08213] dark:text-[#F7931A] font-semibold'
                           : 'text-gray-700 dark:text-zinc-300 hover:bg-gray-50 dark:hover:bg-zinc-800/60'
                       }`}
                     >

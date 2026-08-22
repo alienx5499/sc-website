@@ -28,7 +28,7 @@ export const HowItWorksSection: React.FC = () => {
               {howItWorksFeature.bullets?.map((bullet, index) => (
                 <div key={index} className="flex items-start gap-3.5 p-4 rounded-xl bg-zinc-50/80 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-zinc-800/60 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors shadow-2xs">
                   <div className="mt-1 flex-shrink-0">
-                    <CircleDot className="w-4 h-4 text-amber-500" />
+                    <CircleDot className="w-4 h-4 text-[#F7931A]" />
                   </div>
                   <p className="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                     {bullet.text}
@@ -41,7 +41,7 @@ export const HowItWorksSection: React.FC = () => {
           {/* Graphic Column */}
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative max-w-[280px] sm:max-w-[320px] w-full group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-amber-500/20 to-amber-700/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-500" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#F7931A]/20 to-[#C6720D]/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-500" />
               <Image
                 src={howItWorksFeature.imageSrc}
                 alt={howItWorksFeature.imageAlt}

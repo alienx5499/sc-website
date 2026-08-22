@@ -46,11 +46,11 @@ export const AppIconModel: React.FC<AppIconModelProps> = ({
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
     scene.add(ambientLight);
 
-    const dirLight1 = new THREE.DirectionalLight(0xf59e0b, 2.5);
+    const dirLight1 = new THREE.DirectionalLight(0xf7931a, 2.5);
     dirLight1.position.set(5, 5, 5);
     scene.add(dirLight1);
 
-    const dirLight2 = new THREE.DirectionalLight(0xd97706, 1.8);
+    const dirLight2 = new THREE.DirectionalLight(0xf7931a, 1.8);
     dirLight2.position.set(-5, -3, -2);
     scene.add(dirLight2);
 
@@ -171,7 +171,7 @@ export const AppIconModel: React.FC<AppIconModelProps> = ({
     <div className={`relative flex items-center justify-center ${className}`}>
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-8 h-8 rounded-full border-2 border-amber-500/30 border-t-amber-500 animate-spin" />
+          <div className="w-8 h-8 rounded-full border-2 border-[#F7931A]/30 border-t-[#F7931A] animate-spin" />
         </div>
       )}
       <div ref={containerRef} className="w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing" />

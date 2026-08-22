@@ -12,20 +12,20 @@ export const HeroSection: React.FC = () => {
       className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-gradient-to-b from-zinc-50 via-white to-zinc-50/50 dark:from-black dark:via-black dark:to-black overflow-hidden transition-colors duration-300"
     >
       {/* Background Subtle Gradient Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-amber-500/10 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#F7931A]/10 blur-[140px] rounded-full pointer-events-none" />
 
       <Container>
         {/* Hero Copy */}
         <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-semibold tracking-wide">
-            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#F7931A]/30 bg-[#F7931A]/10 text-[#C6720D] dark:text-[#F7931A] text-xs font-semibold tracking-wide">
+            <span className="w-2 h-2 rounded-full bg-[#F7931A] animate-pulse" />
             Decentralized Bitcoin Volatility Protection
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-[1.12]">
             Get USD stability.
             <br />
-            <span className="bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 dark:from-amber-400 dark:via-amber-500 dark:to-amber-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#F7931A] via-[#E08213] to-[#C6720D] dark:from-[#F7931A] dark:via-[#F7931A] dark:to-[#E08213] bg-clip-text text-transparent">
               Stay in self-custodied Bitcoin.
             </span>
           </h1>

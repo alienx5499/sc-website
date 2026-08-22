@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-black text-zinc-100 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-400">
+    <div className="min-h-screen bg-black text-zinc-100 flex flex-col justify-between selection:bg-[#F7931A]/20 selection:text-[#F7931A]">
       <main className="py-16 md:py-24">
         <Container className="max-w-3xl">
           {/* Back link */}
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-amber-500 hover:text-amber-400 hover:underline mb-10 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#F7931A] hover:text-[#F7931A] hover:underline mb-10 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Stable Channels</span>
@@ -30,8 +30,8 @@ export default function PrivacyPage() {
           </h1>
           <p className="text-sm text-zinc-400 mb-10">Last updated: July 2026</p>
 
-          <div className="bg-amber-500/10 border-l-4 border-amber-500 p-5 rounded-r-xl mb-12">
-            <p className="text-sm text-amber-300 leading-relaxed font-medium">
+          <div className="bg-[#F7931A]/10 border-l-4 border-[#F7931A] p-5 rounded-r-xl mb-12">
+            <p className="text-sm text-[#F7931A] leading-relaxed font-medium">
               <strong>Important Notice:</strong> Stable Channels is a
               self-custodial Bitcoin wallet. You retain full control of your
               private keys and funds. If you do not understand the risks of

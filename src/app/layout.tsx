@@ -62,7 +62,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={cn("scroll-smooth", inter.variable, "font-sans", geist.variable)}>
-      <body className="font-sans antialiased text-gray-900 bg-white dark:bg-black dark:text-zinc-100 selection:bg-amber-500/20 selection:text-amber-500">
+      <body className="font-sans antialiased text-gray-900 bg-white dark:bg-black dark:text-zinc-100 selection:bg-[#F7931A]/20 selection:text-[#F7931A]">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
