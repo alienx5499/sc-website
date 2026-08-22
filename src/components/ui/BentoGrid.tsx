@@ -3,7 +3,7 @@
 import React from 'react';
 import { CardContent } from '@/components/ui/card';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
-import { Zap, ShieldCheck, BarChart3, Globe, Layers } from 'lucide-react';
+import { ShieldCheck, BarChart3, Globe, Layers } from 'lucide-react';
 
 export function BentoGrid() {
   return (
@@ -11,7 +11,7 @@ export function BentoGrid() {
       <ul className="relative z-10 grid grid-cols-6 gap-4">
         {/* Card 1: Instant Continuous Settlement - Large Top Left */}
         <li className="col-span-full list-none lg:col-span-2">
-          <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3">
+          <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 bg-zinc-50/50 dark:bg-zinc-950/40">
             <GlowingEffect
               spread={40}
               glow={true}
@@ -20,11 +20,11 @@ export function BentoGrid() {
               inactiveZone={0.01}
               borderWidth={3}
             />
-            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-800 bg-black p-6 shadow-sm">
+            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black p-6 shadow-xs dark:shadow-sm transition-colors duration-300">
               <CardContent className="relative m-auto size-fit pt-6 text-center">
                 <div className="relative flex h-24 w-56 items-center justify-center mx-auto">
                   <svg
-                    className="text-zinc-700 absolute inset-0 size-full"
+                    className="text-zinc-200 dark:text-zinc-800 absolute inset-0 size-full"
                     viewBox="0 0 254 104"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -34,11 +34,11 @@ export function BentoGrid() {
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="mx-auto block w-fit text-5xl font-semibold text-white">
+                  <span className="mx-auto block w-fit text-5xl font-semibold text-zinc-900 dark:text-white">
                     Instant
                   </span>
                 </div>
-                <h3 className="mt-6 text-center text-2xl font-semibold text-white">
+                <h3 className="mt-6 text-center text-2xl font-semibold text-zinc-900 dark:text-white">
                   Continuous Settlement
                 </h3>
               </CardContent>
@@ -48,7 +48,7 @@ export function BentoGrid() {
 
         {/* Card 2: LDK Node Lifecycle - Top Center */}
         <li className="col-span-full list-none sm:col-span-3 lg:col-span-2">
-          <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3">
+          <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 bg-zinc-50/50 dark:bg-zinc-950/40">
             <GlowingEffect
               spread={40}
               glow={true}
@@ -57,16 +57,16 @@ export function BentoGrid() {
               inactiveZone={0.01}
               borderWidth={3}
             />
-            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-800 bg-black p-6 shadow-sm">
+            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black p-6 shadow-xs dark:shadow-sm transition-colors duration-300">
               <CardContent className="pt-6">
-                <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-800/50">
+                <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-zinc-200 dark:border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-200/60 dark:before:border-zinc-800/50">
                   <Layers className="m-auto size-12 text-[#F7931A]" strokeWidth={1.5} />
                 </div>
                 <div className="relative z-10 mt-6 space-y-2 text-center">
-                  <h3 className="text-lg font-medium transition text-white">
+                  <h3 className="text-lg font-medium transition text-zinc-900 dark:text-white">
                     Lightning Dev Kit (LDK)
                   </h3>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
+                  <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
                     Embedded node lifecycle management with background state synchronization and rapid channel recovery.
                   </p>
                 </div>
@@ -77,7 +77,7 @@ export function BentoGrid() {
 
         {/* Card 3: Transparent On-Chain - Top Right */}
         <li className="col-span-full list-none sm:col-span-3 lg:col-span-2">
-          <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3">
+          <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 bg-zinc-50/50 dark:bg-zinc-950/40">
             <GlowingEffect
               spread={40}
               glow={true}
@@ -86,16 +86,16 @@ export function BentoGrid() {
               inactiveZone={0.01}
               borderWidth={3}
             />
-            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-800 bg-black p-6 shadow-sm">
+            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black p-6 shadow-xs dark:shadow-sm transition-colors duration-300">
               <CardContent className="pt-6">
-                <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-800/50">
+                <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-zinc-200 dark:border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-200/60 dark:before:border-zinc-800/50">
                   <BarChart3 className="m-auto size-12 text-[#F7931A]" strokeWidth={1.5} />
                 </div>
                 <div className="relative z-10 mt-6 space-y-2 text-center">
-                  <h3 className="text-lg font-medium transition text-white">
+                  <h3 className="text-lg font-medium transition text-zinc-900 dark:text-white">
                     Transparent On-Chain
                   </h3>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
+                  <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
                     All state channels and settlement adjustments execute on native Bitcoin Lightning rails with full auditable transparency.
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export function BentoGrid() {
 
         {/* Card 4: Self-Custodial Ownership - Bottom Left (Wide 3-col) */}
         <li className="col-span-full list-none lg:col-span-3">
-          <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3">
+          <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 bg-zinc-50/50 dark:bg-zinc-950/40">
             <GlowingEffect
               spread={40}
               glow={true}
@@ -115,32 +115,32 @@ export function BentoGrid() {
               inactiveZone={0.01}
               borderWidth={3}
             />
-            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-800 bg-black p-6 shadow-sm">
+            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black p-6 shadow-xs dark:shadow-sm transition-colors duration-300">
               <CardContent className="grid pt-6 sm:grid-cols-2 gap-4 items-center">
                 <div className="relative z-10 flex flex-col justify-between space-y-4">
-                  <div className="relative flex aspect-square size-12 rounded-full border border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-800/50">
+                  <div className="relative flex aspect-square size-12 rounded-full border border-zinc-200 dark:border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-200/60 dark:before:border-zinc-800/50">
                     <ShieldCheck className="m-auto size-6 text-[#F7931A]" strokeWidth={1.5} />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-lg font-medium transition text-white">
+                    <h3 className="text-lg font-medium transition text-zinc-900 dark:text-white">
                       100% Self-Custodial
                     </h3>
-                    <p className="text-zinc-400 text-sm leading-relaxed">
+                    <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
                       Your keys, your Bitcoin. Funds are held in 2-of-2 multisig Lightning channels with zero counterparty lockups.
                     </p>
                   </div>
                 </div>
 
-                <div className="rounded-tl-2xl relative h-fit border-l border-t border-zinc-800 p-4 sm:ml-4 bg-zinc-950/60">
+                <div className="rounded-tl-2xl relative h-fit border-l border-t border-zinc-200 dark:border-zinc-800 p-4 sm:ml-4 bg-zinc-100/80 dark:bg-zinc-950/60 transition-colors">
                   <div className="flex gap-1 mb-3">
-                    <span className="block size-2 rounded-full bg-zinc-800" />
-                    <span className="block size-2 rounded-full bg-zinc-800" />
+                    <span className="block size-2 rounded-full bg-zinc-300 dark:bg-zinc-800" />
+                    <span className="block size-2 rounded-full bg-zinc-300 dark:bg-zinc-800" />
                     <span className="block size-2 rounded-full bg-[#F7931A]/60" />
                   </div>
-                  <div className="space-y-1.5 font-mono text-[11px] text-zinc-400">
+                  <div className="space-y-1.5 font-mono text-[11px] text-zinc-600 dark:text-zinc-400">
                     <div className="text-[#F7931A]">&gt; channel_balance: $100.00</div>
-                    <div className="text-zinc-500">&gt; state: 2-of-2 multisig</div>
-                    <div className="text-zinc-500">&gt; counterparty_risk: 0%</div>
+                    <div className="text-zinc-500 dark:text-zinc-500">&gt; state: 2-of-2 multisig</div>
+                    <div className="text-zinc-500 dark:text-zinc-500">&gt; counterparty_risk: 0%</div>
                   </div>
                 </div>
               </CardContent>
@@ -150,7 +150,7 @@ export function BentoGrid() {
 
         {/* Card 5: Global Lightning Coverage - Bottom Right (Wide 3-col) */}
         <li className="col-span-full list-none lg:col-span-3">
-          <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3">
+          <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-zinc-200 dark:border-zinc-800 p-2 md:rounded-[1.5rem] md:p-3 bg-zinc-50/50 dark:bg-zinc-950/40">
             <GlowingEffect
               spread={40}
               glow={true}
@@ -159,43 +159,43 @@ export function BentoGrid() {
               inactiveZone={0.01}
               borderWidth={3}
             />
-            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-800 bg-black p-6 shadow-sm">
+            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black p-6 shadow-xs dark:shadow-sm transition-colors duration-300">
               <CardContent className="grid h-full pt-6 sm:grid-cols-2 gap-4 items-center">
                 <div className="relative z-10 flex flex-col justify-between space-y-4">
-                  <div className="relative flex aspect-square size-12 rounded-full border border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-800/50">
+                  <div className="relative flex aspect-square size-12 rounded-full border border-zinc-200 dark:border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-200/60 dark:before:border-zinc-800/50">
                     <Globe className="m-auto size-6 text-[#F7931A]" strokeWidth={1.5} />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-lg font-medium transition text-white">
+                    <h3 className="text-lg font-medium transition text-zinc-900 dark:text-white">
                       Global Lightning Coverage
                     </h3>
-                    <p className="text-zinc-400 text-sm leading-relaxed">
+                    <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
                       Maintain USD purchasing power anywhere in the world over the Bitcoin Lightning Network.
                     </p>
                   </div>
                 </div>
 
-                <div className="relative before:absolute before:inset-0 before:mx-auto before:w-px before:bg-zinc-800">
+                <div className="relative before:absolute before:inset-0 before:mx-auto before:w-px before:bg-zinc-200 dark:before:bg-zinc-800">
                   <div className="relative flex h-full flex-col justify-center space-y-4 py-2">
                     <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                      <span className="block h-fit rounded border px-2 py-0.5 text-xs text-white border-zinc-800 bg-zinc-900">
+                      <span className="block h-fit rounded border px-2 py-0.5 text-xs text-zinc-800 dark:text-white border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xs">
                         24/7
                       </span>
-                      <div className="size-6 ring-4 ring-black rounded-full bg-[#F7931A]" />
+                      <div className="size-6 ring-4 ring-white dark:ring-black rounded-full bg-[#F7931A]" />
                     </div>
 
                     <div className="relative ml-[calc(50%-1rem)] flex items-center gap-2">
-                      <div className="size-7 ring-4 ring-black rounded-full bg-[#E08213]" />
-                      <span className="block h-fit rounded border px-2 py-0.5 text-xs text-white border-zinc-800 bg-zinc-900">
+                      <div className="size-7 ring-4 ring-white dark:ring-black rounded-full bg-[#E08213]" />
+                      <span className="block h-fit rounded border px-2 py-0.5 text-xs text-zinc-800 dark:text-white border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xs">
                         Worldwide
                       </span>
                     </div>
 
                     <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                      <span className="block h-fit rounded border px-2 py-0.5 text-xs text-white border-zinc-800 bg-zinc-900">
+                      <span className="block h-fit rounded border px-2 py-0.5 text-xs text-zinc-800 dark:text-white border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xs">
                         Instant
                       </span>
-                      <div className="size-6 ring-4 ring-black rounded-full bg-[#C6720D]" />
+                      <div className="size-6 ring-4 ring-white dark:ring-black rounded-full bg-[#C6720D]" />
                     </div>
                   </div>
                 </div>
