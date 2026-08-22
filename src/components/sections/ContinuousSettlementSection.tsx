@@ -11,7 +11,7 @@ export const ContinuousSettlementSection: React.FC = () => {
           {/* Graphic Column */}
           <div className="lg:col-span-5 order-2 lg:order-1 flex justify-center">
             <div className="relative max-w-[280px] sm:max-w-[320px] w-full group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-amber-500/20 to-amber-700/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-500" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#F7931A]/20 to-[#C6720D]/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-500" />
               <Image
                 src={continuousSettlementFeature.imageSrc}
                 alt={continuousSettlementFeature.imageAlt}
@@ -27,7 +27,7 @@ export const ContinuousSettlementSection: React.FC = () => {
             {continuousSettlementFeature.blocks.map((block, idx) => (
               <div key={idx} className="space-y-2.5 p-6 rounded-2xl bg-white dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-zinc-800/80 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors shadow-xs">
                 <h3 className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F7931A]" />
                   {block.title}
                 </h3>
                 <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed pl-3.5">

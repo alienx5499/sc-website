@@ -42,10 +42,10 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       type="button"
       onClick={toggleTheme}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-      className={`relative inline-flex h-8 w-8 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-white/10 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${className}`}
+      className={`relative inline-flex h-8 w-8 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-white/10 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F7931A] ${className}`}
     >
       {isDark ? (
-        <Sun className="h-4 w-4 text-amber-400 transition-transform duration-200 hover:rotate-45" />
+        <Sun className="h-4 w-4 text-[#F7931A] transition-transform duration-200 hover:rotate-45" />
       ) : (
         <Moon className="h-4 w-4 text-zinc-300 transition-transform duration-200 hover:-rotate-12" />
       )}

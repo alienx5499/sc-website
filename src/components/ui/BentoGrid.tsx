@@ -36,19 +36,19 @@ export const BentoGridItem: React.FC<BentoGridItemProps> = ({
     <motion.div
       variants={variants}
       className={cn(
-        'group border-amber-500/20 bg-zinc-900/60 dark:bg-zinc-950/70 hover:border-amber-400/40 relative flex h-full cursor-pointer flex-col justify-between overflow-hidden rounded-xl border px-6 pt-6 pb-10 shadow-md transition-all duration-500',
+        'group border-[#F7931A]/20 bg-zinc-900/60 dark:bg-zinc-950/70 hover:border-[#F7931A]/40 relative flex h-full cursor-pointer flex-col justify-between overflow-hidden rounded-xl border px-6 pt-6 pb-10 shadow-md transition-all duration-500',
         className
       )}
     >
-      <div className="absolute top-0 -right-1/2 z-0 size-full cursor-pointer bg-[linear-gradient(to_right,#f59e0b15_1px,transparent_1px),linear-gradient(to_bottom,#f59e0b15_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-[size:24px_24px]" />
+      <div className="absolute top-0 -right-1/2 z-0 size-full cursor-pointer bg-[linear-gradient(to_right,#F7931A15_1px,transparent_1px),linear-gradient(to_bottom,#F7931A15_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-[size:24px_24px]" />
 
-      <div className="text-amber-500/5 group-hover:text-amber-500/10 absolute right-1 bottom-3 scale-[6] transition-all duration-700 group-hover:scale-[6.2] pointer-events-none">
+      <div className="text-[#F7931A]/5 group-hover:text-[#F7931A]/10 absolute right-1 bottom-3 scale-[6] transition-all duration-700 group-hover:scale-[6.2] pointer-events-none">
         {icon}
       </div>
 
       <div className="relative z-10 flex h-full flex-col justify-between">
         <div>
-          <div className="bg-amber-500/10 text-amber-500 shadow-amber-500/10 group-hover:bg-amber-500/20 group-hover:shadow-amber-500/20 mb-4 flex h-12 w-12 items-center justify-center rounded-full shadow transition-all duration-500">
+          <div className="bg-[#F7931A]/10 text-[#F7931A] shadow-[#F7931A]/10 group-hover:bg-[#F7931A]/20 group-hover:shadow-[#F7931A]/20 mb-4 flex h-12 w-12 items-center justify-center rounded-full shadow transition-all duration-500">
             {icon}
           </div>
           <h3 className="mb-2 text-xl font-semibold tracking-tight text-white">
@@ -58,12 +58,12 @@ export const BentoGridItem: React.FC<BentoGridItemProps> = ({
             {description}
           </p>
         </div>
-        <div className="text-amber-500 mt-6 flex items-center text-sm font-medium">
+        <div className="text-[#F7931A] mt-6 flex items-center text-sm font-medium">
           <span className="mr-1">Learn more</span>
           <ArrowRight className="size-4 transition-all duration-500 group-hover:translate-x-2" />
         </div>
       </div>
-      <div className="from-amber-500 to-amber-500/30 absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r blur-2xl transition-all duration-500 group-hover:blur-lg" />
+      <div className="from-[#F7931A] to-[#F7931A]/30 absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r blur-2xl transition-all duration-500 group-hover:blur-lg" />
     </motion.div>
   );
 

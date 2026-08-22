@@ -18,12 +18,12 @@ export const GetStartedSection: React.FC = () => {
           {getStartedSteps.map((step) => (
             <div
               key={step.stepNumber}
-              className="p-8 rounded-2xl bg-zinc-50/70 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200/80 dark:border-zinc-800/80 hover:border-amber-500/40 dark:hover:border-amber-500/40 hover:bg-white dark:hover:bg-zinc-900/80 hover:-translate-y-1.5 transition-all duration-300 text-center flex flex-col items-center shadow-xs group"
+              className="p-8 rounded-2xl bg-zinc-50/70 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200/80 dark:border-zinc-800/80 hover:border-[#F7931A]/40 dark:hover:border-[#F7931A]/40 hover:bg-white dark:hover:bg-zinc-900/80 hover:-translate-y-1.5 transition-all duration-300 text-center flex flex-col items-center shadow-xs group"
             >
-              <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-400 flex items-center justify-center font-extrabold text-3xl mb-6 shadow-inner group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 rounded-2xl bg-[#F7931A]/10 border border-[#F7931A]/30 text-[#E08213] dark:text-[#F7931A] flex items-center justify-center font-extrabold text-3xl mb-6 shadow-inner group-hover:scale-110 transition-transform">
                 {step.stepNumber}
               </div>
-              <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-3 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-3 group-hover:text-[#E08213] dark:group-hover:text-[#F7931A] transition-colors">
                 {step.title}
               </h3>
               <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">

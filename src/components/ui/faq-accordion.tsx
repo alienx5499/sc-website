@@ -48,7 +48,7 @@ export function FaqAccordion({
                 'w-full relative transition-all duration-300 ease-out rounded-2xl overflow-hidden',
                 'border border-zinc-200/80 dark:border-zinc-800/80',
                 isActive
-                  ? 'bg-zinc-50/80 dark:bg-zinc-900/60 shadow-md border-amber-500/30 dark:border-amber-500/30'
+                  ? 'bg-zinc-50/80 dark:bg-zinc-900/60 shadow-md border-[#F7931A]/30 dark:border-[#F7931A]/30'
                   : 'bg-white/90 dark:bg-zinc-950/40 hover:border-zinc-300 dark:hover:border-zinc-700'
               )}
             >
@@ -57,7 +57,7 @@ export function FaqAccordion({
                   'flex flex-row items-center justify-between w-full min-h-[64px] py-4 px-6 md:px-8 cursor-pointer',
                   'border-l-[6px] md:border-l-[8px] transition-all duration-300 text-left outline-none text-base md:text-lg',
                   isActive
-                    ? 'border-l-amber-500 text-zinc-900 dark:text-white font-bold'
+                    ? 'border-l-[#F7931A] text-zinc-900 dark:text-white font-bold'
                     : 'border-l-transparent text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white'
                 )}
                 onClick={() => toggleItem(index)}
@@ -69,7 +69,7 @@ export function FaqAccordion({
                     className={cn(
                       'flex items-center justify-center w-7 h-7 rounded-full text-sm font-bold transition-all duration-300 shrink-0',
                       isActive
-                        ? 'bg-amber-500 text-black shadow-xs shadow-amber-500/30 scale-105'
+                        ? 'bg-[#F7931A] text-black shadow-xs shadow-[#F7931A]/30 scale-105'
                         : 'bg-zinc-100 dark:bg-zinc-850 text-zinc-500 dark:text-zinc-400 group-hover:bg-zinc-200'
                     )}
                   >
@@ -86,7 +86,7 @@ export function FaqAccordion({
                   className={cn(
                     'block w-2.5 h-2.5 border-t-2 border-r-2 transition-transform duration-300 ease-in-out shrink-0',
                     isActive
-                      ? 'rotate-[-45deg] border-amber-500 translate-y-0.5'
+                      ? 'rotate-[-45deg] border-[#F7931A] translate-y-0.5'
                       : 'rotate-[135deg] border-zinc-400 dark:border-zinc-500 -translate-y-0.5'
                   )}
                 />
@@ -97,7 +97,7 @@ export function FaqAccordion({
                   'grid transition-all duration-300 ease-in-out w-full',
                   'border-l-[6px] md:border-l-[8px]',
                   isActive
-                    ? 'grid-rows-[1fr] border-l-amber-500'
+                    ? 'grid-rows-[1fr] border-l-[#F7931A]'
                     : 'grid-rows-[0fr] border-l-transparent'
                 )}
               >
@@ -110,7 +110,7 @@ export function FaqAccordion({
                           href={item.linkHref}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 font-semibold text-amber-600 dark:text-amber-400 hover:underline underline-offset-4"
+                          className="inline-flex items-center gap-1 font-semibold text-[#E08213] dark:text-[#F7931A] hover:underline underline-offset-4"
                         >
                           {item.linkText} →
                         </a>
