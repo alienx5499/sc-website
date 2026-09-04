@@ -209,6 +209,252 @@
   .mobile-cta .btn { margin-bottom: 8px; }
   /* Keep the brand from crowding the hamburger on small screens */
   @media (max-width: 575px) { .sc-brand-name { font-size: 18px; } .sc-brand img { width: 30px; height: 30px; } }
+
+  /* Download Modal Styles */
+  .modal-content.custom-download-modal {
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    background: #ffffff;
+  }
+  .download-modal-header {
+    padding: 24px 28px 16px;
+    border-bottom: 1px solid #f3f4f6;
+    position: relative;
+  }
+  .download-modal-header .close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 26px;
+    font-weight: 400;
+    color: #6b7280;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .download-modal-header .close:hover {
+    opacity: 1;
+    color: #111827;
+  }
+  .download-modal-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .download-modal-title img {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+  .download-modal-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+  .download-modal-body {
+    padding: 24px 28px 28px;
+  }
+  .featured-play-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 16px;
+    padding: 20px 22px;
+    color: #ffffff !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .featured-play-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -5px rgba(15, 23, 42, 0.35);
+    color: #ffffff !important;
+  }
+  .play-card-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .play-card-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #34d399;
+    flex-shrink: 0;
+  }
+  .play-card-text .badge-featured {
+    display: inline-block;
+    background: #10B981;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+  }
+  .play-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 2px 0;
+  }
+  .play-card-desc {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+  }
+  .play-card-action {
+    background: #3B82F6;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+  .play-card-action i {
+    font-size: 11px;
+  }
+  .other-download-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .dl-option-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 16px;
+    text-decoration: none !important;
+    color: #1f2937 !important;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 110px;
+  }
+  .dl-option-card:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+    transform: translateY(-2px);
+    color: #111827 !important;
+  }
+  .dl-option-card.disabled-option {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: #fafafa;
+  }
+  .dl-option-card.disabled-option:hover {
+    transform: none;
+    border-color: #e5e7eb;
+    background: #fafafa;
+  }
+  .dl-option-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .dl-option-icon {
+    font-size: 18px;
+    color: #374151;
+  }
+  .dl-option-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+  }
+  .dl-option-status {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.4;
+  }
+  .dl-option-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-top: 10px;
+    width: fit-content;
+  }
+  .badge-soon {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .badge-release {
+    background: #e0e7ff;
+    color: #3730a3;
+  }
+  .modal-footer-note {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #9ca3af;
+  }
+  .modal-footer-note a {
+    color: #3B82F6;
+    text-decoration: none;
+  }
+  .modal-footer-note a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 576px) {
+    .other-download-options {
+      grid-template-columns: 1fr;
+    }
+    .featured-play-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .play-card-action {
+      width: 100%;
+      justify-content: center;
+      margin-left: 0;
+    }
+  }
+
+  /* Google Play Store Badge Button */
+  .app-store-badge-btn {
+    display: inline-block;
+    border-radius: 7px;
+    background: #000000;
+    line-height: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    text-decoration: none !important;
+  }
+  .app-store-badge-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.95;
+  }
 </style>
   </head>
 
@@ -245,11 +491,12 @@
   >Contact</a>
 
   <!-- Download (orange) — hidden on mobile, shown inside the menu instead -->
-  <a
-    href="https://github.com/toneloc/stable-channels/releases"
+  <button
+    type="button"
+    data-toggle="modal"
+    data-target="#downloadModal"
     class="btn btn-primary-color tra-black-hover d-none d-md-inline-block"
-    target="_blank"
-  >Download</a>
+  >Download</button>
 </span>
 
 
@@ -296,7 +543,7 @@
                   <a class="btn btn-light btn-block" href="https://docs.google.com/forms/d/e/1FAIpQLSdleHfPvcg3x3exnNdrE_ctAX_oPj69DveHh_R46zu7Y_jx8Q/viewform?usp=sf_link" target="_blank">Contact</a>
                 </li>
                 <li class="nav-item d-md-none mobile-cta">
-                  <a class="btn btn-primary-color btn-block" href="https://github.com/toneloc/stable-channels/releases" target="_blank">Download</a>
+                  <button class="btn btn-primary-color btn-block" type="button" data-toggle="modal" data-target="#downloadModal">Download</button>
                 </li>
               </ul>
 
@@ -331,6 +578,153 @@
                   <p class="p-md">
                       A steady dollar balance, in a wallet you control. No banks, no tokens, no third parties.
                   </p>
+
+                  <!-- Google Play Button -->
+                  <div style="margin-top: 24px;">
+                    <a
+                      aria-label="Get it on Google Play"
+                      href="https://play.google.com/store/apps/details?id=com.stablechannels.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="app-store-badge-btn"
+                    >
+                      <svg width="135" height="40" viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M68.136 21.7511C65.784 21.7511 63.867 23.5401 63.867 26.0041C63.867 28.4531 65.784 30.2571 68.136 30.2571C70.489 30.2571 72.406 28.4531 72.406 26.0041C72.405 23.5401 70.488 21.7511 68.136 21.7511ZM68.136 28.5831C66.847 28.5831 65.736 27.5201 65.736 26.0051C65.736 24.4741 66.848 23.4271 68.136 23.4271C69.425 23.4271 70.536 24.4741 70.536 26.0051C70.536 27.5191 69.425 28.5831 68.136 28.5831ZM58.822 21.7511C56.47 21.7511 54.553 23.5401 54.553 26.0041C54.553 28.4531 56.47 30.2571 58.822 30.2571C61.175 30.2571 63.092 28.4531 63.092 26.0041C63.092 23.5401 61.175 21.7511 58.822 21.7511ZM58.822 28.5831C57.533 28.5831 56.422 27.5201 56.422 26.0051C56.422 24.4741 57.534 23.4271 58.822 23.4271C60.111 23.4271 61.222 24.4741 61.222 26.0051C61.223 27.5191 60.111 28.5831 58.822 28.5831ZM47.744 23.0571V24.8611H52.062C51.933 25.8761 51.595 26.6171 51.079 27.1321C50.451 27.7601 49.468 28.4531 47.744 28.4531C45.086 28.4531 43.008 26.3101 43.008 23.6521C43.008 20.9941 45.086 18.8511 47.744 18.8511C49.178 18.8511 50.225 19.4151 50.998 20.1401L52.271 18.8671C51.191 17.8361 49.758 17.0471 47.744 17.0471C44.103 17.0471 41.042 20.0111 41.042 23.6521C41.042 27.2931 44.103 30.2571 47.744 30.2571C49.709 30.2571 51.192 29.6121 52.351 28.4041C53.543 27.2121 53.914 25.5361 53.914 24.1831C53.914 23.7651 53.882 23.3781 53.817 23.0561H47.744V23.0571ZM93.052 24.4581C92.698 23.5081 91.618 21.7511 89.411 21.7511C87.22 21.7511 85.399 23.4751 85.399 26.0041C85.399 28.3881 87.204 30.2571 89.62 30.2571C91.569 30.2571 92.697 29.0651 93.165 28.3721L91.715 27.4051C91.232 28.1141 90.571 28.5811 89.62 28.5811C88.67 28.5811 87.993 28.1461 87.558 27.2921L93.245 24.9401L93.052 24.4581ZM87.252 25.8761C87.204 24.2321 88.525 23.3951 89.476 23.3951C90.217 23.3951 90.845 23.7661 91.055 24.2971L87.252 25.8761ZM82.629 30.0001H84.497V17.4991H82.629V30.0001ZM79.567 22.7021H79.503C79.084 22.2021 78.278 21.7511 77.264 21.7511C75.137 21.7511 73.188 23.6201 73.188 26.0211C73.188 28.4051 75.137 30.2581 77.264 30.2581C78.279 30.2581 79.084 29.8071 79.503 29.2921H79.567V29.9041C79.567 31.5311 78.697 32.4011 77.296 32.4011C76.152 32.4011 75.443 31.5801 75.153 30.8871L73.526 31.5641C73.993 32.6911 75.233 34.0771 77.296 34.0771C79.487 34.0771 81.34 32.7881 81.34 29.6461V22.0101H79.568V22.7021H79.567ZM77.425 28.5831C76.136 28.5831 75.057 27.5031 75.057 26.0211C75.057 24.5221 76.136 23.4271 77.425 23.4271C78.697 23.4271 79.696 24.5221 79.696 26.0211C79.696 27.5031 78.697 28.5831 77.425 28.5831ZM101.806 17.4991H97.335V30.0001H99.2V25.2641H101.805C103.873 25.2641 105.907 23.7671 105.907 21.3821C105.907 18.9971 103.874 17.4991 101.806 17.4991ZM101.854 23.5241H99.2V19.2391H101.854C103.249 19.2391 104.041 20.3941 104.041 21.3821C104.041 22.3501 103.249 23.5241 101.854 23.5241ZM113.386 21.7291C112.035 21.7291 110.636 22.3241 110.057 23.6431L111.713 24.3341C112.067 23.6431 112.727 23.4171 113.418 23.4171C114.383 23.4171 115.364 23.9961 115.38 25.0251V25.1541C115.042 24.9611 114.318 24.6721 113.434 24.6721C111.649 24.6721 109.831 25.6531 109.831 27.4861C109.831 29.1591 111.295 30.2361 112.935 30.2361C114.189 30.2361 114.881 29.6731 115.315 29.0131H115.379V29.9781H117.181V25.1851C117.182 22.9671 115.524 21.7291 113.386 21.7291ZM113.16 28.5801C112.55 28.5801 111.697 28.2741 111.697 27.5181C111.697 26.5531 112.759 26.1831 113.676 26.1831C114.495 26.1831 114.882 26.3601 115.38 26.6011C115.235 27.7601 114.238 28.5801 113.16 28.5801ZM123.743 22.0021L121.604 27.4221H121.54L119.32 22.0021H117.31L120.639 29.5771L118.741 33.7911H120.687L125.818 22.0021H123.743ZM106.937 30.0001H108.802V17.4991H106.937V30.0001Z"
+                          fill="white"
+                        />
+                        <path
+                          d="M47.418 10.2432C47.418 11.0812 47.1701 11.7482 46.673 12.2462C46.109 12.8382 45.3731 13.1342 44.4691 13.1342C43.6031 13.1342 42.8661 12.8342 42.2611 12.2342C41.6551 11.6332 41.3521 10.8892 41.3521 10.0012C41.3521 9.11219 41.6551 8.36819 42.2611 7.76819C42.8661 7.16719 43.6031 6.86719 44.4691 6.86719C44.8991 6.86719 45.3101 6.95119 45.7001 7.11819C46.0911 7.28619 46.404 7.50919 46.6381 7.78819L46.111 8.31619C45.714 7.84119 45.167 7.60419 44.468 7.60419C43.836 7.60419 43.29 7.82619 42.829 8.27019C42.368 8.71419 42.1381 9.29119 42.1381 10.0002C42.1381 10.7092 42.368 11.2862 42.829 11.7302C43.29 12.1742 43.836 12.3962 44.468 12.3962C45.138 12.3962 45.6971 12.1732 46.1441 11.7262C46.4341 11.4352 46.602 11.0302 46.647 10.5112H44.468V9.79019H47.375C47.405 9.94719 47.418 10.0982 47.418 10.2432Z"
+                          fill="white"
+                        />
+                        <path d="M52.0281 7.73724H49.2961V9.63924H51.7601V10.3602H49.2961V12.2622H52.0281V13.0002H48.5251V7.00024H52.0281V7.73724Z" fill="white" />
+                        <path d="M55.279 13.0002H54.508V7.73724H52.832V7.00024H56.955V7.73724H55.279V13.0002Z" fill="white" />
+                        <path d="M59.938 13.0002V7.00024H60.709V13.0002H59.938Z" fill="white" />
+                        <path d="M64.1281 13.0002H63.3572V7.73724H61.6812V7.00024H65.8042V7.73724H64.1281V13.0002Z" fill="white" />
+                        <path
+                          d="M73.6089 12.2252C73.0189 12.8312 72.2859 13.1342 71.4089 13.1342C70.5319 13.1342 69.7989 12.8312 69.2099 12.2252C68.6199 11.6192 68.3259 10.8772 68.3259 10.0002C68.3259 9.12323 68.6199 8.38123 69.2099 7.77523C69.7989 7.16923 70.5319 6.86523 71.4089 6.86523C72.2809 6.86523 73.0129 7.17023 73.6049 7.77923C74.1969 8.38823 74.4929 9.12823 74.4929 10.0002C74.4929 10.8772 74.1979 11.6192 73.6089 12.2252ZM69.7789 11.7222C70.2229 12.1722 70.7659 12.3962 71.4089 12.3962C72.0519 12.3962 72.5959 12.1712 73.0389 11.7222C73.4829 11.2722 73.7059 10.6982 73.7059 10.0002C73.7059 9.30223 73.4829 8.72823 73.0389 8.27823C72.5959 7.82823 72.0519 7.60423 71.4089 7.60423C70.7659 7.60423 70.2229 7.82923 69.7789 8.27823C69.3359 8.72823 69.1129 9.30223 69.1129 10.0002C69.1129 10.6982 69.3359 11.2722 69.7789 11.7222Z"
+                          fill="white"
+                        />
+                        <path
+                          d="M75.5749 13.0002V7.00024H76.513L79.429 11.6672H79.4619L79.429 10.5112V7.00024H80.1999V13.0002H79.3949L76.344 8.10625H76.3109L76.344 9.26224V13.0002H75.5749Z"
+                          fill="white"
+                        />
+                        <path
+                          d="M47.418 10.2432C47.418 11.0812 47.1701 11.7482 46.673 12.2462C46.109 12.8382 45.3731 13.1342 44.4691 13.1342C43.6031 13.1342 42.8661 12.8342 42.2611 12.2342C41.6551 11.6332 41.3521 10.8892 41.3521 10.0012C41.3521 9.11219 41.6551 8.36819 42.2611 7.76819C42.8661 7.16719 43.6031 6.86719 44.4691 6.86719C44.8991 6.86719 45.3101 6.95119 45.7001 7.11819C46.0911 7.28619 46.404 7.50919 46.6381 7.78819L46.111 8.31619C45.714 7.84119 45.167 7.60419 44.468 7.60419C43.836 7.60419 43.29 7.82619 42.829 8.27019C42.368 8.71419 42.1381 9.29119 42.1381 10.0002C42.1381 10.7092 42.368 11.2862 42.829 11.7302C43.29 12.1742 43.836 12.3962 44.468 12.3962C45.138 12.3962 45.6971 12.1732 46.1441 11.7262C46.4341 11.4352 46.602 11.0302 46.647 10.5112H44.468V9.79019H47.375C47.405 9.94719 47.418 10.0982 47.418 10.2432Z"
+                          stroke="white"
+                          stroke-width="0.2"
+                          stroke-miterlimit="10"
+                        />
+                        <path
+                          d="M52.0281 7.73724H49.2961V9.63924H51.7601V10.3602H49.2961V12.2622H52.0281V13.0002H48.5251V7.00024H52.0281V7.73724Z"
+                          stroke="white"
+                          stroke-width="0.2"
+                          stroke-miterlimit="10"
+                        />
+                        <path d="M55.279 13.0002H54.508V7.73724H52.832V7.00024H56.955V7.73724H55.279V13.0002Z" stroke="white" stroke-width="0.2" stroke-miterlimit="10" />
+                        <path d="M59.938 13.0002V7.00024H60.709V13.0002H59.938Z" stroke="white" stroke-width="0.2" stroke-miterlimit="10" />
+                        <path d="M64.1281 13.0002H63.3572V7.73724H61.6812V7.00024H65.8042V7.73724H64.1281V13.0002Z" stroke="white" stroke-width="0.2" stroke-miterlimit="10" />
+                        <path
+                          d="M73.6089 12.2252C73.0189 12.8312 72.2859 13.1342 71.4089 13.1342C70.5319 13.1342 69.7989 12.8312 69.2099 12.2252C68.6199 11.6192 68.3259 10.8772 68.3259 10.0002C68.3259 9.12323 68.6199 8.38123 69.2099 7.77523C69.7989 7.16923 70.5319 6.86523 71.4089 6.86523C72.2809 6.86523 73.0129 7.17023 73.6049 7.77923C74.1969 8.38823 74.4929 9.12823 74.4929 10.0002C74.4929 10.8772 74.1979 11.6192 73.6089 12.2252ZM69.7789 11.7222C70.2229 12.1722 70.7659 12.3962 71.4089 12.3962C72.0519 12.3962 72.5959 12.1712 73.0389 11.7222C73.4829 11.2722 73.7059 10.6982 73.7059 10.0002C73.7059 9.30223 73.4829 8.72823 73.0389 8.27823C72.5959 7.82823 72.0519 7.60423 71.4089 7.60423C70.7659 7.60423 70.2229 7.82923 69.7789 8.27823C69.3359 8.72823 69.1129 9.30223 69.1129 10.0002C69.1129 10.6982 69.3359 11.2722 69.7789 11.7222Z"
+                          stroke="white"
+                          stroke-width="0.2"
+                          stroke-miterlimit="10"
+                        />
+                        <path
+                          d="M75.5749 13.0002V7.00024H76.513L79.429 11.6672H79.4619L79.429 10.5112V7.00024H80.1999V13.0002H79.3949L76.344 8.10625H76.3109L76.344 9.26224V13.0002H75.5749Z"
+                          stroke="white"
+                          stroke-width="0.2"
+                          stroke-miterlimit="10"
+                        />
+                        <g filter="url(#filter0_ii_hero_gp)">
+                          <path
+                            d="M10.4361 7.53803C10.1451 7.84603 9.97314 8.32403 9.97314 8.94303V31.059C9.97314 31.679 10.1451 32.156 10.4361 32.464L10.5101 32.536L22.8991 20.147V20.001V19.855L10.5101 7.46503L10.4361 7.53803Z"
+                            fill="url(#paint0_linear_hero_gp)"
+                          />
+                          <path
+                            d="M27.0279 24.278L22.8989 20.147V20.001V19.855L27.0289 15.725L27.1219 15.778L32.0149 18.558C33.4119 19.352 33.4119 20.651 32.0149 21.446L27.1219 24.226L27.0279 24.278Z"
+                            fill="url(#paint1_linear_hero_gp)"
+                          />
+                          <g filter="url(#filter1_i_hero_gp)">
+                            <path
+                              d="M27.122 24.225L22.898 20.001L10.436 32.464C10.896 32.952 11.657 33.012 12.514 32.526L27.122 24.225Z"
+                              fill="url(#paint2_linear_hero_gp)"
+                            />
+                          </g>
+                          <path
+                            d="M27.122 15.777L12.514 7.47701C11.657 6.99001 10.896 7.05101 10.436 7.53901L22.899 20.002L27.122 15.777Z"
+                            fill="url(#paint3_linear_hero_gp)"
+                          />
+                        </g>
+                        <defs>
+                          <filter
+                            id="filter0_ii_hero_gp"
+                            x="9.97314"
+                            y="7.14093"
+                            width="23.0894"
+                            height="25.7207"
+                            filterUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB"
+                          >
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="-0.15" />
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" />
+                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_hero_gp" />
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="0.15" />
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0" />
+                            <feBlend mode="normal" in2="effect1_innerShadow_hero_gp" result="effect2_innerShadow_hero_gp" />
+                          </filter>
+                          <filter
+                            id="filter1_i_hero_gp"
+                            x="10.436"
+                            y="20.001"
+                            width="16.686"
+                            height="12.8607"
+                            filterUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB"
+                          >
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="-0.15" />
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0" />
+                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_hero_gp" />
+                          </filter>
+                          <linearGradient id="paint0_linear_hero_gp" x1="21.8009" y1="8.70903" x2="5.01895" y2="25.491" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#00A0FF" />
+                            <stop offset="0.0066" stop-color="#00A1FF" />
+                            <stop offset="0.2601" stop-color="#00BEFF" />
+                            <stop offset="0.5122" stop-color="#00D2FF" />
+                            <stop offset="0.7604" stop-color="#00DFFF" />
+                            <stop offset="1" stop-color="#00E3FF" />
+                          </linearGradient>
+                          <linearGradient id="paint1_linear_hero_gp" x1="33.8334" y1="20.001" x2="9.63753" y2="20.001" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FFE000" />
+                            <stop offset="0.4087" stop-color="#FFBD00" />
+                            <stop offset="0.7754" stop-color="#FFA500" />
+                            <stop offset="1" stop-color="#FF9C00" />
+                          </linearGradient>
+                          <linearGradient id="paint2_linear_hero_gp" x1="24.8281" y1="22.2949" x2="2.06964" y2="45.0534" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FF3A44" />
+                            <stop offset="1" stop-color="#C31162" />
+                          </linearGradient>
+                          <linearGradient id="paint3_linear_hero_gp" x1="7.29743" y1="0.176806" x2="17.4597" y2="10.3391" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#32A071" />
+                            <stop offset="0.0685" stop-color="#2DA771" />
+                            <stop offset="0.4762" stop-color="#15CF74" />
+                            <stop offset="0.8009" stop-color="#06E775" />
+                            <stop offset="1" stop-color="#00F076" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </a>
+                  </div>
 
                 </div>
               </div>
@@ -660,7 +1054,7 @@
               <div class="sbox-1 text-center wow fadeInUp" data-wow-delay="0.4s">
                 <h2 style="font-size:2.5rem; font-weight:700; color:#3B82F6;">1</h2>
                 <h5 class="h5-xs steelblue-color">Download</h5>
-                <p>Get the Android app on <a href="https://play.google.com/store/apps/details?id=com.stablechannels.app" style="color:#3B82F6;">Google Play</a>, or download the desktop app from our <a href="https://github.com/toneloc/stable-channels/releases" style="color:#3B82F6;">releases page</a>. iOS coming soon.</p>
+                <p>Get the Android app on <a href="#" data-toggle="modal" data-target="#downloadModal" style="color:#3B82F6;">Google Play</a>, or download the desktop app from our <a href="https://github.com/toneloc/stable-channels/releases" style="color:#3B82F6;" target="_blank">releases page</a>. iOS coming soon.</p>
               </div>
             </div>
             <div class="col-sm-6 col-lg-4">
@@ -909,13 +1303,14 @@
                 <!-- CALL TO ACTION BUTTON -->
                 <div class="col-lg-3 col-xl-3 offset-lg-2 offset-xl-3">
                     <div class="cta-btn text-right">
-                        <a
-                            href="https://github.com/toneloc/stable-channels/releases"
+                        <button
+                            type="button"
                             class="btn btn-primary-color tra-hover"
+                            data-toggle="modal"
+                            data-target="#downloadModal"
                         >
-
                             Download the App
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1009,6 +1404,88 @@
         <!-- End container -->
       </footer>
       <!-- END FOOTER-4 -->
+
+      <!-- DOWNLOAD IN PLAY STORE & PLATFORMS MODAL
+      ============================================= -->
+      <div class="modal fade" id="downloadModal" tabindex="-1" role="dialog" aria-labelledby="downloadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content custom-download-modal">
+            <div class="download-modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="download-modal-title">
+                <img src="images/app-icon.png" alt="Stable Channels">
+                <span>Get Stable Channels</span>
+              </div>
+              <p class="download-modal-subtitle">Self-custodial Bitcoin USD stability on the Lightning Network.</p>
+            </div>
+            <div class="download-modal-body">
+              <!-- Featured Google Play Store Download -->
+              <a href="https://play.google.com/store/apps/details?id=com.stablechannels.app" target="_blank" class="featured-play-card">
+                <div class="play-card-left">
+                  <div class="play-card-icon">
+                    <i class="fab fa-google-play"></i>
+                  </div>
+                  <div class="play-card-text">
+                    <span class="badge-featured">Official Android App</span>
+                    <h4 class="play-card-title">Google Play Store</h4>
+                    <p class="play-card-desc">Download and install directly on your Android device</p>
+                  </div>
+                </div>
+                <div class="play-card-action">
+                  <span>Install on Google Play</span>
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </a>
+
+              <!-- Other platforms & Direct APK -->
+              <div class="other-download-options">
+                <!-- Direct APK / GitHub Releases -->
+                <a href="https://github.com/toneloc/stable-channels/releases" target="_blank" class="dl-option-card">
+                  <div>
+                    <div class="dl-option-top">
+                      <i class="fab fa-android dl-option-icon" style="color: #10B981;"></i>
+                      <h5 class="dl-option-name">Android APK</h5>
+                    </div>
+                    <p class="dl-option-status">Direct .apk download &amp; GitHub releases</p>
+                  </div>
+                  <span class="dl-option-badge badge-release">Direct Download &rarr;</span>
+                </a>
+
+                <!-- Apple iOS -->
+                <div class="dl-option-card disabled-option">
+                  <div>
+                    <div class="dl-option-top">
+                      <i class="fab fa-apple dl-option-icon"></i>
+                      <h5 class="dl-option-name">Apple iOS</h5>
+                    </div>
+                    <p class="dl-option-status">Native Swift app built on LDK Node</p>
+                  </div>
+                  <span class="dl-option-badge badge-soon">Coming Soon</span>
+                </div>
+
+                <!-- Desktop -->
+                <a href="https://github.com/toneloc/stable-channels/releases" target="_blank" class="dl-option-card">
+                  <div>
+                    <div class="dl-option-top">
+                      <i class="fas fa-desktop dl-option-icon" style="color: #3B82F6;"></i>
+                      <h5 class="dl-option-name">Desktop</h5>
+                    </div>
+                    <p class="dl-option-status">macOS &amp; Linux releases on GitHub</p>
+                  </div>
+                  <span class="dl-option-badge badge-release">Releases &rarr;</span>
+                </a>
+              </div>
+
+              <p class="modal-footer-note">
+                Stable Channels is 100% open-source software under GPLv3. View source code on <a href="https://github.com/toneloc/stable-channels" target="_blank">GitHub</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END DOWNLOAD MODAL -->
     </div>
     <!-- END PAGE CONTENT -->
 
