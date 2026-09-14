@@ -171,7 +171,7 @@ const FlapCell = React.memo(
             {flipId > 0 && (
               <motion.div
                 key={`s${flipId}`}
-                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.8),transparent_60%)] dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.8),transparent_60%)]"
+                className="pointer-events-none absolute inset-0 bg-black/10 dark:bg-black/30"
                 initial={{ opacity: 0.5 }}
                 animate={{ opacity: 0 }}
                 transition={{ duration: flipDuration * 1.3, ease: "easeOut" }}
@@ -201,7 +201,7 @@ const FlapCell = React.memo(
                 {showPrev}
               </div>
               <motion.div
-                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0),rgba(255,255,255,1))] dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,1))]"
+                className="pointer-events-none absolute inset-0 bg-black/20 dark:bg-black/40"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.6 }}
                 transition={{ duration: flipDuration }}
@@ -232,7 +232,7 @@ const FlapCell = React.memo(
                 {show}
               </div>
               <motion.div
-                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(255,255,255,0),rgba(255,255,255,0.6))] dark:bg-[linear-gradient(to_top,rgba(0,0,0,0),rgba(0,0,0,0.6))]"
+                className="pointer-events-none absolute inset-0 bg-black/10 dark:bg-black/20"
                 initial={{ opacity: 0.4 }}
                 animate={{ opacity: 0 }}
                 transition={{
@@ -247,8 +247,8 @@ const FlapCell = React.memo(
           <div className="pointer-events-none absolute inset-x-0 top-1/2 z-20 h-px -translate-y-[0.5px] bg-neutral-400/50 dark:bg-black/50" />
         </div>
 
-        {/* Bottom stripes */}
-        <div className="h-2 w-full bg-[repeating-linear-gradient(to_bottom,currentColor_0,currentColor_1px,transparent_1px,transparent_0.15rem)] text-neutral-400 opacity-20 md:h-4 md:bg-[repeating-linear-gradient(to_bottom,currentColor_0,currentColor_1px,transparent_1px,transparent_0.2rem)] dark:text-black dark:opacity-100" />
+        {/* Bottom border line */}
+        <div className="h-1.5 w-full border-b border-neutral-300 dark:border-neutral-800 md:h-2" />
       </div>
     );
   },

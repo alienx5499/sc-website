@@ -1,17 +1,12 @@
-import type { Metadata } from 'next';
-import { Inter, Geist } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { siteConfig } from '@/data/siteConfig';
-import { cn } from "@/lib/utils";
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
+export const viewport: Viewport = {
+  themeColor: '#000000',
+  colorScheme: 'dark',
+};
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -61,9 +56,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("scroll-smooth", inter.variable, "font-sans", geist.variable)}>
-      <body className="font-sans antialiased text-gray-900 bg-white dark:bg-black dark:text-zinc-100 selection:bg-[#F7931A]/20 selection:text-[#F7931A]">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className="scroll-smooth bg-black text-white dark"
+      style={{ backgroundColor: '#000000' }}
+    >
+      <body
+        className="font-sans antialiased text-zinc-100 bg-black selection:bg-[#F7931A]/20 selection:text-[#F7931A]"
+        style={{ backgroundColor: '#000000' }}
+      >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
         </ThemeProvider>
       </body>

@@ -29,12 +29,8 @@ export const LiveTickerSection: React.FC = () => {
     <section
       id="live-ticker"
       data-section="live-ticker"
-      className="py-24 bg-white dark:bg-black text-zinc-900 dark:text-white relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300"
+      className="py-24 bg-white dark:bg-black text-zinc-900 dark:text-white relative overflow-hidden border-b border-zinc-200 dark:border-white/[0.08] transition-colors duration-300"
     >
-      {/* Layered ambient glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-[#F7931A]/8 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[300px] h-[200px] bg-[#F7931A]/5 blur-[100px] rounded-full pointer-events-none" />
-
       {/* Noise overlay */}
       <div className="noise-overlay absolute inset-0 pointer-events-none dark:block hidden" />
 

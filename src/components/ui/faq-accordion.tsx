@@ -46,10 +46,10 @@ export function FaqAccordion({
               key={item.id || index}
               className={cn(
                 'w-full relative transition-all duration-300 ease-out rounded-2xl overflow-hidden',
-                'border border-zinc-200/80 dark:border-zinc-800/80',
+                'border border-zinc-200 dark:border-white/[0.08]',
                 isActive
-                  ? 'bg-zinc-50/80 dark:bg-zinc-900/60 shadow-md border-[#F7931A]/30 dark:border-[#F7931A]/30'
-                  : 'bg-white/90 dark:bg-zinc-950/40 hover:border-zinc-300 dark:hover:border-zinc-700'
+                  ? 'bg-zinc-50 dark:bg-[#121214] border-[#F7931A]/50 dark:border-[#F7931A]/50'
+                  : 'bg-zinc-50/50 dark:bg-[#121214]/60 hover:border-zinc-400 dark:hover:border-zinc-700'
               )}
             >
               <button
@@ -102,7 +102,7 @@ export function FaqAccordion({
                 )}
               >
                 <div className="overflow-hidden">
-                  <div className="px-6 md:px-8 pl-16 md:pl-20 pb-6 pt-1 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed border-t border-zinc-100 dark:border-zinc-850/60">
+                  <div className="px-6 md:px-8 pl-16 md:pl-20 pb-6 pt-1 text-sm sm:text-base text-zinc-600 dark:text-[#86868b] leading-relaxed border-t border-zinc-100 dark:border-white/[0.08]">
                     <p>{item.answer}</p>
                     {item.linkText && item.linkHref && (
                       <p className="mt-3.5">

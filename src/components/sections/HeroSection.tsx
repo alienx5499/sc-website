@@ -2,79 +2,92 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'motion/react';
-import { Container } from '@/components/ui/Container';
-
+import { motion, useScroll, useTransform } from 'motion/react';
 import { GooglePlayButton, AppStoreButton } from '@/components/ui/app-store-buttons';
 import { siteConfig } from '@/data/siteConfig';
+import { Iphone17Pro } from '@/components/ui/iphone-17-pro';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30, filter: 'blur(6px)' },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: {
-      duration: 0.7,
-      delay: i * 0.12,
-      ease: [0.21, 0.47, 0.32, 0.98] as const,
-    },
-  }),
-};
+// Exact cubic-bezier curve from mobile-magicui (easeInOutCubic)
+const EASE_CUBIC = [0.645, 0.045, 0.355, 1] as const;
 
 export const HeroSection: React.FC = () => {
+  const { scrollY } = useScroll({ offset: ['start start', 'end start'] });
+  const t = useTransform(scrollY, [0, 300], [100, 0]);
+  const s = useTransform(scrollY, [0, 300], [50, 0]);
+  const x = useTransform(scrollY, [0, 300], [0, 0]);
+  const m = useTransform(scrollY, [0, 300], [50, 0]);
+  const h = useTransform(scrollY, [0, 300], [100, 0]);
+
   return (
     <section
       id="hero"
       data-section="hero"
-      className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-white dark:bg-black overflow-hidden transition-colors duration-300"
+      className="min-h-[100vh] w-full overflow-hidden bg-black transition-colors duration-300 relative"
     >
-      {/* Ambient gradient blurs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#F7931A]/10 blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#F7931A]/5 blur-[120px] rounded-full pointer-events-none" />
-
-      <Container>
-        {/* Hero Copy */}
-        <motion.div
-          className="relative z-10 max-w-3xl mx-auto text-center space-y-6"
-          initial="hidden"
-          animate="visible"
-        >
+      <main className="mx-auto pt-16 sm:pt-24 md:pt-32 text-center relative px-4">
+        {/* Splash App Icon to Header Animation */}
+        <div className="relative">
           <motion.div
-            custom={0}
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-200/80 dark:border-zinc-800/80 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-sm text-zinc-600 dark:text-zinc-400 text-xs font-medium tracking-normal"
+            initial={{ scale: 4.5, height: '80vh' }}
+            animate={{ scale: 1, height: '10vh' }}
+            transition={{
+              scale: { delay: 0, duration: 1.8, ease: EASE_CUBIC },
+              height: { delay: 0, duration: 1.8, ease: EASE_CUBIC },
+            }}
+            className="mb-16 relative z-20"
+            style={{ transformOrigin: 'top' }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F7931A] animate-pulse" />
-            Decentralized Bitcoin Volatility Protection
+            <div className="h-20 w-20 mx-auto flex items-center justify-center">
+              <Image
+                src="/images/app-icon.svg"
+                alt="Stable Channels Logo"
+                width={80}
+                height={80}
+                priority
+                className="w-20 h-20 rounded-2xl shadow-2xl"
+              />
+            </div>
           </motion.div>
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+            className="absolute inset-0 top-24 z-10 font-bold text-xl tracking-tight text-zinc-900 dark:text-white"
+          >
+            {siteConfig.name}
+          </motion.div>
+        </div>
 
+        {/* Copy Section with Staggered Entrance */}
+        <div className="max-w-5xl mx-auto">
           <motion.h1
-            custom={1}
-            variants={fadeUp}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-[1.12]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: EASE_CUBIC }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 tracking-tighter text-zinc-900 dark:text-white leading-[1.12]"
           >
             Get USD stability.
             <br />
-            <span className="bg-gradient-to-r from-[#F7931A] via-[#E08213] to-[#C6720D] dark:from-[#F7931A] dark:via-[#F7931A] dark:to-[#E08213] bg-clip-text text-transparent">
+            <span className="text-[#F7931A]">
               Stay in self-custodied Bitcoin.
             </span>
           </motion.h1>
 
           <motion.p
-            custom={2}
-            variants={fadeUp}
-            className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.7, ease: EASE_CUBIC }}
+            className="max-w-2xl mx-auto text-lg sm:text-xl mb-8 font-medium text-balance text-zinc-600 dark:text-zinc-400 leading-relaxed"
           >
-            A steady dollar balance, in a wallet you control. No banks, no
+            Stable Channels keeps your dollar balance steady in a wallet you control. No banks, no
             tokens, no third parties.
           </motion.p>
 
-          {/* App Store Buttons */}
           <motion.div
-            custom={3}
-            variants={fadeUp}
-            className="flex flex-wrap items-center justify-center gap-3 pt-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="flex flex-wrap items-center justify-center gap-3 mb-16"
           >
             <GooglePlayButton
               href={siteConfig.googlePlayUrl}
@@ -91,54 +104,91 @@ export const HeroSection: React.FC = () => {
               className="hover:scale-105 transition-transform opacity-90 hover:opacity-100 shadow-xs"
             />
           </motion.div>
-        </motion.div>
+        </div>
 
-        {/* Hero Visual Mockup with perspective */}
-        <motion.div
-          className="relative z-10 mt-16 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 60, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            duration: 0.9,
-            delay: 0.5,
-            ease: [0.21, 0.47, 0.32, 0.98],
-          }}
-        >
-          <div className="flex flex-row justify-center items-center gap-3 sm:gap-6 p-4" style={{ perspective: '1200px' }}>
-            <motion.div
-              className="relative w-[160px] sm:w-[260px] md:w-[300px]"
-              style={{ transformStyle: 'preserve-3d' }}
-              whileHover={{ rotateY: -3, rotateX: 2, scale: 1.03 }}
-              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            >
-              <div className="absolute -inset-3 bg-gradient-to-br from-[#F7931A]/20 via-transparent to-[#F7931A]/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <Image
-                src="/images/app-balance-img.png"
-                alt="Stable Channels app - balance bar with USD stability (left)"
-                width={300}
-                height={600}
-                className="relative w-full h-auto rounded-2xl sm:rounded-3xl shadow-2xl shadow-zinc-900/10 dark:shadow-black/80 border border-zinc-200 dark:border-zinc-800"
-                priority
-              />
-            </motion.div>
-            <motion.div
-              className="relative w-[160px] sm:w-[260px] md:w-[300px]"
-              style={{ transformStyle: 'preserve-3d' }}
-              whileHover={{ rotateY: 3, rotateX: 2, scale: 1.03 }}
-              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            >
-              <Image
-                src="/images/app-balance-right-img.png"
-                alt="Stable Channels app - balance bar with BTC exposure (right)"
-                width={300}
-                height={600}
-                className="relative w-full h-auto rounded-2xl sm:rounded-3xl shadow-2xl shadow-zinc-900/10 dark:shadow-black/80 border border-zinc-200 dark:border-zinc-800"
-                priority
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-      </Container>
+        {/* 5-Device Showcase with Fan-Out Animation & Scroll Parallax using Iphone17Pro */}
+        <div className="flex flex-nowrap items-center justify-center gap-4 sm:gap-8 h-auto select-none overflow-visible pb-16 sm:pb-24">
+          {/* Device 1 - Far Left */}
+          <motion.div
+            initial={{ opacity: 0, x: -200 }}
+            animate={{ opacity: 1, x: 0 }}
+            style={{ y: t }}
+            transition={{ duration: 1, delay: 1 }}
+            className="w-40 sm:w-60 md:w-64 h-auto flex-shrink-0"
+          >
+            <Iphone17Pro
+              src="/myphone.png"
+              width="100%"
+              height="100%"
+              className="w-full h-auto drop-shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Device 2 - Left */}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            style={{ y: s }}
+            transition={{ duration: 1, delay: 1 }}
+            className="w-40 sm:w-60 md:w-64 h-auto flex-shrink-0"
+          >
+            <Iphone17Pro
+              src="/myphone.png"
+              width="100%"
+              height="100%"
+              className="w-full h-auto drop-shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Device 3 - Center (Hero Focus) */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            style={{ y: x }}
+            transition={{ duration: 1, delay: 1 }}
+            className="w-44 sm:w-64 md:w-72 h-auto flex-shrink-0 z-10"
+          >
+            <Iphone17Pro
+              src="/myphone.png"
+              width="100%"
+              height="100%"
+              className="w-full h-auto drop-shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Device 4 - Right */}
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            style={{ y: m }}
+            transition={{ duration: 1, delay: 1 }}
+            className="w-40 sm:w-60 md:w-64 h-auto flex-shrink-0"
+          >
+            <Iphone17Pro
+              src="/myphone.png"
+              width="100%"
+              height="100%"
+              className="w-full h-auto drop-shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Device 5 - Far Right */}
+          <motion.div
+            initial={{ opacity: 0, x: 200 }}
+            animate={{ opacity: 1, x: 0 }}
+            style={{ y: h }}
+            transition={{ duration: 1, delay: 1 }}
+            className="w-40 sm:w-60 md:w-64 h-auto flex-shrink-0"
+          >
+            <Iphone17Pro
+              src="/myphone.png"
+              width="100%"
+              height="100%"
+              className="w-full h-auto drop-shadow-2xl"
+            />
+          </motion.div>
+        </div>
+      </main>
     </section>
   );
 };

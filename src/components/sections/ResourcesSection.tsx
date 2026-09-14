@@ -50,11 +50,10 @@ export const ResourcesSection: React.FC = () => {
     <section
       id="reviews-2"
       data-section="reviews-2"
-      className="py-24 bg-zinc-50/70 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800/80 transition-colors duration-300 relative overflow-hidden"
+      className="py-24 bg-white dark:bg-black border-t border-zinc-200 dark:border-white/[0.08] transition-colors duration-300 relative overflow-hidden"
     >
-      {/* Noise overlay and ambient glow */}
+      {/* Noise overlay */}
       <div className="noise-overlay absolute inset-0 pointer-events-none dark:block hidden" />
-      <div className="absolute top-0 right-1/4 w-[400px] h-[300px] bg-[#F7931A]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <Container className="relative z-10">
         <AnimatedSection>
@@ -79,29 +78,26 @@ export const ResourcesSection: React.FC = () => {
               href={res.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative overflow-hidden flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-white/60 dark:bg-zinc-900/40 backdrop-blur-xl border border-zinc-200/80 dark:border-zinc-800 hover:border-[#F7931A]/40 dark:hover:border-[#F7931A]/40 transition-all duration-500 shadow-sm hover:shadow-md dark:shadow-none ${getSpanClass(index)}`}
+              className={`group relative overflow-hidden flex flex-col justify-between p-6 sm:p-8 rounded-2xl md:rounded-3xl bg-zinc-50/70 dark:bg-[#121214] border border-zinc-200 dark:border-white/[0.08] hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-300 ${getSpanClass(index)}`}
             >
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#F7931A]/0 to-[#F7931A]/0 group-hover:from-[#F7931A]/5 group-hover:to-transparent transition-colors duration-500 pointer-events-none" />
-              
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex items-start justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-zinc-100 dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 flex items-center justify-center text-zinc-600 dark:text-zinc-400 group-hover:text-[#F7931A] group-hover:scale-110 group-hover:bg-[#F7931A]/10 group-hover:border-[#F7931A]/20 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-white dark:bg-black border border-zinc-200 dark:border-white/[0.1] flex items-center justify-center text-zinc-600 dark:text-zinc-400 group-hover:text-[#F7931A] group-hover:scale-105 transition-all duration-300">
                     {getIcon(res.id)}
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-zinc-100/50 dark:bg-zinc-800/50 flex items-center justify-center opacity-0 -translate-y-2 translate-x-2 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300">
-                    <ExternalLink className="w-4 h-4 text-[#C6720D] dark:text-[#F7931A]" />
+                  <div className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200">
+                    <ExternalLink className="w-4 h-4 text-[#F7931A]" />
                   </div>
                 </div>
 
                 <div className="mt-auto">
-                  <h3 className="text-sm font-semibold tracking-wider text-[#C6720D] dark:text-[#F7931A]/90 uppercase mb-2">
+                  <h3 className="text-xs font-bold tracking-wider text-[#F7931A] uppercase mb-2">
                     {res.title}
                   </h3>
-                  <h4 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-white mb-3 group-hover:text-[#F7931A] transition-colors duration-300">
+                  <h4 className="text-lg sm:text-xl font-bold tracking-tight text-zinc-900 dark:text-white mb-2 group-hover:text-[#F7931A] transition-colors duration-200">
                     {res.linkText}
                   </h4>
-                  <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed line-clamp-3">
+                  <p className="text-sm text-zinc-600 dark:text-[#86868b] leading-relaxed line-clamp-3">
                     {res.description}
                   </p>
                 </div>

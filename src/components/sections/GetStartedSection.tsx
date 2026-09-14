@@ -22,7 +22,7 @@ const stepVariants = {
 
 export const GetStartedSection: React.FC = () => {
   return (
-    <section id="get-started" data-section="get-started" className="py-24 bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800/80 transition-colors duration-300">
+    <section id="get-started" data-section="get-started" className="py-24 bg-white dark:bg-black border-b border-zinc-200 dark:border-white/[0.08] transition-colors duration-300">
       <Container>
         <AnimatedSection>
           <SectionHeader
@@ -34,34 +34,32 @@ export const GetStartedSection: React.FC = () => {
         </AnimatedSection>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 relative"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
         >
           {/* Connecting line between steps (desktop) */}
-          <div className="hidden md:block absolute top-[3.5rem] left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-[#F7931A]/0 via-[#F7931A]/30 to-[#F7931A]/0 z-0" />
+          <div className="hidden md:block absolute top-[3.5rem] left-[16.67%] right-[16.67%] h-px bg-zinc-200 dark:bg-white/[0.08] z-0" />
 
           {getStartedSteps.map((step, index) => (
             <motion.div
               key={step.stepNumber}
               custom={index}
               variants={stepVariants}
-              className="relative z-10 p-8 rounded-2xl bg-zinc-50/70 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200/80 dark:border-zinc-800/80 hover:border-[#F7931A]/40 dark:hover:border-[#F7931A]/40 hover:bg-white dark:hover:bg-zinc-900/80 transition-all duration-300 text-center flex flex-col items-center shadow-xs group"
+              className="relative z-10 p-8 rounded-2xl md:rounded-3xl bg-zinc-50/70 dark:bg-[#121214] border border-zinc-200 dark:border-white/[0.08] hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-300 text-center flex flex-col items-center group"
             >
-              {/* Animated step number with gradient ring */}
+              {/* Step number */}
               <div className="relative mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-[#F7931A]/10 border border-[#F7931A]/30 text-[#E08213] dark:text-[#F7931A] flex items-center justify-center font-extrabold text-3xl shadow-inner group-hover:scale-110 group-hover:bg-[#F7931A]/15 transition-all duration-300">
+                <div className="w-16 h-16 rounded-2xl bg-white dark:bg-black border border-zinc-200 dark:border-white/[0.1] text-[#F7931A] flex items-center justify-center font-bold text-2xl group-hover:scale-105 group-hover:border-[#F7931A] transition-all duration-300">
                   {step.stepNumber}
                 </div>
-                {/* Glow ring on hover */}
-                <div className="absolute -inset-2 rounded-2xl bg-[#F7931A]/0 group-hover:bg-[#F7931A]/5 blur-lg transition-all duration-500" />
               </div>
 
-              <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-3 group-hover:text-[#E08213] dark:group-hover:text-[#F7931A] transition-colors">
+              <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white mb-3 group-hover:text-[#F7931A] transition-colors">
                 {step.title}
               </h3>
-              <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <p className="text-sm sm:text-base text-zinc-600 dark:text-[#86868b] leading-relaxed">
                 {step.description}
               </p>
             </motion.div>
