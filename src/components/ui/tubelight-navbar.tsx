@@ -49,9 +49,9 @@ export function NavBar({
         className,
       )}
     >
-      <div className="pointer-events-auto flex items-center gap-1.5 sm:gap-2 bg-white/80 dark:bg-black/75 border border-zinc-200/80 dark:border-zinc-800/80 backdrop-blur-xl py-1.5 px-2 sm:px-3 rounded-full shadow-lg shadow-black/5 dark:shadow-black/60 transition-colors duration-300">
+      <div className="pointer-events-auto flex items-center gap-1.5 sm:gap-2 bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 py-1.5 px-2 sm:px-3 rounded-full shadow-lg shadow-black/5 dark:shadow-black/70 transition-colors duration-300">
         {brandSlot && (
-          <div className="flex items-center pr-1 sm:pr-2 border-r border-zinc-200/80 dark:border-zinc-800/80">
+          <div className="flex items-center pr-1 sm:pr-2">
             {brandSlot}
           </div>
         )}
@@ -69,7 +69,7 @@ export function NavBar({
                 className={cn(
                   "relative cursor-pointer text-xs sm:text-sm font-semibold px-3.5 sm:px-5 py-2 rounded-full transition-colors select-none",
                   "text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white",
-                  isActive && "bg-zinc-100/90 dark:bg-zinc-900/90 text-[#C6720D] dark:text-[#F7931A]",
+                  isActive && "bg-zinc-100 dark:bg-zinc-900 text-[#C6720D] dark:text-[#F7931A]",
                 )}
               >
                 <span className="hidden md:inline">{item.name}</span>
@@ -100,7 +100,7 @@ export function NavBar({
         </div>
 
         {rightSlot && (
-          <div className="flex items-center gap-1 pl-1 sm:pl-2 border-l border-zinc-200/80 dark:border-zinc-800/80">
+          <div className="flex items-center gap-1 pl-1 sm:pl-2">
             {rightSlot}
           </div>
         )}

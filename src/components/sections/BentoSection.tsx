@@ -9,7 +9,7 @@ export const BentoSection: React.FC = () => {
     <section
       id="features"
       data-section="features"
-      className="bg-white dark:bg-black py-16 md:py-28 relative border-b border-zinc-200 dark:border-white/[0.08] transition-colors duration-300"
+      className="bg-white dark:bg-black py-16 md:py-28 relative transition-colors duration-300"
     >
       <div className="container mx-auto">
         <AnimatedSection>

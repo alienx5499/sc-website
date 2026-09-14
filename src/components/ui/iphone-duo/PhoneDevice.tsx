@@ -31,7 +31,14 @@ function PhoneDeviceSurface({
   const reducedMotion = useReducedMotion();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const surfaceRef = useRef<Surface | undefined>(undefined);
-  const dragRef = useRef<{ x: number; value: number; moved: boolean } | undefined>(undefined);
+  interface DragState {
+    startX: number;
+    startY: number;
+    startValue: number;
+    isDragging: boolean;
+    moved: boolean;
+  }
+  const dragRef = useRef<DragState | undefined>(undefined);
   const suppressClickRef = useRef(false);
 
   const [status, setStatus] = useState('Loading 3D model...');
@@ -168,26 +175,69 @@ function PhoneDeviceSurface({
 
   const handlePointerDown = (event: React.PointerEvent<HTMLButtonElement>) => {
     if (event.button !== 0) return;
-    dragRef.current = { x: event.clientX, value: progress.get(), moved: false };
-    event.currentTarget.setPointerCapture(event.pointerId);
+    dragRef.current = {
+      startX: event.clientX,
+      startY: event.clientY,
+      startValue: progress.get(),
+      isDragging: false,
+      moved: false,
+    };
   };
 
   const handlePointerMove = (event: React.PointerEvent<HTMLButtonElement>) => {
-    const start = dragRef.current;
-    if (!start) return;
-    const delta = start.x - event.clientX;
-    if (Math.abs(delta) < 5 && !start.moved) return;
-    start.moved = true;
-    setValue(start.value + delta / (event.currentTarget.clientWidth * 0.5));
+    const drag = dragRef.current;
+    if (!drag) return;
+
+    const deltaX = event.clientX - drag.startX;
+    const deltaY = event.clientY - drag.startY;
+
+    // Detect user intention before hijacking gestures
+    if (!drag.isDragging) {
+      // If movement is predominantly vertical, user is scrolling the page on mobile
+      if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 8) {
+        dragRef.current = undefined;
+        return;
+      }
+
+      // If movement is predominantly horizontal, capture pointer for phone folding
+      if (Math.abs(deltaX) > 8 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        drag.isDragging = true;
+        drag.moved = true;
+        try {
+          event.currentTarget.setPointerCapture(event.pointerId);
+        } catch {
+          // Graceful fallback if pointer capture fails
+        }
+      }
+    }
+
+    if (drag.isDragging) {
+      const clientWidth = event.currentTarget.clientWidth || 320;
+      setValue(drag.startValue - deltaX / (clientWidth * 0.5));
+    }
   };
 
-  const handlePointerUp = () => {
-    suppressClickRef.current = dragRef.current?.moved ?? false;
+  const handlePointerUp = (event: React.PointerEvent<HTMLButtonElement>) => {
+    const drag = dragRef.current;
+    if (drag?.isDragging) {
+      try {
+        if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+          event.currentTarget.releasePointerCapture(event.pointerId);
+        }
+      } catch {
+        // ignore
+      }
+      suppressClickRef.current = true;
+    } else {
+      suppressClickRef.current = false;
+    }
     dragRef.current = undefined;
   };
 
   const handlePointerCancel = () => {
-    if (dragRef.current) setValue(dragRef.current.value);
+    if (dragRef.current?.isDragging) {
+      setValue(dragRef.current.startValue);
+    }
     dragRef.current = undefined;
     suppressClickRef.current = true;
   };

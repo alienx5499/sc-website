@@ -50,7 +50,7 @@ export const ResourcesSection: React.FC = () => {
     <section
       id="reviews-2"
       data-section="reviews-2"
-      className="py-24 bg-white dark:bg-black border-t border-zinc-200 dark:border-white/[0.08] transition-colors duration-300 relative overflow-hidden"
+      className="py-24 bg-white dark:bg-black transition-colors duration-300 relative overflow-hidden"
     >
       {/* Noise overlay */}
       <div className="noise-overlay absolute inset-0 pointer-events-none dark:block hidden" />

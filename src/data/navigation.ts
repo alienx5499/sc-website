@@ -45,6 +45,7 @@ export const footerSections: FooterSection[] = [
       { label: 'GitHub Repository', href: siteConfig.githubUrl, isExternal: true },
       { label: 'Documentation & Links', href: '#reviews-2' },
       { label: 'Releases', href: siteConfig.releasesUrl, isExternal: true },
+      { label: 'Changelog', href: 'https://magicui.design/docs/templates/changelog', isExternal: true },
       { label: 'FAQ', href: '#faqs-2' },
     ],
   },

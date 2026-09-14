@@ -5,7 +5,12 @@ import { animate, useMotionValue, useMotionValueEvent, useReducedMotion, type Mo
 import './foldable-phone.css'
 import { FOLD_DURATION } from './fold-choreography'
 
-type FoldContext = { progress: MotionValue<number>; setValue: (value: number) => void; toggle: (instant?: boolean) => void }
+type FoldContext = {
+  progress: MotionValue<number>;
+  setValue: (value: number) => void;
+  toggle: (instant?: boolean) => void;
+  animateTo: (target: number, duration?: number) => void;
+}
 const Context = createContext<FoldContext | undefined>(undefined)
 
 export function useFoldablePhone() {
@@ -45,6 +50,19 @@ export function FoldablePhone({ value, defaultValue = 0, onValueChange, duration
     destination.current = Math.max(0, Math.min(1, next))
     progress.set(destination.current)
   }
+  function animateTo(target: number, animDuration = 0.8) {
+    const clamped = Math.max(0, Math.min(1, target))
+    destination.current = clamped
+    animation.current?.stop()
+    if (reducedMotion) {
+      progress.set(clamped)
+      return
+    }
+    animation.current = animate(progress, clamped, {
+      duration: animDuration,
+      ease: [0.16, 1, 0.3, 1],
+    })
+  }
   function toggle(instant = false) {
     const moving = animation.current?.state === 'running'
     const current = moving ? destination.current : progress.get()
@@ -54,7 +72,7 @@ export function FoldablePhone({ value, defaultValue = 0, onValueChange, duration
     if (instant || reducedMotion) { progress.set(target); return }
     animation.current = animate(progress, target, { duration: duration * Math.max(0.25, Math.abs(target - progress.get())), ease: 'linear' })
   }
-  return <Context.Provider value={{ progress, setValue, toggle }}><div {...props} className={`duo-root ${className}`}>{children}</div></Context.Provider>
+  return <Context.Provider value={{ progress, setValue, toggle, animateTo }}><div {...props} className={`duo-root ${className}`}>{children}</div></Context.Provider>
 }
 
 export function FoldToggle({ children, onClick, ...props }: ComponentProps<'button'>) {

@@ -22,15 +22,18 @@ export function createPhoneScene(canvas: HTMLCanvasElement): SceneBundle | null 
 
   if (!context) return null;
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
   const renderer = new WebGLRenderer({
     canvas,
     context,
     alpha: true,
     antialias: true,
     preserveDrawingBuffer: true,
+    powerPreference: isMobile ? 'default' : 'high-performance',
   });
 
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.75 : 2));
   renderer.toneMapping = ACESFilmicToneMapping;
 
   const scene = new Scene();

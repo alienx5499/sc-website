@@ -29,7 +29,7 @@ export const LiveTickerSection: React.FC = () => {
     <section
       id="live-ticker"
       data-section="live-ticker"
-      className="py-24 bg-white dark:bg-black text-zinc-900 dark:text-white relative overflow-hidden border-b border-zinc-200 dark:border-white/[0.08] transition-colors duration-300"
+      className="py-24 bg-white dark:bg-black text-zinc-900 dark:text-white relative overflow-hidden transition-colors duration-300"
     >
       {/* Noise overlay */}
       <div className="noise-overlay absolute inset-0 pointer-events-none dark:block hidden" />

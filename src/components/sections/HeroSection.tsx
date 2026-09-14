@@ -108,7 +108,7 @@ export const HeroSection: React.FC = () => {
 
         {/* 5-Device Showcase with Fan-Out Animation & Scroll Parallax using Iphone17Pro */}
         <div className="flex flex-nowrap items-center justify-center gap-4 sm:gap-8 h-auto select-none overflow-visible pb-16 sm:pb-24">
-          {/* Device 1 - Far Left */}
+          {/* Device 1 - Far Left (Receive Screen) */}
           <motion.div
             initial={{ opacity: 0, x: -200 }}
             animate={{ opacity: 1, x: 0 }}
@@ -117,14 +117,14 @@ export const HeroSection: React.FC = () => {
             className="w-40 sm:w-60 md:w-64 h-auto flex-shrink-0"
           >
             <Iphone17Pro
-              src="/myphone.png"
+              src="/images/hero/receive-view.jpg"
               width="100%"
               height="100%"
               className="w-full h-auto drop-shadow-2xl"
             />
           </motion.div>
 
-          {/* Device 2 - Left */}
+          {/* Device 2 - Left (Payments Screen) */}
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -133,14 +133,14 @@ export const HeroSection: React.FC = () => {
             className="w-40 sm:w-60 md:w-64 h-auto flex-shrink-0"
           >
             <Iphone17Pro
-              src="/myphone.png"
+              src="/images/hero/payments-view.jpg"
               width="100%"
               height="100%"
               className="w-full h-auto drop-shadow-2xl"
             />
           </motion.div>
 
-          {/* Device 3 - Center (Hero Focus) */}
+          {/* Device 3 - Center (Hero Focus - Home Dashboard) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -149,14 +149,14 @@ export const HeroSection: React.FC = () => {
             className="w-44 sm:w-64 md:w-72 h-auto flex-shrink-0 z-10"
           >
             <Iphone17Pro
-              src="/myphone.png"
+              src="/images/hero/home-view.jpg"
               width="100%"
               height="100%"
               className="w-full h-auto drop-shadow-2xl"
             />
           </motion.div>
 
-          {/* Device 4 - Right */}
+          {/* Device 4 - Right (BTC to USD Conversion) */}
           <motion.div
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -165,14 +165,14 @@ export const HeroSection: React.FC = () => {
             className="w-40 sm:w-60 md:w-64 h-auto flex-shrink-0"
           >
             <Iphone17Pro
-              src="/myphone.png"
+              src="/images/hero/btc-to-usd.jpg"
               width="100%"
               height="100%"
               className="w-full h-auto drop-shadow-2xl"
             />
           </motion.div>
 
-          {/* Device 5 - Far Right */}
+          {/* Device 5 - Far Right (Payment Details Screen) */}
           <motion.div
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
@@ -181,7 +181,7 @@ export const HeroSection: React.FC = () => {
             className="w-40 sm:w-60 md:w-64 h-auto flex-shrink-0"
           >
             <Iphone17Pro
-              src="/myphone.png"
+              src="/images/hero/payment-details-view.jpg"
               width="100%"
               height="100%"
               className="w-full h-auto drop-shadow-2xl"
