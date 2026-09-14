@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
         href={siteConfig.githubUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="p-1.5 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+        className="p-1.5 rounded-full text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
         aria-label="GitHub"
       >
         <GithubIcon className="size-4" />

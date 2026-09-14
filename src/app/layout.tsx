@@ -4,8 +4,11 @@ import { siteConfig } from '@/data/siteConfig';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 
 export const viewport: Viewport = {
-  themeColor: '#000000',
-  colorScheme: 'dark',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
+  colorScheme: 'dark light',
 };
 
 export const metadata: Metadata = {
@@ -56,17 +59,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className="scroll-smooth bg-black text-white dark"
-      style={{ backgroundColor: '#000000' }}
-    >
-      <body
-        className="font-sans antialiased text-zinc-100 bg-black selection:bg-[#F7931A]/20 selection:text-[#F7931A]"
-        style={{ backgroundColor: '#000000' }}
-      >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <body className="font-sans antialiased selection:bg-[#F7931A]/20 selection:text-[#F7931A]">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
       </body>

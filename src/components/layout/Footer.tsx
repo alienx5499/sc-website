@@ -18,7 +18,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export function Footer() {
   return (
-    <footer id="footer" className="relative bg-black py-16 px-4 border-t border-white/[0.08]">
+    <footer id="footer" className="relative bg-white dark:bg-black py-16 px-4 border-t border-zinc-200 dark:border-white/[0.08] transition-colors duration-300">
       <div className="container mx-auto max-w-6xl">
         <FooterCTA />
 
@@ -41,11 +41,11 @@ export function Footer() {
                   height={36}
                   className="rounded-xl shadow-sm"
                 />
-                <span className="text-xl font-bold text-white tracking-tight">
+                <span className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight">
                   {siteConfig.name}
                 </span>
               </div>
-              <p className="text-sm text-[#86868b] mb-5 leading-relaxed">
+              <p className="text-sm text-zinc-600 dark:text-[#86868b] mb-5 leading-relaxed">
                 Self-custodial USD stability on Bitcoin Lightning. No banks, no synthetic tokens, and zero custody risk.
               </p>
               <div className="flex gap-2">
@@ -53,7 +53,7 @@ export function Footer() {
                   href={siteConfig.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full text-[#86868b] hover:text-white hover:bg-zinc-800 transition-colors inline-flex items-center justify-center"
+                  className="p-2 rounded-full text-zinc-600 dark:text-[#86868b] hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors inline-flex items-center justify-center"
                   aria-label="GitHub"
                 >
                   <GithubIcon className="h-4 w-4" />
@@ -62,7 +62,7 @@ export function Footer() {
                   href={siteConfig.telegramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full text-[#86868b] hover:text-white hover:bg-zinc-800 transition-colors inline-flex items-center justify-center"
+                  className="p-2 rounded-full text-zinc-600 dark:text-[#86868b] hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors inline-flex items-center justify-center"
                   aria-label="Telegram"
                 >
                   <TwitterIcon className="h-4 w-4" />
@@ -86,7 +86,7 @@ export function Footer() {
                           href={link.href}
                           target={link.isExternal ? '_blank' : undefined}
                           rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                          className="text-[#86868b] hover:text-white transition-colors duration-200 inline-block"
+                          className="text-zinc-600 dark:text-[#86868b] hover:text-zinc-900 dark:hover:text-white transition-colors duration-200 inline-block"
                         >
                           {link.label}
                         </Link>
@@ -99,12 +99,12 @@ export function Footer() {
           </motion.div>
 
           {/* Bottom Copyright Section */}
-          <div className="border-t border-white/[0.08] pt-8">
+          <div className="border-t border-zinc-200 dark:border-white/[0.08] pt-8">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-              <p className="text-xs text-[#86868b]">
+              <p className="text-xs text-zinc-500 dark:text-[#86868b]">
                 (C) {new Date().getFullYear()} {siteConfig.name}. Open source under the GPLv3 License.
               </p>
-              <p className="text-xs text-[#86868b] flex items-center gap-1.5">
+              <p className="text-xs text-zinc-500 dark:text-[#86868b] flex items-center gap-1.5">
                 Built with{' '}
                 <Heart className="inline h-3 w-3 text-[#F7931A] fill-current" />{' '}
                 for Bitcoiners worldwide.

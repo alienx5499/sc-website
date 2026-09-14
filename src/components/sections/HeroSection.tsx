@@ -22,7 +22,7 @@ export const HeroSection: React.FC = () => {
     <section
       id="hero"
       data-section="hero"
-      className="min-h-[100vh] w-full overflow-hidden bg-black transition-colors duration-300 relative"
+      className="min-h-[100vh] w-full overflow-hidden bg-white dark:bg-black transition-colors duration-300 relative"
     >
       <main className="mx-auto pt-16 sm:pt-24 md:pt-32 text-center relative px-4">
         {/* Splash App Icon to Header Animation */}
