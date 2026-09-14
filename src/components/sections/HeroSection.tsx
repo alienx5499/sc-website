@@ -6,7 +6,6 @@ import { motion } from 'motion/react';
 import { Container } from '@/components/ui/Container';
 
 import { GooglePlayButton, AppStoreButton } from '@/components/ui/app-store-buttons';
-
 import { siteConfig } from '@/data/siteConfig';
 
 const fadeUp = {
@@ -28,11 +27,8 @@ export const HeroSection: React.FC = () => {
     <section
       id="hero"
       data-section="hero"
-      className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-gradient-to-b from-zinc-50 via-white to-zinc-50/50 dark:from-black dark:via-black dark:to-black overflow-hidden transition-colors duration-300"
+      className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-white dark:bg-black overflow-hidden transition-colors duration-300"
     >
-      {/* Dot grid pattern background */}
-      <div className="absolute inset-0 dot-grid opacity-60 dark:opacity-40" />
-
       {/* Ambient gradient blurs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#F7931A]/10 blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#F7931A]/5 blur-[120px] rounded-full pointer-events-none" />
