@@ -22,6 +22,11 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     }
 
     document.startViewTransition(() => {
+      if (nextTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
       setTheme(nextTheme);
     });
   };
