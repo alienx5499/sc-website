@@ -30,8 +30,8 @@ export const mainNavItems: MainNavItem[] = [
   { name: 'Features', url: '#features', section: 'features', icon: Sparkles },
   {
     name: 'How It Works',
-    url: '#content-1',
-    section: 'content-1',
+    url: '#how-it-works',
+    section: 'how-it-works',
     icon: Layers,
   },
   {
@@ -49,8 +49,8 @@ export const footerSections: FooterSection[] = [
     iconName: 'zap',
     links: [
       { label: 'Features', href: '#features' },
-      { label: 'How It Works', href: '#content-1' },
-      { label: 'Continuous Settlement', href: '#content-6' },
+      { label: 'How It Works', href: '#how-it-works' },
+      { label: 'Continuous Settlement', href: '#how-it-works' },
       { label: 'Get Started', href: '#get-started' },
     ],
   },
