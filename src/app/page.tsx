@@ -3,7 +3,6 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { BentoSection } from '@/components/sections/BentoSection';
-import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
 import { ContinuousSettlementSection } from '@/components/sections/ContinuousSettlementSection';
 import { LiveTickerSection } from '@/components/sections/LiveTickerSection';
 import { GetStartedSection } from '@/components/sections/GetStartedSection';
@@ -16,7 +15,6 @@ export default function HomePage() {
       <main className="flex-grow">
         <HeroSection />
         <BentoSection />
-        <HowItWorksSection />
         <ContinuousSettlementSection />
         <LiveTickerSection />
         <GetStartedSection />
