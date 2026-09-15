@@ -61,11 +61,10 @@ export const ContinuousSettlementSection: React.FC = () => {
                 variants={blockVariants}
                 className="space-y-2 p-6 rounded-2xl md:rounded-3xl bg-zinc-50/70 dark:bg-[#121214] border border-zinc-200 dark:border-white/[0.08] hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-300 group"
               >
-                <h3 className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight flex items-center gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#F7931A]" />
+                <h3 className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight">
                   {block.title}
                 </h3>
-                <p className="text-sm sm:text-base text-zinc-600 dark:text-[#86868b] leading-relaxed pl-4">
+                <p className="text-sm sm:text-base text-zinc-600 dark:text-[#86868b] leading-relaxed">
                   {block.description}
                 </p>
               </motion.div>

@@ -7,7 +7,6 @@ import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
 import { ContinuousSettlementSection } from '@/components/sections/ContinuousSettlementSection';
 import { LiveTickerSection } from '@/components/sections/LiveTickerSection';
 import { GetStartedSection } from '@/components/sections/GetStartedSection';
-import { ResourcesSection } from '@/components/sections/ResourcesSection';
 import { FaqSection } from '@/components/sections/FaqSection';
 
 export default function HomePage() {
@@ -21,7 +20,6 @@ export default function HomePage() {
         <ContinuousSettlementSection />
         <LiveTickerSection />
         <GetStartedSection />
-        <ResourcesSection />
         <FaqSection />
       </main>
       <Footer />

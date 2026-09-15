@@ -38,12 +38,6 @@ export const LiveTickerSection: React.FC = () => {
         <div className="relative z-10 max-w-4xl mx-auto space-y-10 text-center">
           <AnimatedSection>
             <div className="space-y-4">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F7931A]" />
-                <span className="text-sm font-medium tracking-normal text-[#C6720D] dark:text-[#F7931A]/80">
-                  Settlement Engine
-                </span>
-              </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
                 Continuous Settlement in Motion
               </h2>

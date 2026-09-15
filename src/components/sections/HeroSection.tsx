@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/app-store-buttons';
 import { siteConfig } from '@/data/siteConfig';
 import { Iphone17Pro } from '@/components/ui/iphone-17-pro';
+import { BalanceScaleHero } from '@/components/ui/BalanceScaleHero';
 
 // Exact cubic-bezier curve from mobile-magicui (easeInOutCubic)
 const EASE_CUBIC = [0.645, 0.045, 0.355, 1] as const;
@@ -40,15 +41,8 @@ export const HeroSection: React.FC = () => {
             className="mb-16 relative z-20"
             style={{ transformOrigin: 'top' }}
           >
-            <div className="h-20 w-20 mx-auto flex items-center justify-center">
-              <Image
-                src="/images/app-icon.svg"
-                alt="Stable Channels Logo"
-                width={80}
-                height={80}
-                priority
-                className="w-20 h-20 rounded-2xl shadow-2xl"
-              />
+            <div className="h-20 w-20 mx-auto flex items-center justify-center bg-[#2D2D2D] rounded-2xl shadow-2xl p-2 border border-white/10 overflow-hidden">
+              <BalanceScaleHero size={64} initialDelay={0.0} />
             </div>
           </motion.div>
           <motion.div

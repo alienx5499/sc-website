@@ -1,7 +1,7 @@
 import {
   Sparkles,
   Layers,
-  BookOpen,
+  ArrowRightCircle,
   HelpCircle,
   LucideIcon,
 } from 'lucide-react';
@@ -35,10 +35,10 @@ export const mainNavItems: MainNavItem[] = [
     icon: Layers,
   },
   {
-    name: 'Resources',
-    url: '#reviews-2',
-    section: 'reviews-2',
-    icon: BookOpen,
+    name: 'Get Started',
+    url: '#get-started',
+    section: 'get-started',
+    icon: ArrowRightCircle,
   },
   { name: 'FAQ', url: '#faqs-2', section: 'faqs-2', icon: HelpCircle },
 ];
@@ -58,16 +58,30 @@ export const footerSections: FooterSection[] = [
     title: 'Resources',
     iconName: 'fileText',
     links: [
+      { label: 'All Links & Resources', href: '/link-resources' },
+      {
+        label: 'Delving Bitcoin Deep Dive',
+        href: 'https://delvingbitcoin.org/t/stable-channels-peer-to-peer-dollar-balances-on-lightning/875',
+        isExternal: true,
+      },
+      {
+        label: 'Stephan Livera Podcast',
+        href: 'https://stephanlivera.com/episode/591/',
+        isExternal: true,
+      },
+      {
+        label: 'Bitcoin Atlantis Presentation',
+        href: 'https://www.youtube.com/watch?v=yZel3OGUyhg',
+        isExternal: true,
+      },
       {
         label: 'GitHub Repository',
         href: siteConfig.githubUrl,
         isExternal: true,
       },
-      { label: 'Documentation & Links', href: '#reviews-2' },
-      { label: 'Releases', href: siteConfig.releasesUrl, isExternal: true },
       {
-        label: 'Changelog',
-        href: 'https://magicui.design/docs/templates/changelog',
+        label: 'Telegram Community',
+        href: siteConfig.telegramUrl,
         isExternal: true,
       },
       { label: 'FAQ', href: '#faqs-2' },
