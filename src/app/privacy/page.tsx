@@ -58,16 +58,16 @@ export default function PrivacyPage() {
               <p className="mb-3">
                 Stable Channels is not a cryptocurrency exchange, brokerage,
                 custodian, or money services business. We do not buy, sell, or
-                exchange cryptocurrency or fiat currency on anyone&apos;s behalf,
-                do not operate an order book or matching engine, and do not offer
-                fiat on- or off-ramps. The app is self-custodial software that
-                lets peers manage Bitcoin volatility and exposure directly with
-                one another over the Lightning Network.
+                exchange cryptocurrency or fiat currency on anyone&apos;s
+                behalf, do not operate an order book or matching engine, and do
+                not offer fiat on- or off-ramps. The app is self-custodial
+                software that lets peers manage Bitcoin volatility and exposure
+                directly with one another over the Lightning Network.
               </p>
               <p>
                 Everything in Stable Channels is self-custody: at no point do
-                we, or any third party, hold, control, or take possession of your
-                funds.
+                we, or any third party, hold, control, or take possession of
+                your funds.
               </p>
             </section>
 
@@ -86,8 +86,9 @@ export default function PrivacyPage() {
               <ul className="list-disc pl-6 space-y-2 mb-6">
                 <li>
                   <strong>Financial Information (Other Financial Info)</strong>{' '}
-                  - Payment-related data (e.g., routed payments, channel activity)
-                  processed and stored to enable Lightning functionality.
+                  - Payment-related data (e.g., routed payments, channel
+                  activity) processed and stored to enable Lightning
+                  functionality.
                 </li>
                 <li>
                   <strong>Identifiers (User ID)</strong> - Pseudonymous
@@ -138,9 +139,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-white mb-3">
-                No Tracking
-              </h2>
+              <h2 className="text-xl font-bold text-white mb-3">No Tracking</h2>
               <p className="mb-2">We do not:</p>
               <ul className="list-disc pl-6 space-y-1 mb-3">
                 <li>Track users across apps or websites</li>
@@ -159,7 +158,9 @@ export default function PrivacyPage() {
               </h2>
               <p className="mb-2">The app interacts with:</p>
               <ul className="list-disc pl-6 space-y-1 mb-3">
-                <li>Liquidity Service Providers (LSPs) for channel operations</li>
+                <li>
+                  Liquidity Service Providers (LSPs) for channel operations
+                </li>
                 <li>
                   Public price APIs (Kraken, Bitstamp, Coinbase, CoinGecko,
                   Blockchain.com)
@@ -178,11 +179,13 @@ export default function PrivacyPage() {
               <ul className="list-disc pl-6 space-y-2">
                 <li>Private keys are generated and stored on your device</li>
                 <li>We cannot access, recover, or control your funds</li>
-                <li>You are solely responsible for securing your seed phrase</li>
+                <li>
+                  You are solely responsible for securing your seed phrase
+                </li>
                 <li>
                   All funds remain under your exclusive control at all times -
-                  there are no custodial accounts or balances held by us or anyone
-                  else
+                  there are no custodial accounts or balances held by us or
+                  anyone else
                 </li>
               </ul>
             </section>
@@ -197,9 +200,7 @@ export default function PrivacyPage() {
                   coordination
                 </li>
                 <li>Push notifications may be used to wake the app</li>
-                <li>
-                  Extended offline periods may impact channel stability
-                </li>
+                <li>Extended offline periods may impact channel stability</li>
               </ul>
             </section>
 
@@ -230,9 +231,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-bold text-white mb-3">
-                Open Source
-              </h2>
+              <h2 className="text-xl font-bold text-white mb-3">Open Source</h2>
               <p>
                 Source code:{' '}
                 <a

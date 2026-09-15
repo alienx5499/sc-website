@@ -13,7 +13,9 @@ import type { SceneBundle } from './types';
 /**
  * Single Responsibility: Sets up and manages Three.js WebGL scene, lighting, camera, and environment.
  */
-export function createPhoneScene(canvas: HTMLCanvasElement): SceneBundle | null {
+export function createPhoneScene(
+  canvas: HTMLCanvasElement
+): SceneBundle | null {
   const context = canvas.getContext('webgl2', {
     alpha: true,
     antialias: true,
@@ -33,7 +35,9 @@ export function createPhoneScene(canvas: HTMLCanvasElement): SceneBundle | null 
     powerPreference: isMobile ? 'default' : 'high-performance',
   });
 
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.75 : 2));
+  renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio, isMobile ? 1.75 : 2)
+  );
   renderer.toneMapping = ACESFilmicToneMapping;
 
   const scene = new Scene();

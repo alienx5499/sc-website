@@ -18,7 +18,10 @@ const iconMap: Record<string, LucideIcon> = {
 
 export function Footer() {
   return (
-    <footer id="footer" className="relative bg-white dark:bg-black py-16 px-4 transition-colors duration-300">
+    <footer
+      id="footer"
+      className="relative bg-white dark:bg-black py-16 px-4 transition-colors duration-300"
+    >
       <div className="container mx-auto max-w-6xl">
         <FooterCTA />
 
@@ -46,7 +49,8 @@ export function Footer() {
                 </span>
               </div>
               <p className="text-sm text-zinc-600 dark:text-[#86868b] mb-5 leading-relaxed">
-                Self-custodial USD stability on Bitcoin Lightning. No banks, no synthetic tokens, and zero custody risk.
+                Self-custodial USD stability on Bitcoin Lightning. No banks, no
+                synthetic tokens, and zero custody risk.
               </p>
               <div className="flex gap-2">
                 <Link
@@ -85,7 +89,9 @@ export function Footer() {
                         <Link
                           href={link.href}
                           target={link.isExternal ? '_blank' : undefined}
-                          rel={link.isExternal ? 'noopener noreferrer' : undefined}
+                          rel={
+                            link.isExternal ? 'noopener noreferrer' : undefined
+                          }
                           className="text-zinc-600 dark:text-[#86868b] hover:text-zinc-900 dark:hover:text-white transition-colors duration-200 inline-block"
                         >
                           {link.label}
@@ -102,7 +108,8 @@ export function Footer() {
           <div className="border-t border-zinc-200 dark:border-white/[0.08] pt-8">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
               <p className="text-xs text-zinc-500 dark:text-[#86868b]">
-                (C) {new Date().getFullYear()} {siteConfig.name}. Open source under the GPLv3 License.
+                (C) {new Date().getFullYear()} {siteConfig.name}. Open source
+                under the GPLv3 License.
               </p>
               <p className="text-xs text-zinc-500 dark:text-[#86868b] flex items-center gap-1.5">
                 Built with{' '}

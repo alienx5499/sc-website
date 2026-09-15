@@ -18,10 +18,12 @@ export function FooterCTA() {
 
       <div className="relative z-10 flex flex-col items-start justify-center max-w-xl">
         <h3 className="tracking-tight font-bold text-2xl md:text-4xl text-left text-zinc-900 dark:text-white">
-          Ready to experience <span className="text-[#F7931A]">dollar stability</span> on Bitcoin?
+          Ready to experience{' '}
+          <span className="text-[#F7931A]">dollar stability</span> on Bitcoin?
         </h3>
         <p className="text-base pt-4 text-zinc-600 dark:text-[#86868b] text-left leading-relaxed">
-          Get instant USD stability in a self-custodial wallet. No banks, no synthetic tokens - transparent, continuous settlement over Lightning.
+          Get instant USD stability in a self-custodial wallet. No banks, no
+          synthetic tokens - transparent, continuous settlement over Lightning.
         </p>
 
         <motion.div

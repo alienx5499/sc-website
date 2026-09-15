@@ -2,7 +2,15 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { ExternalLink, FileText, Mic, MessageCircle, Code, Send, Video } from 'lucide-react';
+import {
+  ExternalLink,
+  FileText,
+  Mic,
+  MessageCircle,
+  Code,
+  Send,
+  Video,
+} from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { resourcesData } from '@/data/resources';
@@ -23,25 +31,38 @@ const cardVariants = {
 };
 
 const getIcon = (id: string) => {
-  if (id.includes('demo') || id.includes('conf')) return <Video className="w-5 h-5 sm:w-6 sm:h-6" />;
-  if (id.includes('podcast') || id.includes('livera')) return <Mic className="w-5 h-5 sm:w-6 sm:h-6" />;
-  if (id.includes('twitter')) return <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />;
+  if (id.includes('demo') || id.includes('conf'))
+    return <Video className="w-5 h-5 sm:w-6 sm:h-6" />;
+  if (id.includes('podcast') || id.includes('livera'))
+    return <Mic className="w-5 h-5 sm:w-6 sm:h-6" />;
+  if (id.includes('twitter'))
+    return <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />;
   if (id.includes('github')) return <Code className="w-5 h-5 sm:w-6 sm:h-6" />;
-  if (id.includes('telegram')) return <Send className="w-5 h-5 sm:w-6 sm:h-6" />;
+  if (id.includes('telegram'))
+    return <Send className="w-5 h-5 sm:w-6 sm:h-6" />;
   return <FileText className="w-5 h-5 sm:w-6 sm:h-6" />;
 };
 
 const getSpanClass = (index: number) => {
   switch (index) {
-    case 0: return 'md:col-span-2 lg:col-span-2'; // Tech Deep Dive
-    case 1: return 'col-span-1 md:col-span-1'; // Podcast
-    case 2: return 'col-span-1 md:col-span-1'; // Twitter
-    case 3: return 'col-span-1 md:col-span-1'; // Demo eCash
-    case 4: return 'col-span-1 md:col-span-1'; // Demo Frontend
-    case 5: return 'md:col-span-2 lg:col-span-2'; // Atlantis Conf
-    case 6: return 'md:col-span-2 lg:col-span-2'; // GitHub
-    case 7: return 'md:col-span-2 lg:col-span-2'; // Telegram
-    default: return 'col-span-1';
+    case 0:
+      return 'md:col-span-2 lg:col-span-2'; // Tech Deep Dive
+    case 1:
+      return 'col-span-1 md:col-span-1'; // Podcast
+    case 2:
+      return 'col-span-1 md:col-span-1'; // Twitter
+    case 3:
+      return 'col-span-1 md:col-span-1'; // Demo eCash
+    case 4:
+      return 'col-span-1 md:col-span-1'; // Demo Frontend
+    case 5:
+      return 'md:col-span-2 lg:col-span-2'; // Atlantis Conf
+    case 6:
+      return 'md:col-span-2 lg:col-span-2'; // GitHub
+    case 7:
+      return 'md:col-span-2 lg:col-span-2'; // Telegram
+    default:
+      return 'col-span-1';
   }
 };
 

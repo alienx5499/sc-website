@@ -22,14 +22,21 @@ const blockVariants = {
 
 export const ContinuousSettlementSection: React.FC = () => {
   return (
-    <section id="content-6" data-section="content-6" className="py-24 bg-white dark:bg-black transition-colors duration-300 relative overflow-hidden">
+    <section
+      id="content-6"
+      data-section="content-6"
+      className="py-24 bg-white dark:bg-black transition-colors duration-300 relative overflow-hidden"
+    >
       {/* Subtle noise overlay for dark mode */}
       <div className="noise-overlay absolute inset-0 pointer-events-none dark:block hidden" />
 
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
           {/* Graphic Column: iPhone 17 Pro with myphone.png */}
-          <AnimatedSection className="lg:col-span-5 order-2 lg:order-1 flex justify-center" direction="left">
+          <AnimatedSection
+            className="lg:col-span-5 order-2 lg:order-1 flex justify-center"
+            direction="left"
+          >
             <div className="relative max-w-[280px] sm:max-w-[320px] w-full group">
               <Iphone17Pro
                 src="/myphone.png"

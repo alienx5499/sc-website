@@ -1,14 +1,22 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-sf-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-sf-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+    'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Icons',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-sf-display:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Icons',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-sf-text:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 :root {
@@ -30,8 +38,12 @@
     0.9915 68.74%,
     1 100%
   );
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+    'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Icons',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-heading: var(--font-display);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -118,7 +130,9 @@ html.dark {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #1a1a1a;
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
@@ -126,7 +140,9 @@ body {
   letter-spacing: -0.011em;
   min-height: 100vh;
   overscroll-behavior-y: none;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .dark body {
@@ -135,29 +151,58 @@ body {
 }
 
 /* Apple SF Pro Display for bold headings */
-h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display,
+.font-heading {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Icons',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: -0.022em;
 }
 
 /* Apple SF Pro Text for body and reading copy */
-p, .font-sans {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+p,
+.font-sans {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: -0.011em;
 }
 
 /* Brand yellow selection */
 ::selection {
   background-color: rgba(247, 147, 26, 0.2);
-  color: #C6720D;
+  color: #c6720d;
 }
 .dark ::selection {
   background-color: rgba(247, 147, 26, 0.3);
-  color: #F7931A;
+  color: #f7931a;
 }
 
 @theme inline {
-  --expo-out: linear(0 0%, 0.1684 2.66%, 0.3165 5.49%, 0.446 8.52%, 0.5581 11.78%, 0.6535 15.29%, 0.7341 19.11%, 0.8011 23.3%, 0.8557 27.93%, 0.8962 32.68%, 0.9283 38.01%, 0.9529 44.08%, 0.9711 51.14%, 0.9833 59.06%, 0.9915 68.74%, 1 100%);
+  --expo-out: linear(
+    0 0%,
+    0.1684 2.66%,
+    0.3165 5.49%,
+    0.446 8.52%,
+    0.5581 11.78%,
+    0.6535 15.29%,
+    0.7341 19.11%,
+    0.8011 23.3%,
+    0.8557 27.93%,
+    0.8962 32.68%,
+    0.9283 38.01%,
+    0.9529 44.08%,
+    0.9711 51.14%,
+    0.9833 59.06%,
+    0.9915 68.74%,
+    1 100%
+  );
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -236,19 +281,37 @@ p, .font-sans {
 
 /* Custom keyframe animations */
 @keyframes float-gentle {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.2; }
-  100% { transform: scale(1); opacity: 0.5; }
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 /* Noise texture overlay for dark sections */

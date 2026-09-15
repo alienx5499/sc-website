@@ -26,14 +26,35 @@ export async function applyPhoneTextures(
   ]);
 
   model.screen.uniforms.screenMap.value = screen;
-  model.screen.uniforms.resolution.value.set(screen.image.width, screen.image.height);
+  model.screen.uniforms.resolution.value.set(
+    screen.image.width,
+    screen.image.height
+  );
   model.cover.uniforms.screenMap.value = cover;
-  model.cover.uniforms.resolution.value.set(cover.image.width, cover.image.height);
+  model.cover.uniforms.resolution.value.set(
+    cover.image.width,
+    cover.image.height
+  );
 
   const overlayBindings = [
-    { src: texturesConfig.screenOverlaySrc, material: model.screen, map: 'overlayMap', flag: 'hasOverlay' },
-    { src: texturesConfig.coverOverlaySrc, material: model.cover, map: 'overlayMap', flag: 'hasOverlay' },
-    { src: texturesConfig.revealSrc, material: model.screen, map: 'revealMap', flag: 'hasReveal' },
+    {
+      src: texturesConfig.screenOverlaySrc,
+      material: model.screen,
+      map: 'overlayMap',
+      flag: 'hasOverlay',
+    },
+    {
+      src: texturesConfig.coverOverlaySrc,
+      material: model.cover,
+      map: 'overlayMap',
+      flag: 'hasOverlay',
+    },
+    {
+      src: texturesConfig.revealSrc,
+      material: model.screen,
+      map: 'revealMap',
+      flag: 'hasReveal',
+    },
   ] as const;
 
   await Promise.all(

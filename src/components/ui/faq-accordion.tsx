@@ -24,14 +24,22 @@ export function FaqAccordion({
   className,
   ...props
 }: FaqAccordionProps) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(defaultOpenIndex);
+  const [activeIndex, setActiveIndex] = useState<number | null>(
+    defaultOpenIndex
+  );
 
   const toggleItem = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <div className={cn('w-full max-w-4xl mx-auto py-4 relative font-sans', className)} {...props}>
+    <div
+      className={cn(
+        'w-full max-w-4xl mx-auto py-4 relative font-sans',
+        className
+      )}
+      {...props}
+    >
       {title && (
         <h2 className="text-center font-bold text-2xl md:text-3xl mb-10 text-zinc-900 dark:text-zinc-100">
           {title}

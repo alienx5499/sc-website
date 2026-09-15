@@ -3,7 +3,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { GooglePlayButton, AppStoreButton } from '@/components/ui/app-store-buttons';
+import {
+  GooglePlayButton,
+  AppStoreButton,
+} from '@/components/ui/app-store-buttons';
 import { siteConfig } from '@/data/siteConfig';
 import { Iphone17Pro } from '@/components/ui/iphone-17-pro';
 
@@ -79,8 +82,8 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.7, ease: EASE_CUBIC }}
             className="max-w-2xl mx-auto text-lg sm:text-xl mb-8 font-medium text-balance text-zinc-600 dark:text-zinc-400 leading-relaxed"
           >
-            Stable Channels keeps your dollar balance steady in a wallet you control. No banks, no
-            tokens, no third parties.
+            Stable Channels keeps your dollar balance steady in a wallet you
+            control. No banks, no tokens, no third parties.
           </motion.p>
 
           <motion.div

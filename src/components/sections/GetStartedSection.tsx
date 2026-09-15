@@ -22,7 +22,11 @@ const stepVariants = {
 
 export const GetStartedSection: React.FC = () => {
   return (
-    <section id="get-started" data-section="get-started" className="py-24 bg-white dark:bg-black transition-colors duration-300">
+    <section
+      id="get-started"
+      data-section="get-started"
+      className="py-24 bg-white dark:bg-black transition-colors duration-300"
+    >
       <Container>
         <AnimatedSection>
           <SectionHeader

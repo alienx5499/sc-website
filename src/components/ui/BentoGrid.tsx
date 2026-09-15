@@ -60,14 +60,18 @@ export function BentoGrid() {
             <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black p-6 shadow-xs dark:shadow-sm transition-colors duration-300">
               <CardContent className="pt-6">
                 <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-zinc-200 dark:border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-200/60 dark:before:border-zinc-800/50">
-                  <Layers className="m-auto size-12 text-[#F7931A]" strokeWidth={1.5} />
+                  <Layers
+                    className="m-auto size-12 text-[#F7931A]"
+                    strokeWidth={1.5}
+                  />
                 </div>
                 <div className="relative z-10 mt-6 space-y-2 text-center">
                   <h3 className="text-lg font-medium transition text-zinc-900 dark:text-white">
                     Lightning Dev Kit (LDK)
                   </h3>
                   <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-                    Embedded node lifecycle management with background state synchronization and rapid channel recovery.
+                    Embedded node lifecycle management with background state
+                    synchronization and rapid channel recovery.
                   </p>
                 </div>
               </CardContent>
@@ -89,14 +93,19 @@ export function BentoGrid() {
             <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-[0.75px] border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black p-6 shadow-xs dark:shadow-sm transition-colors duration-300">
               <CardContent className="pt-6">
                 <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-zinc-200 dark:border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-200/60 dark:before:border-zinc-800/50">
-                  <BarChart3 className="m-auto size-12 text-[#F7931A]" strokeWidth={1.5} />
+                  <BarChart3
+                    className="m-auto size-12 text-[#F7931A]"
+                    strokeWidth={1.5}
+                  />
                 </div>
                 <div className="relative z-10 mt-6 space-y-2 text-center">
                   <h3 className="text-lg font-medium transition text-zinc-900 dark:text-white">
                     Transparent On-Chain
                   </h3>
                   <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-                    All state channels and settlement adjustments execute on native Bitcoin Lightning rails with full auditable transparency.
+                    All state channels and settlement adjustments execute on
+                    native Bitcoin Lightning rails with full auditable
+                    transparency.
                   </p>
                 </div>
               </CardContent>
@@ -119,14 +128,18 @@ export function BentoGrid() {
               <CardContent className="grid pt-6 sm:grid-cols-2 gap-4 items-center">
                 <div className="relative z-10 flex flex-col justify-between space-y-4">
                   <div className="relative flex aspect-square size-12 rounded-full border border-zinc-200 dark:border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-200/60 dark:before:border-zinc-800/50">
-                    <ShieldCheck className="m-auto size-6 text-[#F7931A]" strokeWidth={1.5} />
+                    <ShieldCheck
+                      className="m-auto size-6 text-[#F7931A]"
+                      strokeWidth={1.5}
+                    />
                   </div>
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium transition text-zinc-900 dark:text-white">
                       100% Self-Custodial
                     </h3>
                     <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-                      Your keys, your Bitcoin. Funds are held in 2-of-2 multisig Lightning channels with zero counterparty lockups.
+                      Your keys, your Bitcoin. Funds are held in 2-of-2 multisig
+                      Lightning channels with zero counterparty lockups.
                     </p>
                   </div>
                 </div>
@@ -138,9 +151,15 @@ export function BentoGrid() {
                     <span className="block size-2 rounded-full bg-[#F7931A]/60" />
                   </div>
                   <div className="space-y-1.5 font-mono text-[11px] text-zinc-600 dark:text-zinc-400">
-                    <div className="text-[#F7931A]">&gt; channel_balance: $100.00</div>
-                    <div className="text-zinc-500 dark:text-zinc-500">&gt; state: 2-of-2 multisig</div>
-                    <div className="text-zinc-500 dark:text-zinc-500">&gt; counterparty_risk: 0%</div>
+                    <div className="text-[#F7931A]">
+                      &gt; channel_balance: $100.00
+                    </div>
+                    <div className="text-zinc-500 dark:text-zinc-500">
+                      &gt; state: 2-of-2 multisig
+                    </div>
+                    <div className="text-zinc-500 dark:text-zinc-500">
+                      &gt; counterparty_risk: 0%
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -163,14 +182,18 @@ export function BentoGrid() {
               <CardContent className="grid h-full pt-6 sm:grid-cols-2 gap-4 items-center">
                 <div className="relative z-10 flex flex-col justify-between space-y-4">
                   <div className="relative flex aspect-square size-12 rounded-full border border-zinc-200 dark:border-zinc-800 before:absolute before:-inset-2 before:rounded-full before:border before:border-zinc-200/60 dark:before:border-zinc-800/50">
-                    <Globe className="m-auto size-6 text-[#F7931A]" strokeWidth={1.5} />
+                    <Globe
+                      className="m-auto size-6 text-[#F7931A]"
+                      strokeWidth={1.5}
+                    />
                   </div>
                   <div className="space-y-2">
                     <h3 className="text-lg font-medium transition text-zinc-900 dark:text-white">
                       Global Lightning Coverage
                     </h3>
                     <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-                      Maintain USD purchasing power anywhere in the world over the Bitcoin Lightning Network.
+                      Maintain USD purchasing power anywhere in the world over
+                      the Bitcoin Lightning Network.
                     </p>
                   </div>
                 </div>

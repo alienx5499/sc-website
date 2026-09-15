@@ -15,7 +15,7 @@ export const resourcesData: ResourceLinkItem[] = [
     linkText: 'Stephan Livera Podcast',
     href: 'https://stephanlivera.com/episode/591/',
     description:
-      '"Even as bitcoiners, we can\'t deny that there is demand for \'stablecoins\' or some kind of stable value feature. Tony Klausing, bitcoin and lightning developer joins me to talk about Stable Channels."',
+      "\"Even as bitcoiners, we can't deny that there is demand for 'stablecoins' or some kind of stable value feature. Tony Klausing, bitcoin and lightning developer joins me to talk about Stable Channels.\"",
   },
   {
     id: 'twitter-thread',

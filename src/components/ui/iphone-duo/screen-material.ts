@@ -1,8 +1,22 @@
-import { Matrix4, ShaderMaterial, Vector2 } from 'three'
+import { Matrix4, ShaderMaterial, Vector2 } from 'three';
 
 export function createScreenMaterial(cover: boolean) {
   return new ShaderMaterial({
-    uniforms: { bodyInverse: { value: new Matrix4() }, screenMap: { value: undefined }, overlayMap: { value: undefined }, hasOverlay: { value: 0 }, revealMap: { value: undefined }, hasReveal: { value: 0 }, resolution: { value: new Vector2(1600, 1200) }, progress: { value: 0 }, focusEdge: { value: cover ? 1.25 : 0.5 }, defocus: { value: 1 }, blur: { value: 28 }, parallax: { value: 1 }, cover: { value: cover ? 1 : 0 } },
+    uniforms: {
+      bodyInverse: { value: new Matrix4() },
+      screenMap: { value: undefined },
+      overlayMap: { value: undefined },
+      hasOverlay: { value: 0 },
+      revealMap: { value: undefined },
+      hasReveal: { value: 0 },
+      resolution: { value: new Vector2(1600, 1200) },
+      progress: { value: 0 },
+      focusEdge: { value: cover ? 1.25 : 0.5 },
+      defocus: { value: 1 },
+      blur: { value: 28 },
+      parallax: { value: 1 },
+      cover: { value: cover ? 1 : 0 },
+    },
     vertexShader: `
       uniform mat4 bodyInverse;
       varying vec2 screenUv;
@@ -96,5 +110,5 @@ export function createScreenMaterial(cover: boolean) {
       }
     `,
     toneMapped: false,
-  })
+  });
 }

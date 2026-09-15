@@ -9,7 +9,10 @@ export interface NavSectionItem {
   section: string;
 }
 
-export function useScrollSpy(items: NavSectionItem[], defaultSection = 'Features') {
+export function useScrollSpy(
+  items: NavSectionItem[],
+  defaultSection = 'Features'
+) {
   const [activeTab, setActiveTab] = useState<string>(defaultSection);
   const pathname = usePathname();
   const router = useRouter();
@@ -53,41 +56,44 @@ export function useScrollSpy(items: NavSectionItem[], defaultSection = 'Features
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname, items, defaultSection]);
 
-  const handleTabChange = useCallback((tabName: string) => {
-    const item = items.find((i) => i.name === tabName);
-    if (!item) return;
+  const handleTabChange = useCallback(
+    (tabName: string) => {
+      const item = items.find((i) => i.name === tabName);
+      if (!item) return;
 
-    if (pathname !== '/') {
-      router.push(`/${item.url}`);
-      return;
-    }
+      if (pathname !== '/') {
+        router.push(`/${item.url}`);
+        return;
+      }
 
-    const element =
-      document.querySelector(`[data-section="${item.section}"]`) ||
-      document.getElementById(item.section) ||
-      document.querySelector(`#${item.section}`);
+      const element =
+        document.querySelector(`[data-section="${item.section}"]`) ||
+        document.getElementById(item.section) ||
+        document.querySelector(`#${item.section}`);
 
-    if (element) {
-      const offset = 85;
-      const rect = (element as HTMLElement).getBoundingClientRect();
-      const offsetPosition = rect.top + window.pageYOffset - offset;
+      if (element) {
+        const offset = 85;
+        const rect = (element as HTMLElement).getBoundingClientRect();
+        const offsetPosition = rect.top + window.pageYOffset - offset;
 
-      setActiveTab(tabName);
-      isNavigatingRef.current = true;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-
-      window.history.pushState(null, '', item.url);
-
-      setTimeout(() => {
-        isNavigatingRef.current = false;
         setActiveTab(tabName);
-      }, 700);
-    }
-  }, [items, pathname, router]);
+        isNavigatingRef.current = true;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+
+        window.history.pushState(null, '', item.url);
+
+        setTimeout(() => {
+          isNavigatingRef.current = false;
+          setActiveTab(tabName);
+        }, 700);
+      }
+    },
+    [items, pathname, router]
+  );
 
   const scrollToTop = useCallback(() => {
     if (pathname === '/') {

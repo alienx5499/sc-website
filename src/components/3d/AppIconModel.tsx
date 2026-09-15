@@ -139,7 +139,11 @@ export const AppIconModel: React.FC<AppIconModelProps> = ({
       resizeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
 
-      if (container && renderer.domElement && container.contains(renderer.domElement)) {
+      if (
+        container &&
+        renderer.domElement &&
+        container.contains(renderer.domElement)
+      ) {
         container.removeChild(renderer.domElement);
       }
 
@@ -149,13 +153,18 @@ export const AppIconModel: React.FC<AppIconModelProps> = ({
   }, [modelPath]);
 
   return (
-    <div className={`relative flex items-center justify-center pointer-events-none select-none ${className}`}>
+    <div
+      className={`relative flex items-center justify-center pointer-events-none select-none ${className}`}
+    >
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-8 h-8 rounded-full border-2 border-[#F7931A]/30 border-t-[#F7931A] animate-spin" />
         </div>
       )}
-      <div ref={containerRef} className="w-full h-full flex items-center justify-center" />
+      <div
+        ref={containerRef}
+        className="w-full h-full flex items-center justify-center"
+      />
     </div>
   );
 };

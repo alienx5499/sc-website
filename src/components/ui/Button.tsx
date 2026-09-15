@@ -1,8 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'light' | 'outline' | 'dark';
   href?: string;
   isExternal?: boolean;
@@ -34,7 +33,8 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const widthStyle = fullWidth ? 'w-full' : '';
-  const combinedClassName = `${baseStyles} ${variants[variant]} ${widthStyle} ${className}`.trim();
+  const combinedClassName =
+    `${baseStyles} ${variants[variant]} ${widthStyle} ${className}`.trim();
 
   if (href) {
     if (isExternal || href.startsWith('http') || href.startsWith('mailto:')) {

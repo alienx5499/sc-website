@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import * as React from 'react';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
-export function ThemeToggle({ className = "" }: { className?: string }) {
+export function ThemeToggle({ className = '' }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
@@ -13,8 +13,8 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   }, []);
 
   const toggleTheme = () => {
-    const isDark = resolvedTheme === "dark";
-    const nextTheme = isDark ? "light" : "dark";
+    const isDark = resolvedTheme === 'dark';
+    const nextTheme = isDark ? 'light' : 'dark';
 
     if (!document.startViewTransition) {
       setTheme(nextTheme);
@@ -22,10 +22,10 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     }
 
     document.startViewTransition(() => {
-      if (nextTheme === "dark") {
-        document.documentElement.classList.add("dark");
+      if (nextTheme === 'dark') {
+        document.documentElement.classList.add('dark');
       } else {
-        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.remove('dark');
       }
       setTheme(nextTheme);
     });
@@ -40,13 +40,13 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     );
   }
 
-  const isDark = resolvedTheme === "dark";
+  const isDark = resolvedTheme === 'dark';
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       className={`relative inline-flex h-8 w-8 items-center justify-center rounded-full text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-950 dark:hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F7931A] ${className}`}
     >
       {isDark ? (

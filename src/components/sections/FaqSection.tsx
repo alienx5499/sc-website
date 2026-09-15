@@ -55,12 +55,11 @@ export const FaqSection: React.FC = () => {
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4 text-zinc-950 dark:text-white relative z-30">
             Frequently Asked
             <br />
-            <span className="text-[#F7931A]">
-              Questions.
-            </span>
+            <span className="text-[#F7931A]">Questions.</span>
           </h2>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-[#86868b] max-w-2xl mx-auto px-4 leading-relaxed">
-            Everything you need to know about Bitcoin USD stability, risk management, and the Lightning Network.
+            Everything you need to know about Bitcoin USD stability, risk
+            management, and the Lightning Network.
           </p>
         </div>
       </AnimatedSection>

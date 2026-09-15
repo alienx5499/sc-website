@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useId, type SVGProps } from "react";
+import React, { useId, type SVGProps } from 'react';
 
 export interface Iphone17ProProps extends SVGProps<SVGSVGElement> {
   width?: number | string;
@@ -13,11 +13,11 @@ export function Iphone17Pro({
   width = 200,
   height = 400,
   src,
-  className = "",
+  className = '',
   ...props
 }: Iphone17ProProps) {
   const rawId = useId();
-  const clipId = `roundedCorners-${rawId.replace(/:/g, "")}`;
+  const clipId = `roundedCorners-${rawId.replace(/:/g, '')}`;
 
   return (
     <svg

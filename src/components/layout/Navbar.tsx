@@ -11,7 +11,10 @@ import { useScrollSpy } from '@/hooks/useScrollSpy';
 import { NavBar } from '@/components/ui/tubelight-navbar';
 
 export const Navbar: React.FC = () => {
-  const { activeTab, handleTabChange, scrollToTop } = useScrollSpy(mainNavItems, 'Features');
+  const { activeTab, handleTabChange, scrollToTop } = useScrollSpy(
+    mainNavItems,
+    'Features'
+  );
 
   const brandSlot = (
     <Link

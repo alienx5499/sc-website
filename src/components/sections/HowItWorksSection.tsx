@@ -56,7 +56,7 @@ const STEPS: readonly WorkflowStep[] = [
       'As Bitcoin price moves, satoshis rebalance automatically between channel balances. Price appreciation transfers gains to your peer; drops transfer sats to preserve your USD value.',
     tag: 'Autonomous',
     metric: 'Real-Time Flow',
-    targetProgress: 0.70,
+    targetProgress: 0.7,
   },
   {
     id: 'step-settlement',
@@ -280,12 +280,12 @@ export const HowItWorksSection: React.FC = () => {
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4 text-zinc-950 dark:text-white relative z-30">
               Engineered for Stability.
               <br />
-              <span className="text-[#F7931A]">
-                100% Bitcoin-Native.
-              </span>
+              <span className="text-[#F7931A]">100% Bitcoin-Native.</span>
             </h2>
             <p className="text-base sm:text-lg text-zinc-600 dark:text-[#86868b] max-w-2xl mx-auto px-4 leading-relaxed">
-              Scroll to experience how synthetic dollar agreements settle continuously across standard 2-of-2 Lightning channels with zero bank intermediaries or token issuance.
+              Scroll to experience how synthetic dollar agreements settle
+              continuously across standard 2-of-2 Lightning channels with zero
+              bank intermediaries or token issuance.
             </p>
           </div>
         </AnimatedSection>
@@ -321,7 +321,8 @@ const SectionContent: React.FC<{
 
       if (activeStepIndex === index) {
         // Toggle: if currently open, fold closed (0.0); if closed, open to target
-        const nextTarget = currentProgress > 0.15 ? 0.0 : (targetStep.targetProgress || 1.0);
+        const nextTarget =
+          currentProgress > 0.15 ? 0.0 : targetStep.targetProgress || 1.0;
         animateTo(nextTarget, 0.7);
       } else {
         setActiveStepIndex(index);

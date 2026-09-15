@@ -48,7 +48,10 @@ export const LiveTickerSection: React.FC = () => {
                 Continuous Settlement in Motion
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-                Unlike traditional stablecoins or margin exchanges that rely on periodic audits and centralized liquidation cascades, Stable Channels continuously updates channel state across the Lightning Network.
+                Unlike traditional stablecoins or margin exchanges that rely on
+                periodic audits and centralized liquidation cascades, Stable
+                Channels continuously updates channel state across the Lightning
+                Network.
               </p>
             </div>
           </AnimatedSection>
@@ -59,9 +62,16 @@ export const LiveTickerSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+            transition={{
+              duration: 0.7,
+              delay: 0.2,
+              ease: [0.21, 0.47, 0.32, 0.98],
+            }}
           >
-            <TextFlippingBoard text={SETTLEMENT_MESSAGES[msgIdx]} duration={1.1} />
+            <TextFlippingBoard
+              text={SETTLEMENT_MESSAGES[msgIdx]}
+              duration={1.1}
+            />
           </motion.div>
         </div>
       </Container>

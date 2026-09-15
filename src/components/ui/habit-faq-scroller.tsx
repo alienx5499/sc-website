@@ -85,7 +85,9 @@ interface FaqRowProps {
 
 const FaqRow: React.FC<FaqRowProps> = ({ row, rowIndex, onSelectItem }) => {
   const directionClass =
-    row.direction === 'right' ? 'animate-faq-scroll-right' : 'animate-faq-scroll-left';
+    row.direction === 'right'
+      ? 'animate-faq-scroll-right'
+      : 'animate-faq-scroll-left';
   const duration = row.speed ?? (rowIndex % 2 === 0 ? '55s' : '45s');
 
   // Duplicate the items twice to ensure a seamless infinite marquee
@@ -196,7 +198,9 @@ export default function HabitFaqScroller({
 
               {selectedItem.linkHref && (
                 <div className="mt-6 pt-4 border-t border-zinc-200 dark:border-white/[0.08] flex items-center justify-between">
-                  <span className="text-xs text-zinc-400 font-mono">Reference</span>
+                  <span className="text-xs text-zinc-400 font-mono">
+                    Reference
+                  </span>
                   <Link
                     href={selectedItem.linkHref}
                     target="_blank"

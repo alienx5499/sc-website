@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React, { useEffect, useRef, useState, useMemo } from "react";
-import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
+import React, { useEffect, useRef, useState, useMemo } from 'react';
+import { motion } from 'motion/react';
+import { cn } from '@/lib/utils';
 
-const FLAP_CHARS = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$()-+&=;:'\"%,./?°";
+const FLAP_CHARS = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$()-+&=;:\'"%,./?°';
 
 const BOARD_ROWS = 6;
 const BOARD_COLS = 22;
@@ -26,13 +26,13 @@ type AccentColor = {
 };
 
 const ACCENT_COLORS: AccentColor[] = [
-  { top: "bg-[#F7931A]", bottom: "bg-[#E08213]", text: "text-black font-bold" },
-  { top: "bg-neutral-800", bottom: "bg-neutral-900", text: "text-white" },
-  { top: "bg-white", bottom: "bg-neutral-100", text: "text-neutral-900" },
+  { top: 'bg-[#F7931A]', bottom: 'bg-[#E08213]', text: 'text-black font-bold' },
+  { top: 'bg-neutral-800', bottom: 'bg-neutral-900', text: 'text-white' },
+  { top: 'bg-white', bottom: 'bg-neutral-100', text: 'text-neutral-900' },
 ];
 
 const CELL_TEXT_STYLE: React.CSSProperties = {
-  fontSize: "clamp(6px, 2vw, 22px)",
+  fontSize: 'clamp(6px, 2vw, 22px)',
   lineHeight: 1,
 };
 
@@ -49,12 +49,12 @@ const FlapCell = React.memo(
     stepMs: number;
     flipDuration: number;
   }) {
-    const [current, setCurrent] = useState(" ");
-    const [prev, setPrev] = useState(" ");
+    const [current, setCurrent] = useState(' ');
+    const [prev, setPrev] = useState(' ');
     const [flipId, setFlipId] = useState(0);
     const [accent, setAccent] = useState<AccentColor | null>(null);
     const [prevAccent, setPrevAccent] = useState<AccentColor | null>(null);
-    const curRef = useRef(" ");
+    const curRef = useRef(' ');
     const tgtRef = useRef<string | null>(null);
     const accentRef = useRef<AccentColor | null>(null);
     const startTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -68,14 +68,14 @@ const FlapCell = React.memo(
 
       const normalized = FLAP_CHARS.includes(target.toUpperCase())
         ? target.toUpperCase()
-        : " ";
+        : ' ';
       if (normalized === tgtRef.current) return;
       tgtRef.current = normalized;
 
-      if (normalized === " " && curRef.current === " ") return;
+      if (normalized === ' ' && curRef.current === ' ') return;
 
       const scrambleCount =
-        normalized === " "
+        normalized === ' '
           ? 8 + Math.floor(Math.random() * 8)
           : 25 + Math.floor(Math.random() * 15);
 
@@ -115,18 +115,18 @@ const FlapCell = React.memo(
       };
     }, [target, delay, stepMs]);
 
-    const show = current === " " ? "\u00A0" : current;
-    const showPrev = prev === " " ? "\u00A0" : prev;
+    const show = current === ' ' ? '\u00A0' : current;
+    const showPrev = prev === ' ' ? '\u00A0' : prev;
 
     const textCx =
-      "absolute inset-x-0 flex select-none items-center justify-center font-mono font-bold tracking-wide";
-    const topBg = accent?.top ?? "bg-neutral-200/80 dark:bg-neutral-900";
-    const bottomBg = accent?.bottom ?? "bg-neutral-200/80 dark:bg-neutral-900";
-    const textColor = accent?.text ?? "text-neutral-800 dark:text-white";
+      'absolute inset-x-0 flex select-none items-center justify-center font-mono font-bold tracking-wide';
+    const topBg = accent?.top ?? 'bg-neutral-200/80 dark:bg-neutral-900';
+    const bottomBg = accent?.bottom ?? 'bg-neutral-200/80 dark:bg-neutral-900';
+    const textColor = accent?.text ?? 'text-neutral-800 dark:text-white';
 
-    const flapTopBg = prevAccent?.top ?? "bg-neutral-100 dark:bg-neutral-800";
+    const flapTopBg = prevAccent?.top ?? 'bg-neutral-100 dark:bg-neutral-800';
     const flapTextColor =
-      prevAccent?.text ?? "text-neutral-800 dark:text-white";
+      prevAccent?.text ?? 'text-neutral-800 dark:text-white';
 
     const bottomDelay = flipDuration * 0.5;
 
@@ -143,12 +143,12 @@ const FlapCell = React.memo(
           {/* Static top - new character top half */}
           <div
             className={cn(
-              "absolute inset-x-0 top-0 h-[calc(50%-0.5px)] overflow-hidden rounded-t-[3px]",
-              topBg,
+              'absolute inset-x-0 top-0 h-[calc(50%-0.5px)] overflow-hidden rounded-t-[3px]',
+              topBg
             )}
           >
             <div
-              className={cn(textCx, textColor, "top-0 h-[200%]")}
+              className={cn(textCx, textColor, 'top-0 h-[200%]')}
               style={CELL_TEXT_STYLE}
             >
               {show}
@@ -158,12 +158,12 @@ const FlapCell = React.memo(
           {/* Static bottom - new character bottom half */}
           <div
             className={cn(
-              "absolute inset-x-0 bottom-0 h-[calc(50%-0.5px)] overflow-hidden rounded-b-[3px]",
-              bottomBg,
+              'absolute inset-x-0 bottom-0 h-[calc(50%-0.5px)] overflow-hidden rounded-b-[3px]',
+              bottomBg
             )}
           >
             <div
-              className={cn(textCx, textColor, "bottom-0 h-[200%]")}
+              className={cn(textCx, textColor, 'bottom-0 h-[200%]')}
               style={CELL_TEXT_STYLE}
             >
               {show}
@@ -174,7 +174,7 @@ const FlapCell = React.memo(
                 className="pointer-events-none absolute inset-0 bg-black/10 dark:bg-black/30"
                 initial={{ opacity: 0.5 }}
                 animate={{ opacity: 0 }}
-                transition={{ duration: flipDuration * 1.3, ease: "easeOut" }}
+                transition={{ duration: flipDuration * 1.3, ease: 'easeOut' }}
               />
             )}
           </div>
@@ -184,8 +184,8 @@ const FlapCell = React.memo(
             <motion.div
               key={flipId}
               className={cn(
-                "absolute inset-x-0 top-0 z-10 h-[calc(50%-0.5px)] origin-bottom overflow-hidden rounded-t-[3px] [backface-visibility:hidden] [transform-style:preserve-3d]",
-                flapTopBg,
+                'absolute inset-x-0 top-0 z-10 h-[calc(50%-0.5px)] origin-bottom overflow-hidden rounded-t-[3px] [backface-visibility:hidden] [transform-style:preserve-3d]',
+                flapTopBg
               )}
               initial={{ rotateX: 0 }}
               animate={{ rotateX: -100 }}
@@ -195,7 +195,7 @@ const FlapCell = React.memo(
               }}
             >
               <div
-                className={cn(textCx, flapTextColor, "top-0 h-[200%]")}
+                className={cn(textCx, flapTextColor, 'top-0 h-[200%]')}
                 style={CELL_TEXT_STYLE}
               >
                 {showPrev}
@@ -214,8 +214,8 @@ const FlapCell = React.memo(
             <motion.div
               key={`b${flipId}`}
               className={cn(
-                "absolute inset-x-0 bottom-0 z-10 h-[calc(50%-0.5px)] origin-top overflow-hidden rounded-b-[3px] [backface-visibility:hidden] [transform-style:preserve-3d]",
-                bottomBg,
+                'absolute inset-x-0 bottom-0 z-10 h-[calc(50%-0.5px)] origin-top overflow-hidden rounded-b-[3px] [backface-visibility:hidden] [transform-style:preserve-3d]',
+                bottomBg
               )}
               initial={{ rotateX: 90 }}
               animate={{ rotateX: 0 }}
@@ -226,7 +226,7 @@ const FlapCell = React.memo(
               }}
             >
               <div
-                className={cn(textCx, textColor, "bottom-0 h-[200%]")}
+                className={cn(textCx, textColor, 'bottom-0 h-[200%]')}
                 style={CELL_TEXT_STYLE}
               >
                 {show}
@@ -256,14 +256,14 @@ const FlapCell = React.memo(
     prevProps.target === nextProps.target &&
     prevProps.delay === nextProps.delay &&
     prevProps.stepMs === nextProps.stepMs &&
-    prevProps.flipDuration === nextProps.flipDuration,
+    prevProps.flipDuration === nextProps.flipDuration
 );
 
 // Color Tile
 const COLOR_MAP: Record<string, string> = {
-  "{Y}": "#F7931A",
-  "{W}": "#FAFAFA",
-  "{D}": "#18181B",
+  '{Y}': '#F7931A',
+  '{W}': '#FAFAFA',
+  '{D}': '#18181B',
 };
 
 const ColorCell = React.memo(function ColorCell({ color }: { color: string }) {
@@ -277,21 +277,21 @@ const ColorCell = React.memo(function ColorCell({ color }: { color: string }) {
 
 // Row Parser
 type ParsedCell =
-  { type: "char"; value: string } | { type: "color"; hex: string };
+  { type: 'char'; value: string } | { type: 'color'; hex: string };
 
 function parseRow(row: string): ParsedCell[] {
   const cells: ParsedCell[] = [];
   let i = 0;
   while (i < row.length) {
-    if (row[i] === "{" && i + 2 < row.length && row[i + 2] === "}") {
+    if (row[i] === '{' && i + 2 < row.length && row[i + 2] === '}') {
       const code = row.substring(i, i + 3);
       if (COLOR_MAP[code]) {
-        cells.push({ type: "color", hex: COLOR_MAP[code] });
+        cells.push({ type: 'color', hex: COLOR_MAP[code] });
         i += 3;
         continue;
       }
     }
-    cells.push({ type: "char", value: row[i] });
+    cells.push({ type: 'char', value: row[i] });
     i++;
   }
   return cells;
@@ -301,13 +301,13 @@ function parseRow(row: string): ParsedCell[] {
 function wrapParagraph(paragraph: string, maxCols: number): string[] {
   const lines: string[] = [];
   const words = paragraph.split(/[ \t]+/).filter(Boolean);
-  let currentLine = "";
+  let currentLine = '';
 
   for (const word of words) {
     if (word.length > maxCols) {
       if (currentLine) {
         lines.push(currentLine);
-        currentLine = "";
+        currentLine = '';
       }
       lines.push(word.slice(0, maxCols));
       continue;
@@ -316,7 +316,7 @@ function wrapParagraph(paragraph: string, maxCols: number): string[] {
     if (!currentLine) {
       currentLine = word;
     } else if (currentLine.length + 1 + word.length <= maxCols) {
-      currentLine += " " + word;
+      currentLine += ' ' + word;
     } else {
       lines.push(currentLine);
       currentLine = word;
@@ -329,9 +329,9 @@ function wrapParagraph(paragraph: string, maxCols: number): string[] {
 
 function wrapText(input: string, maxCols: number): string[] {
   return input
-    .split("\n")
+    .split('\n')
     .flatMap((paragraph) =>
-      paragraph.trim() === "" ? [""] : wrapParagraph(paragraph, maxCols),
+      paragraph.trim() === '' ? [''] : wrapParagraph(paragraph, maxCols)
     );
 }
 
@@ -358,9 +358,9 @@ export function TextFlippingBoard({
   const board = useMemo(() => {
     const grid: ParsedCell[][] = Array.from({ length: BOARD_ROWS }, () =>
       Array.from({ length: BOARD_COLS }, () => ({
-        type: "char" as const,
-        value: " ",
-      })),
+        type: 'char' as const,
+        value: ' ',
+      }))
     );
 
     if (text) {
@@ -372,7 +372,7 @@ export function TextFlippingBoard({
         const parsed = parseRow(line);
         const startCol = Math.max(
           0,
-          Math.floor((BOARD_COLS - parsed.length) / 2),
+          Math.floor((BOARD_COLS - parsed.length) / 2)
         );
         parsed.forEach((cell, c) => {
           if (startCol + c < BOARD_COLS) {
@@ -398,8 +398,8 @@ export function TextFlippingBoard({
   return (
     <div
       className={cn(
-        "relative mx-auto w-full max-w-3xl rounded-xl bg-neutral-100 p-2 shadow-xl md:rounded-2xl md:p-4 dark:bg-neutral-950 dark:border dark:border-neutral-800 dark:shadow-[0_20px_70px_-15px_rgba(0,0,0,0.8)]",
-        className,
+        'relative mx-auto w-full max-w-3xl rounded-xl bg-neutral-100 p-2 shadow-xl md:rounded-2xl md:p-4 dark:bg-neutral-950 dark:border dark:border-neutral-800 dark:shadow-[0_20px_70px_-15px_rgba(0,0,0,0.8)]',
+        className
       )}
     >
       <div
@@ -408,7 +408,7 @@ export function TextFlippingBoard({
       >
         {board.map((row, r) =>
           row.map((cell, c) =>
-            cell.type === "color" ? (
+            cell.type === 'color' ? (
               <ColorCell key={`${r}-${c}`} color={cell.hex} />
             ) : (
               <FlapCell
@@ -418,8 +418,8 @@ export function TextFlippingBoard({
                 stepMs={stepMs}
                 flipDuration={flipDur}
               />
-            ),
-          ),
+            )
+          )
         )}
       </div>
     </div>

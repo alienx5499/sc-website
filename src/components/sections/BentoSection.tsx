@@ -17,12 +17,11 @@ export const BentoSection: React.FC = () => {
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4 text-zinc-950 dark:text-white relative z-30">
               Why Choose
               <br />
-              <span className="text-[#F7931A]">
-                Stable Channels?
-              </span>
+              <span className="text-[#F7931A]">Stable Channels?</span>
             </h2>
             <p className="text-base sm:text-lg text-zinc-600 dark:text-[#86868b] max-w-2xl mx-auto px-4 leading-relaxed">
-              Discover the advantages of instant, continuous USD stability powered by Bitcoin Lightning.
+              Discover the advantages of instant, continuous USD stability
+              powered by Bitcoin Lightning.
             </p>
           </div>
         </AnimatedSection>

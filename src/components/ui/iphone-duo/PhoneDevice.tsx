@@ -10,7 +10,12 @@ import { applyPhoneTextures } from './texture-service';
 import type { PhoneDeviceProps, PhoneModel, Surface } from './types';
 
 export function PhoneDevice(props: PhoneDeviceProps) {
-  return <PhoneDeviceSurface key={props.modelSrc ?? '/models/iphone-duo.glb'} {...props} />;
+  return (
+    <PhoneDeviceSurface
+      key={props.modelSrc ?? '/models/iphone-duo.glb'}
+      {...props}
+    />
+  );
 }
 
 function PhoneDeviceSurface({
@@ -66,8 +71,12 @@ function PhoneDeviceSurface({
     surface.model.cover.uniforms.parallax.value = reducedMotion ? 0 : parallax;
 
     surface.model.body.updateMatrixWorld(true);
-    surface.model.screen.uniforms.bodyInverse.value.copy(surface.model.body.matrixWorld).invert();
-    surface.model.cover.uniforms.bodyInverse.value.copy(surface.model.body.matrixWorld).invert();
+    surface.model.screen.uniforms.bodyInverse.value
+      .copy(surface.model.body.matrixWorld)
+      .invert();
+    surface.model.cover.uniforms.bodyInverse.value
+      .copy(surface.model.body.matrixWorld)
+      .invert();
 
     surface.renderer.toneMappingExposure = exposure;
     surface.draw();
@@ -86,7 +95,9 @@ function PhoneDeviceSurface({
 
     const sceneBundle = createPhoneScene(canvas);
     if (!sceneBundle) {
-      setStatus('WebGL 2 is unavailable. Enable hardware acceleration to view.');
+      setStatus(
+        'WebGL 2 is unavailable. Enable hardware acceleration to view.'
+      );
       return;
     }
 
@@ -110,10 +121,12 @@ function PhoneDeviceSurface({
     const observer = new ResizeObserver(resize);
     observer.observe(canvas);
 
-    const unsubscribeProgress = progress.on('change', () => updateChoreography());
+    const unsubscribeProgress = progress.on('change', () =>
+      updateChoreography()
+    );
 
     loadPhone(modelSrc)
-      .then(loaded => {
+      .then((loaded) => {
         if (disposed) {
           loaded.dispose();
           return;
@@ -147,14 +160,18 @@ function PhoneDeviceSurface({
     let cancelled = false;
     let cleanupTextures: (() => void) | undefined;
 
-    applyPhoneTextures(surface.model, surface.renderer.capabilities.getMaxAnisotropy(), {
-      screenSrc,
-      coverSrc,
-      screenOverlaySrc,
-      coverOverlaySrc,
-      revealSrc,
-    })
-      .then(cleanup => {
+    applyPhoneTextures(
+      surface.model,
+      surface.renderer.capabilities.getMaxAnisotropy(),
+      {
+        screenSrc,
+        coverSrc,
+        screenOverlaySrc,
+        coverOverlaySrc,
+        revealSrc,
+      }
+    )
+      .then((cleanup) => {
         if (cancelled) {
           cleanup();
           return;
@@ -171,7 +188,14 @@ function PhoneDeviceSurface({
       cancelled = true;
       cleanupTextures?.();
     };
-  }, [screenSrc, coverSrc, screenOverlaySrc, coverOverlaySrc, revealSrc, ready]);
+  }, [
+    screenSrc,
+    coverSrc,
+    screenOverlaySrc,
+    coverOverlaySrc,
+    revealSrc,
+    ready,
+  ]);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLButtonElement>) => {
     if (event.button !== 0) return;
@@ -267,7 +291,11 @@ function PhoneDeviceSurface({
         onPointerCancel={handlePointerCancel}
         onClick={handleClick}
       />
-      {status && <p className="duo-status" role="status">{status}</p>}
+      {status && (
+        <p className="duo-status" role="status">
+          {status}
+        </p>
+      )}
     </div>
   );
 }
